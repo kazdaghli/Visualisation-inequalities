@@ -1,0 +1,4 @@
+This repository corresponds to the preprocessing of wid.world dataset.
+
+The objective is to:
+- Form csv files for each attribute (population, income, wealth etc) for different years and countries
