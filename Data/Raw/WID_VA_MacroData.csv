@@ -1,0 +1,66 @@
+Variable Name;.;.;.;Population | individuals | Population | All Ages | population
+Variable Category;.;.;.;Other macro
+Variable Description;.;.;.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.
+Variable Decomposition;.;.;.;
+Variable Unit;.;.;.;
+Methodological Notes;.;.;.;Total 2016 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015)
+Sources;.;.;.;WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).)
+Variable Code;country;year;perc;npopul999i
+;VA;2015;p0p100;803.0
+;VA;2014;p0p100;800.0
+;VA;2013;p0p100;801.0
+;VA;2012;p0p100;804.0
+;VA;2011;p0p100;796.0
+;VA;2010;p0p100;794.0
+;VA;2009;p0p100;795.0
+;VA;2008;p0p100;794.0
+;VA;2007;p0p100;796.0
+;VA;2006;p0p100;800.0
+;VA;2005;p0p100;798.0
+;VA;2004;p0p100;797.0
+;VA;2003;p0p100;798.0
+;VA;2002;p0p100;792.0
+;VA;2001;p0p100;788.0
+;VA;2000;p0p100;785.0
+;VA;1999;p0p100;781.0
+;VA;1998;p0p100;781.0
+;VA;1997;p0p100;782.0
+;VA;1996;p0p100;778.0
+;VA;1995;p0p100;780.0
+;VA;1994;p0p100;778.0
+;VA;1993;p0p100;778.0
+;VA;1992;p0p100;779.0
+;VA;1991;p0p100;774.0
+;VA;1990;p0p100;768.0
+;VA;1989;p0p100;765.0
+;VA;1988;p0p100;764.0
+;VA;1987;p0p100;759.0
+;VA;1986;p0p100;750.0
+;VA;1985;p0p100;746.0
+;VA;1984;p0p100;740.0
+;VA;1983;p0p100;731.0
+;VA;1982;p0p100;729.0
+;VA;1981;p0p100;725.0
+;VA;1980;p0p100;724.0
+;VA;1979;p0p100;730.0
+;VA;1978;p0p100;730.0
+;VA;1977;p0p100;737.0
+;VA;1976;p0p100;737.0
+;VA;1975;p0p100;728.0
+;VA;1974;p0p100;708.0
+;VA;1973;p0p100;686.0
+;VA;1972;p0p100;657.0
+;VA;1971;p0p100;642.0
+;VA;1970;p0p100;644.0
+;VA;1969;p0p100;669.0
+;VA;1968;p0p100;712.0
+;VA;1967;p0p100;766.0
+;VA;1966;p0p100;814.0
+;VA;1965;p0p100;854.0
+;VA;1964;p0p100;879.0
+;VA;1963;p0p100;892.0
+;VA;1962;p0p100;898.0
+;VA;1961;p0p100;903.0
+;VA;1960;p0p100;906.0
+;VA;1959;p0p100;908.0
+;VA;1958;p0p100;912.0

@@ -1,0 +1,72 @@
+Variable Name;.;.;.;Fiscal income  | individuals | Average | Adults | constant 2015 local currency;Fiscal income  | tax unit | Average | Adults | constant 2015 local currency;Fiscal income  | individuals | Beta coefficient | Adults | constant 2015 local currency;Fiscal income  | individuals | Threshold | Adults | constant 2015 local currency;Fiscal income  | individuals | Total | All Ages | constant 2015 local currency;Fiscal income  | individuals | Share | Adults | share of total (ratio);Pre-tax national income  | individuals | Share | Adults | share of total (ratio)
+Variable Category;.;.;.;Income inequality;Income inequality;Income inequality;Income inequality;Income inequality;Income inequality;Income inequality
+Variable Description;.;.;.;Average Fiscal income within a given percentile group. Fiscal income is defined as the sum of all income items reported on income tax returns, before any deduction. It includes labour income, capital income and mixed income. The concept of fiscal income varies with national tax legislations, so in order to make international comparisons it is preferable to use the concept of national income. The population is comprised of individuals over age 20. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.;Average Fiscal income within a given percentile group. Fiscal income is defined as the sum of all income items reported on income tax returns, before any deduction. It includes labour income, capital income and mixed income. The concept of fiscal income varies with national tax legislations, so in order to make international comparisons it is preferable to use the concept of national income. The population is comprised of individuals over age 20. The base unit is the tax unit defined by national fiscal administrations to measure personal income taxes.;The beta coefficient corresponds to the inverted Pareto-Lorenz coefficient. It is equal to mean income over percentile <percentile>. A coefficient b=2=200% for an income level 100 000 EUR means that the average income above 100 000 EUR is 200 000 EUR, a coefficient of 3 or 300% at income level 1 000 000 EUR means that the average income level above 1 000 000 EUR in a given population is 3 000 000 EUR.;Fiscal income threshold value at a given percentile.  Fiscal income is defined as the sum of all income items reported on income tax returns, before any deduction. It includes labour income, capital income and mixed income. The concept of fiscal income varies with national tax legislations, so in order to make international comparisons it is preferable to use the concept of national income. The population is comprised of individuals over age 20. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.;Total Fiscal income  within a given percentile group. Fiscal income is defined as the sum of all income items reported on income tax returns, before any deduction. It includes labour income, capital income and mixed income. The concept of fiscal income varies with national tax legislations, so in order to make international comparisons it is preferable to use the concept of national income. The population is comprised of individuals of all ages.;Fiscal income share held by a given percentile group. Fiscal income is defined as the sum of all income items reported on income tax returns, before any deduction. It includes labour income, capital income and mixed income. The concept of fiscal income varies with national tax legislations, so in order to make international comparisons it is preferable to use the concept of national income. The population is comprised of individuals over age 20. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.;Pre-tax national income share held by a given percentile group. Pre-tax national income  is the sum of all pre-tax personal income flows accruing to the owners of the production factors, labor and capital, before taking into account the operation of the tax/transfer system, but after taking into account the operation of pension system. The central difference between personal factor income and pre-tax income is the treatment of pensions, which are counted on a contribution basis by factor income and on a distribution basis by pre-tax income. The population is comprised of individuals over age 20. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.
+Variable Decomposition;.;.;.;[Fiscal income ]=[Fiscal labour income ]+[Fiscal capital income ];[Fiscal income ]=[Fiscal labour income ]+[Fiscal capital income ];[Fiscal income ]=[Fiscal labour income ]+[Fiscal capital income ];[Fiscal income ]=[Fiscal labour income ]+[Fiscal capital income ];[Fiscal income ]=[Fiscal labour income ]+[Fiscal capital income ];[Fiscal income ]=[Fiscal labour income ]+[Fiscal capital income ];Pre-tax national income =Pre-tax labor income [total pre-tax income ranking]+Pre-tax capital income [total pre-tax income ranking]
+Variable Unit;.;.;.;"TZS; Tanzanian shilling | local currency | market";"TZS; Tanzanian shilling | local currency | market";;"TZS; Tanzanian shilling | local currency | market";"TZS; Tanzanian shilling | local currency | market";share;share
+Methodological Notes;.;.;.;Excludes capital gains.;Excludes capital gains.;Excludes capital gains.;Excludes capital gains.;Excludes capital gains.;Excludes capital gains.;Fiscal income rescaled to match the macroeconomic aggregates.
+Sources;.;.;.;Atkinson, Anthony B. (2015). Top Incomes in East Africa before and after independence. The World Wealth and Income Database WP 2/2015.;Atkinson, Anthony B. (2015). Top Incomes in East Africa before and after independence. The World Wealth and Income Database WP 2/2015.;Atkinson, Anthony B. (2015). Top Incomes in East Africa before and after independence. The World Wealth and Income Database WP 2/2015.;Atkinson, Anthony B. (2015). Top Incomes in East Africa before and after independence. The World Wealth and Income Database WP 2/2015.;Atkinson, Anthony B. (2015). Top Incomes in East Africa before and after independence. The World Wealth and Income Database WP 2/2015.;Atkinson, Anthony B. (2015). Top Incomes in East Africa before and after independence. The World Wealth and Income Database WP 2/2015.;WID.world computations using fiscal and net national income.
+Variable Code;country;year;perc;afiinc992i;afiinc992t;bfiinc992i;tfiinc992i;mfiinc999i;sfiinc992i;sptinc992i
+;ZZ;1963;p0p100;1902339.75;3123710.5;;;3.66236008448e+11;;
+;ZZ;1963;p99.9p100;75480608.0;;0.7770425677;97138312.0;;0.0396772623;0.0396772623
+;ZZ;1963;p99.99p100;134532624.0;;0.8296512961;162155616.0;;0.0070731286;0.0070731286
+;ZZ;1963;p99.5p99.9;36026112.0;;;43203752.0;;0.0757513121;0.0757513121
+;ZZ;1963;p99.95p99.99;77382064.0;;;107940592.0;;0.0162711982;0.0162711982
+;ZZ;1963;p99.9p99.95;62146084.0;;;97138312.0;;0.0163329337;0.0163329337
+;ZZ;1963;p99.9p99.99;68917968.0;;;97138312.0;;0.0326041318;0.0326041318
+;ZZ;1963;p99.5p100;43916872.0;;1.0165059566;43203752.0;;0.1154285744;0.1154285744
+;ZZ;1963;p99.75p100;57745312.0;;;;;0.0758871511;0.0758871511
+;ZZ;1963;p99.95p100;88813536.0;;0.8228001595;107940592.0;;0.0233443268;0.0233443268
+;ZZ;1962;p0p100;1729644.375;2840138.5;;;3.3419116544e+11;;
+;ZZ;1962;p99.9p100;82322264.0;;0.8346691132;98628624.0;;0.047594294;0.047594294
+;ZZ;1962;p99.99p100;149362512.0;;0.9000954032;165940768.0;;0.0086368797;0.0086368797
+;ZZ;1962;p99.5p99.9;36457716.0;;;43601812.0;;0.0843127966;0.0843127966
+;ZZ;1962;p99.95p99.99;86845312.0;;;116787496.0;;0.0200843103;0.0200843103
+;ZZ;1962;p99.9p99.95;65292252.0;;;98628624.0;;0.0188731048;0.0188731048
+;ZZ;1962;p99.9p99.99;74871864.0;;;98628624.0;;0.0389574133;0.0389574133
+;ZZ;1962;p99.5p100;45630472.0;;1.0465269089;43601812.0;;0.1319070905;0.1319070905
+;ZZ;1962;p99.75p100;60971608.0;;;;;0.0881272927;0.0881272927
+;ZZ;1962;p99.95p100;99350248.0;;0.8506925106;116787496.0;;0.0287211891;0.0287211891
+;ZZ;1961;p0p100;1635419.125;2685417.25;;;3.16031565824e+11;;
+;ZZ;1961;p99.9p100;78815952.0;;0.8215405941;95936776.0;;0.0481925011;0.0481925011
+;ZZ;1961;p99.99p100;164722352.0;;1.0610861778;155239376.0;;0.0100738509;0.0100738509
+;ZZ;1961;p99.5p99.9;35575160.0;;;42385092.0;;0.0870118961;0.0870118961
+;ZZ;1961;p99.95p99.99;80072272.0;;;104193000.0;;0.0195848588;0.0195848588
+;ZZ;1961;p99.9p99.95;60625432.0;;;95936776.0;;0.0185337923;0.0185337923
+;ZZ;1961;p99.9p99.99;69268904.0;;;95936776.0;;0.0381186493;0.0381186493
+;ZZ;1961;p99.5p100;44223168.0;;1.0433661938;42385092.0;;0.1352044046;0.1352044046
+;ZZ;1961;p99.75p100;58525332.0;;;;;0.0894652531;0.0894652531
+;ZZ;1961;p99.95p100;97004312.0;;0.9310060143;104193000.0;;0.0296587087;0.0296587087
+;ZZ;1960;p0p100;1785562.5;2931958.25;;;3.44982552576e+11;;
+;ZZ;1960;p99.9p100;76280312.0;;0.9260506034;82371648.0;;0.0427200608;0.0427200608
+;ZZ;1960;p99.99p100;177281136.0;;1.0726585388;165272672.0;;0.0099302353;0.0099302353
+;ZZ;1960;p99.5p99.9;31848998.0;;;39050124.0;;0.0713479668;0.0713479668
+;ZZ;1960;p99.95p99.99;76758496.0;;;97276960.0;;0.0171956569;0.0171956569
+;ZZ;1960;p99.9p99.95;55692756.0;;;82371648.0;;0.0155941676;0.0155941676
+;ZZ;1960;p99.9p99.99;65055772.0;;;82371648.0;;0.0327898227;0.0327898227
+;ZZ;1960;p99.5p100;40735116.0;;1.0431494713;39050124.0;;0.1140680239;0.1140680239
+;ZZ;1960;p99.75p100;54817064.0;;;;;0.0767503381;0.0767503381
+;ZZ;1960;p99.95p100;96865424.0;;0.9957693815;97276960.0;;0.0271258913;0.0271258913
+;ZZ;1959;p0p100;1596719.0;2621870.25;;;3.08339081216e+11;;
+;ZZ;1959;p99.9p100;70592632.0;;0.9341884851;75565728.0;;0.0442104861;0.0442104861
+;ZZ;1959;p99.99p100;192613952.0;;1.2746038437;151116720.0;;0.0120651107;0.0120651107
+;ZZ;1959;p99.5p99.9;28677446.0;;;36630060.0;;0.0718410835;0.0718410835
+;ZZ;1959;p99.95p99.99;66843996.0;;;90523104.0;;0.0167456213;0.0167456213
+;ZZ;1959;p99.9p99.95;49181732.0;;;75565728.0;;0.0153997559;0.0153997559
+;ZZ;1959;p99.9p99.99;57032016.0;;;75565728.0;;0.0321453772;0.0321453772
+;ZZ;1959;p99.5p100;37060348.0;;1.0117468834;36630060.0;;0.1160515696;0.1160515696
+;ZZ;1959;p99.75p100;49556464.0;;;;;0.0775910094;0.0775910094
+;ZZ;1959;p99.95p100;92000984.0;;1.0163259506;90523104.0;;0.0288107321;0.0288107321
+;ZZ;1959;p99.995p100;247201792.0;;;;;0.007742214;0.007742214
+;ZZ;1958;p0p100;1542252.125;2532433.75;;;2.96689205248e+11;;
+;ZZ;1958;p99.9p100;60957328.0;;0.8420723081;72389656.0;;0.0395243689;0.0395243689
+;ZZ;1958;p99.99p100;112456952.0;;0.7746118307;145178464.0;;0.0072929459;0.0072929459
+;ZZ;1958;p99.5p99.9;28368370.0;;;32731792.0;;0.0735766292;0.0735766292
+;ZZ;1958;p99.95p99.99;64733436.0;;;84612648.0;;0.0167896114;0.0167896114
+;ZZ;1958;p99.9p99.95;47633788.0;;;72389656.0;;0.0154418116;0.0154418116
+;ZZ;1958;p99.9p99.99;55234008.0;;;72389656.0;;0.032231424;0.032231424
+;ZZ;1958;p99.5p100;34886052.0;;1.0658154488;32731792.0;;0.1131009981;0.1131009981
+;ZZ;1958;p99.75p100;45666436.0;;;;;0.0740254968;0.0740254968
+;ZZ;1958;p99.95p100;74279280.0;;0.877874434;84612648.0;;0.0240825564;0.0240825564
+;ZZ;1958;p99.995p100;147955216.0;;;;;0.004797522;0.004797522
+;ZZ;1957;p0p100;1826806.125;2999681.5;;;3.48949741568e+11;;
+;ZZ;1957;p99.9p100;66288980.0;;0.7937639952;83512200.0;;0.0362863503;0.0362863503

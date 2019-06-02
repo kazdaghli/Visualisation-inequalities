@@ -1,0 +1,66 @@
+Variable Name;.;.;.;Population | individuals | Population | All Ages | population
+Variable Category;.;.;.;Other macro
+Variable Description;.;.;.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.
+Variable Decomposition;.;.;.;
+Variable Unit;.;.;.;
+Methodological Notes;.;.;.;Total 2016 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015)
+Sources;.;.;.;WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).)
+Variable Code;country;year;perc;npopul999i
+;SH;2015;p0p100;4034.0
+;SH;2014;p0p100;4054.0
+;SH;2013;p0p100;4081.0
+;SH;2012;p0p100;4117.0
+;SH;2011;p0p100;4152.0
+;SH;2010;p0p100;4177.0
+;SH;2009;p0p100;4176.0
+;SH;2008;p0p100;4166.0
+;SH;2007;p0p100;4165.0
+;SH;2006;p0p100;4201.0
+;SH;2005;p0p100;4275.0
+;SH;2004;p0p100;4408.0
+;SH;2003;p0p100;4586.0
+;SH;2002;p0p100;4792.0
+;SH;2001;p0p100;4972.0
+;SH;2000;p0p100;5114.0
+;SH;1999;p0p100;5201.0
+;SH;1998;p0p100;5241.0
+;SH;1997;p0p100;5251.0
+;SH;1996;p0p100;5264.0
+;SH;1995;p0p100;5289.0
+;SH;1994;p0p100;5326.0
+;SH;1993;p0p100;5376.0
+;SH;1992;p0p100;5439.0
+;SH;1991;p0p100;5489.0
+;SH;1990;p0p100;5535.0
+;SH;1989;p0p100;5564.0
+;SH;1988;p0p100;5593.0
+;SH;1987;p0p100;5601.0
+;SH;1986;p0p100;5599.0
+;SH;1985;p0p100;5583.0
+;SH;1984;p0p100;5548.0
+;SH;1983;p0p100;5500.0
+;SH;1982;p0p100;5435.0
+;SH;1981;p0p100;5378.0
+;SH;1980;p0p100;5327.0
+;SH;1979;p0p100;5288.0
+;SH;1978;p0p100;5262.0
+;SH;1977;p0p100;5241.0
+;SH;1976;p0p100;5214.0
+;SH;1975;p0p100;5175.0
+;SH;1974;p0p100;5133.0
+;SH;1973;p0p100;5077.0
+;SH;1972;p0p100;5018.0
+;SH;1971;p0p100;4952.0
+;SH;1970;p0p100;4884.0
+;SH;1969;p0p100;4814.0
+;SH;1968;p0p100;4755.0
+;SH;1967;p0p100;4696.0
+;SH;1966;p0p100;4653.0
+;SH;1965;p0p100;4629.0
+;SH;1964;p0p100;4625.0
+;SH;1963;p0p100;4638.0
+;SH;1962;p0p100;4666.0
+;SH;1961;p0p100;4706.0
+;SH;1960;p0p100;4748.0
+;SH;1959;p0p100;4787.0
+;SH;1958;p0p100;4830.0

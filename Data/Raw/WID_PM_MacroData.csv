@@ -1,0 +1,66 @@
+Variable Name;.;.;.;Population | individuals | Population | All Ages | population
+Variable Category;.;.;.;Other macro
+Variable Description;.;.;.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.
+Variable Decomposition;.;.;.;
+Variable Unit;.;.;.;
+Methodological Notes;.;.;.;Total 2016 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015)
+Sources;.;.;.;WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).)
+Variable Code;country;year;perc;npopul999i
+;PM;2015;p0p100;6290.0
+;PM;2014;p0p100;6277.0
+;PM;2013;p0p100;6273.0
+;PM;2012;p0p100;6276.0
+;PM;2011;p0p100;6274.0
+;PM;2010;p0p100;6274.0
+;PM;2009;p0p100;6277.0
+;PM;2008;p0p100;6269.0
+;PM;2007;p0p100;6261.0
+;PM;2006;p0p100;6260.0
+;PM;2005;p0p100;6261.0
+;PM;2004;p0p100;6259.0
+;PM;2003;p0p100;6255.0
+;PM;2002;p0p100;6262.0
+;PM;2001;p0p100;6268.0
+;PM;2000;p0p100;6272.0
+;PM;1999;p0p100;6281.0
+;PM;1998;p0p100;6285.0
+;PM;1997;p0p100;6291.0
+;PM;1996;p0p100;6296.0
+;PM;1995;p0p100;6304.0
+;PM;1994;p0p100;6307.0
+;PM;1993;p0p100;6304.0
+;PM;1992;p0p100;6306.0
+;PM;1991;p0p100;6294.0
+;PM;1990;p0p100;6276.0
+;PM;1989;p0p100;6251.0
+;PM;1988;p0p100;6212.0
+;PM;1987;p0p100;6180.0
+;PM;1986;p0p100;6140.0
+;PM;1985;p0p100;6109.0
+;PM;1984;p0p100;6076.0
+;PM;1983;p0p100;6052.0
+;PM;1982;p0p100;6043.0
+;PM;1981;p0p100;6020.0
+;PM;1980;p0p100;6001.0
+;PM;1979;p0p100;5987.0
+;PM;1978;p0p100;5970.0
+;PM;1977;p0p100;5957.0
+;PM;1976;p0p100;5925.0
+;PM;1975;p0p100;5883.0
+;PM;1974;p0p100;5813.0
+;PM;1973;p0p100;5740.0
+;PM;1972;p0p100;5642.0
+;PM;1971;p0p100;5550.0
+;PM;1970;p0p100;5459.0
+;PM;1969;p0p100;5373.0
+;PM;1968;p0p100;5287.0
+;PM;1967;p0p100;5215.0
+;PM;1966;p0p100;5152.0
+;PM;1965;p0p100;5096.0
+;PM;1964;p0p100;5046.0
+;PM;1963;p0p100;5005.0
+;PM;1962;p0p100;4978.0
+;PM;1961;p0p100;4953.0
+;PM;1960;p0p100;4918.0
+;PM;1959;p0p100;4882.0
+;PM;1958;p0p100;4841.0
