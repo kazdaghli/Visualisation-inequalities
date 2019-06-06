@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <title>Projet Viz</title>
+</head>
+
+<body>
+<header>
+    <div class="header">
+        <h1>
+            {{ title }}
+        </h1>
+    </div>
+</header>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<div>
+    {% for message in messages %}
+    <h1>
+        <p>{{ message }}</p>
+    </h1>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+{% block body %}
+{# Fin du bloc "body" #}
+{% endblock %}
+</body>
+</html>
