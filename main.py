@@ -12,6 +12,10 @@ session_id_init = "hds62bbddsb0b35"
 def index():
     return render_template('index.html', title="Inequalities in the world ")
 
+@app.route('/canvas', methods=['GET'])
+def canvas():
+    return render_template('canvas.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
