@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>world-countries.json | Kaggle</title>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="turbolinks-cache-control" content="no-cache" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta name="theme-color" content="#008ABC" />
+    <script type="text/javascript">
+        window["initialPageLoadStartTime"] = new Date().getTime();
+    </script>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" /><link rel="dns-prefetch" href="https://stats.g.doubleclick.net" /><link rel="dns-prefetch" href="https://js.intercomcdn.com" /><link rel="dns-prefetch" href="https://storage.googleapis.com/" />
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="manifest" href="/static/json/manifest.json">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type='text/css'/>
+                    <link rel="stylesheet" type="text/css" href="/static/assets/vendor.css?v=a0a173d1a0ab" />
+        <link rel="stylesheet" type="text/css" href="/static/assets/app.css?v=9626e4919bfe" />
+    
+    
+ 
+        <script>
+        try{(function(a,s,y,n,c,h,i,d,e){d=s.createElement("style");
+        d.appendChild(s.createTextNode(""));s.head.appendChild(d);d=d.sheet;
+        y=y.map(x => d.insertRule(x + "{ opacity: 0 !important }"));
+        h.start=1*new Date;h.end=i=function(){y.forEach(x => d.deleteRule(x))};
+        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+        })(window,document,['.site-header-react__nav'],'dataLayer',2000,{'GTM-52LNT9S':true});}catch{}
+    </script>
+    <script>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+        ga('create', 'UA-12629138-1', 'auto');
+        ga('require', 'GTM-52LNT9S');
+        ga('set', 'displayFeaturesTask', null);
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-12629138-1');
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12629138-1"></script>
+
+    
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq("set", "autoConfig", "false", "136809193586742");
+    fbq('init', '136809193586742'); 
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=136809193586742&ev=PageView&noscript=1"/>
+</noscript>
+
+<script>window.intercomSettings = {"app_id":"koj6gxx6"};</script>        <script>(function () { var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', intercomSettings); } else { var d = document; var i = function () { i.c(arguments) }; i.q = []; i.c = function (args) { i.q.push(args) }; w.Intercom = i; function l() { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/koj6gxx6'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); } if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })()</script>
+    
+    
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@kaggledatasets" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://kaggle.com/ktochylin/world-countries" />
+        <meta property="og:title" content="world-countries.json" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-47.png-1406799/dataset-card.png" />
+
+        <meta property="fb:app_id" content="2665027677054710" />
+    
+
+    
+    
+        <script type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"world-countries.json","description":"","url":"https://www.kaggle.com/ktochylin/world-countries","sameAs":"","version":1,"keywords":[],"license":{"@type":"CreativeWork","name":"CC0: Public Domain","url":"https://creativecommons.org/publicdomain/zero/1.0/"},"identifier":"4456","includedInDataCatalog":{"@type":"DataCatalog","name":"Kaggle","url":"https://www.kaggle.com"},"creator":{"@type":"Person","name":"Kostya","url":"https://www.kaggle.com/ktochylin","image":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png"},"distribution":[{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"zip","fileFormat":"zip","contentUrl":"https://www.kaggle.com/ktochylin/world-countries/downloads/world-countries.zip/1","contentSize":"101951 bytes"},{"@type":"DataDownload","requiresSubscription":true,"encodingFormat":"json","fileFormat":"json","contentUrl":"https://www.kaggle.com/ktochylin/world-countries/downloads/world-countries.json/1","contentSize":"252515 bytes"}],"commentCount":0,"dateModified":"2017-11-12T13:27:22.807","discussionUrl":"https://www.kaggle.com/ktochylin/world-countries/discussion","alternateName":"","isAccessibleForFree":true,"thumbnailUrl":"https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-47.png-1406799/dataset-card.png","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"http://schema.org/CommentAction","userInteractionCount":0},{"@type":"InteractionCounter","interactionType":"http://schema.org/DownloadAction","userInteractionCount":510},{"@type":"InteractionCounter","interactionType":"http://schema.org/ViewAction","userInteractionCount":2158},{"@type":"InteractionCounter","interactionType":"http://schema.org/LikeAction","userInteractionCount":6}]}</script>
+    
+
+    
+    
+    
+<script type="text/javascript">
+    var Kaggle = Kaggle || {};
+
+    Kaggle.Current = {
+        antiForgeryToken: 'CfDJ8LdUzqlsSWBPr4Ce3rb9VL_2dkLvzlZi3HgY9QFUN4iGdcogTlhw5wL86ghjUiHvRHtqg184ZpgPVnTLTJ6taueTKJcra8jZ61keKuuaJvPm5QZDjtWtHp_mrPuoYY15Iq6X4SCzt0i1X_Me6FQKFes',
+        isAnonymous: true,
+        analyticsToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTk4MjU0MjQsIlVzZXJJZCI6MH0.szEc_LFdGDRJ9kpNQQZCDmUXDhqtE69cn8yUoEqhkmE',
+        analyticsTokenExpiry: 15,
+        internetKernelsEnabled: false,
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+        Kaggle.Current.log = function(){};
+        Kaggle.Current.warn = function(){};
+
+    var decodeUserDisplayName = function () {
+        var escapedUserDisplayName = Kaggle.Current.userDisplayNameEscaped || "";
+        try {
+            var textVersion = new DOMParser().parseFromString(escapedUserDisplayName, "text/html").documentElement.textContent;
+            if (textVersion) {
+                return textVersion;
+            }
+        } catch(ex) {}
+        return escapedUserDisplayName;
+    }
+    Kaggle.Current.userDisplayName = decodeUserDisplayName();
+</script>
+
+    
+
+<script type="text/javascript">
+    var Kaggle = Kaggle || {};
+    Kaggle.PageMessages = [];
+</script>
+
+    
+<script type="text/javascript">
+/* <![CDATA[ */
+goog_snippet_vars = function() {
+    var w = window;
+    w.google_conversion_id = 955616553;
+    w.google_conversion_label = "QSjvCKDksHMQqZrWxwM";
+    w.google_conversion_value = 0.00;
+    w.google_conversion_currency = "USD";
+    w.google_remarketing_only = false;
+    w.google_conversion_language = "en";
+    w.google_conversion_format = "3";
+    w.google_conversion_color = "ffffff";
+}
+// DO NOT CHANGE THE CODE BELOW.
+goog_report_conversion = function(url) {
+    goog_snippet_vars();
+    window.google_conversion_format = "3";
+    var opt = new Object();
+    opt.onload_callback = function() {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    }
+    var conv_handler = window['google_trackConversion'];
+    if (typeof(conv_handler) == 'function') {
+        conv_handler(opt);
+    }
+}
+/* ]]> */
+</script>
+<script type="text/javascript"
+src="//www.googleadservices.com/pagead/conversion_async.js">
+</script>
+
+
+
+        <script>window['useKaggleAnalytics'] = true;</script>
+
+    <script src="/static/assets/vendor.js?v=bf9f6c83757d" data-turbolinks-track="reload"></script>
+    <script src="/static/assets/app.js?v=d62dceaab0b7" data-turbolinks-track="reload"></script>
+        <script>
+            (function() {
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register("/static/assets/service-worker.js").then(function(reg) {
+                        reg.onupdatefound = function() {
+                            var installingWorker = reg.installing;
+                            installingWorker.onstatechange = function() {
+                                switch (installingWorker.state) {
+                                case 'installed':
+                                    if (navigator.serviceWorker.controller) {
+                                        console.log('New or updated content is available.');
+                                    } else {
+                                        console.log('Content is now available offline!');
+                                    }
+                                    break;
+                                case 'redundant':
+                                    console.error('The installing service worker became redundant.');
+                                    break;
+                                }
+                            };
+                        };
+                    }).catch(function(e) {
+                      console.error('Error during service worker registration:', e);
+                    });
+                }
+            })();
+        </script>
+    <script>
+        function handleClientLoad() {
+            try {
+                gapi.load('client:auth2');
+            } catch (e) {
+                // In Opera, readystatechange is an unreliable detection of script load, causing
+                // this function to be called before gapi exists on the window. The onload callback
+                // is still called at the correct time, so the feature works as expected - it's
+                // just generating noisy errors.
+            }
+        }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+            onload="this.googleApiOnLoad=function(){};handleClientLoad()"
+            onreadystatechange="if (this.readyState === 'complete') this.googleApiOnLoad()">
+    </script>
+</head>
+<body data-turbolinks="true">
+    
+
+
+
+
+
+
+<div class="site-layout">
+        <div class="site-layout__header">
+            <div data-component-name="SiteHeaderContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({});performance && performance.mark && performance.mark("SiteHeaderContainer.componentCouldBootstrap");</script>
+        </div>
+
+    <div class="site-layout__main-content">
+        
+
+
+<div data-component-name="DatasetContainer" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push({"scripts":[],"discussions":[],"pageMessages":[],"discussion":{"canDownvote":false,"dataUrl":"/forums/10168/topics.json","id":10168,"isRootLevel":false,"showSubscribeButton":false,"isSubscribed":false,"subscription":"unsubscribe","initialTopics":null,"paramValues":{"category":"all","page":1,"search":null,"group":"all","sortBy":"hot"}},"currentTab":"data","newTopic":{"allowAttachments":false,"authorRanking":null,"authorTier":"novice","authorType":"topic","forumId":10168,"parentName":"world-countries.json","parentUrl":"/ktochylin/world-countries"},"categories":{"categories":[],"type":"dataset"},"upvoteSuggestion":{"voteCount":6,"upVoteUrl":"/ktochylin/world-countries/vote","upVoters":[{"avatarThumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png","displayName":"Mohammad Jawad","profileUrl":"/mhmdjawad","tier":"Novice","tierInt":0,"userId":3182743,"userName":"mhmdjawad"},{"avatarThumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png","displayName":"Spottstat","profileUrl":"/spottstat","tier":"Contributor","tierInt":1,"userId":116236,"userName":"spottstat"},{"avatarThumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/1621143-kg.jpg","displayName":"Nicholas Buhagiar","profileUrl":"/nbuhagiar","tier":"Contributor","tierInt":1,"userId":1621143,"userName":"nbuhagiar"},{"avatarThumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/1590648-gp.jpg","displayName":"Ayesha","profileUrl":"/ayeshafatima","tier":"Novice","tierInt":0,"userId":1590648,"userName":"ayeshafatima"},{"avatarThumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/2157368-gp.jpg","displayName":"Petar Luketina","profileUrl":"/petarluketina","tier":"Novice","tierInt":0,"userId":2157368,"userName":"petarluketina"},{"avatarThumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/2019554-gp.jpg","displayName":"Rajkumar SathiyaMurthy","profileUrl":"/rajkumar1978","tier":"Novice","tierInt":0,"userId":2019554,"userName":"rajkumar1978"}]},"readerGroupId":null,"writerGroupId":null,"collaborators":{"owner":{"userId":1406799,"groupId":null,"groupMemberCount":null,"profileUrl":"/ktochylin","thumbnailUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png","name":"Kostya","slug":"ktochylin","userTier":0,"joinDate":null,"type":"owner","isUser":true,"isGroup":false},"collaborators":[]},"isCollaborator":false,"deletionNeedsReview":false,"canSeeDatasetUsabilityRatingPage":true,"canSeeConfigAsCode":false,"datasetId":4456,"internalNotes":"","isRemoved":false,"isVersionRemoved":false,"isFeatured":false,"isSuperFeatured":false,"scheduledToBeFeatured":null,"scheduledToBeUnFeatured":null,"scheduledToBeSuperFeatured":null,"scheduledToBeUnSuperFeatured":null,"datasetVersionId":6834,"datasetVersionNumber":1,"lastVersionNumber":1,"datasetUrl":"/ktochylin/world-countries","datasetExternalUrl":"https://kaggle.com/ktochylin/world-countries","originalImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/default-backgrounds/47.png","coverImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-47.png-1406799/dataset-cover.png","cardImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-47.png-1406799/dataset-card.png","thumbnailImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-47.png-1406799/dataset-thumbnail.png","license":{"id":1,"name":"CC0: Public Domain","description":"CC0: Public Domain \u003ca href=\u0022https://creativecommons.org/publicdomain/zero/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/publicdomain/zero/1.0/","displaySequence":null},"voteCount":6,"upVoteUrl":"/ktochylin/world-countries/vote","creatorUserId":1406799,"creatorDisplayName":"Kostya","ownerTwitter":null,"lastUpdated":"2017-11-12T13:27:22.807Z","downloadUrl":"/ktochylin/world-countries/downloads/world-countries.zip/1","newNotebookUrl":"/kernels/notebooks/new?datasetVersionId=6834","newScriptUrl":"/kernels/scripts/new?datasetVersionId=6834","hasAlreadyVotedUp":false,"isOldDatasetVersion":false,"numberOfViews":2158,"numberOfDownloads":510,"numberOfScripts":2,"numberOfTopics":0,"canEdit":false,"canPerformOwnerTasks":false,"canEditSlug":false,"canEditPublishStatus":false,"canEditFeatureStatus":false,"canEditInternalNotes":false,"canEditDescription":false,"hideVersionStatuses":true,"cardImageLeft":650,"cardImageTop":0,"cardImageWidth":600,"cardImageHeight":600,"coverImageLeft":0,"coverImageTop":100,"coverImageWidth":1900,"coverImageHeight":400,"datasetVersions":[{"id":6834,"slug":"world-countries","name":"world-countries.json","creationDate":"2017-11-12T13:27:22.807Z","versionNumber":1,"versionNotes":"Initial release","thumbnailImageUrl":"https://storage.googleapis.com/kaggle-datasets-images/new-version-temp-images/default-backgrounds-47.png-1406799/dataset-thumbnail.png","datasetVersionUrl":"/ktochylin/world-countries/version/1","status":"ready","userMessage":null,"isRemoved":false,"creator":{"id":1406799,"imageUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png","isOrganization":false,"name":"Kostya","profileUrl":"/ktochylin","slug":"ktochylin","maxFileSizeBytes":null,"userTier":null,"organizationMemberCount":null},"userSpecifiedSources":null}],"datasetVersionTotalCount":1,"contributors":[],"feed":[],"topicId":null,"isNewTopic":false,"canSeeDeletionButton":false,"checklistDismissed":true,"type":"fileset","diffType":"versioned","checklistCollapsed":true,"isInFlight":false,"maintainerOrganization":null,"createdByKernel":null,"usabilityRating":{"score":0.3125,"columnDescriptionScore":null,"coverImageScore":0.0,"fileDescriptionScore":0.0,"fileFormatScore":1.0,"licenseScore":1.0,"overviewScore":0.0,"provenanceScore":0.0,"publicKernelScore":1.0,"subtitleScore":0.0,"tagScore":0.0,"updateFrequencyScore":0.0},"licenseGroups":[{"id":1,"name":"Creative Commons","licenses":[{"id":1,"name":"CC0: Public Domain","description":"CC0: Public Domain \u003ca href=\u0022https://creativecommons.org/publicdomain/zero/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/publicdomain/zero/1.0/","displaySequence":1},{"id":3,"name":"CC BY-NC-SA 4.0","description":"CC BY-NC-SA 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-nc-sa/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-nc-sa/4.0/","displaySequence":2},{"id":8,"name":"CC BY-SA 4.0","description":"CC BY-SA 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-sa/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-sa/4.0/","displaySequence":3},{"id":10,"name":"CC BY-SA 3.0","description":"CC BY-SA 3.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-sa/3.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-sa/3.0/","displaySequence":4},{"id":13,"name":"Attribution 4.0 International (CC BY 4.0)","description":"CC-BY 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by/4.0/","displaySequence":5},{"id":14,"name":"Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)","description":"CC-BY-NC 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-nc/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-nc/4.0/","displaySequence":6},{"id":16,"name":"Attribution 3.0 Unported (CC BY 3.0)","description":"CC BY 3.0 \u003ca href=\u0022https://creativecommons.org/licenses/by/3.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by/3.0/","displaySequence":7},{"id":17,"name":"Attribution 3.0 IGO (CC BY 3.0 IGO)","description":"CC BY 3.0 IGO \u003ca href=\u0022https://creativecommons.org/licenses/by/3.0/igo/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by/3.0/igo/","displaySequence":8},{"id":19,"name":"Attribution-NonCommercial-ShareAlike 3.0 IGO (CC BY-NC-SA 3.0 IGO)","description":"CC BY-NC-SA 3.0 IGO \u003ca href=\u0022https://creativecommons.org/licenses/by-nc-sa/3.0/igo/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-nc-sa/3.0/igo/","displaySequence":9},{"id":22,"name":"Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)","description":"CC BY-ND 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-nd/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-nd/4.0/","displaySequence":10},{"id":23,"name":"Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)","description":"CC BY-NC-ND 4.0 \u003ca href=\u0022https://creativecommons.org/licenses/by-nc-nd/4.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://creativecommons.org/licenses/by-nc-nd/4.0/","displaySequence":11}],"displaySequence":1},{"id":2,"name":"GPL","licenses":[{"id":9,"name":"GPL 2","description":"GPL 2 \u003ca href=\u0022http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html","displaySequence":1},{"id":25,"name":"GNU Lesser General Public License 3.0","description":"LGPL 3.0 \u003ca href=\u0022http://www.gnu.org/licenses/lgpl-3.0.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://www.gnu.org/licenses/lgpl-3.0.html","displaySequence":2},{"id":26,"name":"GNU Affero General Public License 3.0","description":"AGPL 3.0 \u003ca href=\u0022http://www.gnu.org/licenses/agpl-3.0.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://www.gnu.org/licenses/agpl-3.0.html","displaySequence":3},{"id":27,"name":"GNU Free Documentation License 1.3","description":"FDL 1.3 \u003ca href=\u0022http://www.gnu.org/licenses/fdl-1.3.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://www.gnu.org/licenses/fdl-1.3.html","displaySequence":4}],"displaySequence":2},{"id":3,"name":"Open Data Commons","licenses":[{"id":5,"name":"Database: Open Database, Contents: Database Contents","description":"Database: Open Database \u003ca href=\u0022http://opendatacommons.org/licenses/odbl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e, Contents: Database Contents \u003ca href=\u0022http://opendatacommons.org/licenses/dbcl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"http://opendatacommons.org/licenses/dbcl/1.0/","displaySequence":1},{"id":6,"name":"Database: Open Database, Contents: © Original Authors","description":"Database: Open Database \u003ca href=\u0022http://opendatacommons.org/licenses/odbl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e, Contents: © Original Authors","url":"http://opendatacommons.org/licenses/odbl/1.0/","displaySequence":2},{"id":15,"name":"ODC Public Domain Dedication and Licence (PDDL)","description":"PDDL  \u003ca href=\u0022https://opendatacommons.org/licenses/pddl/1.0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://opendatacommons.org/licenses/pddl/1.0/","displaySequence":3},{"id":24,"name":"ODC Attribution License (ODC-By)","description":"ODC-BY 1.0 \u003ca href=\u0022https://opendatacommons.org/licenses/by/1-0/index.html\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://opendatacommons.org/licenses/by/1-0/index.html","displaySequence":4}],"displaySequence":3},{"id":6,"name":"Community Data License","licenses":[{"id":20,"name":"Community Data License Agreement - Permissive - Version 1.0","description":"CDLA Permissive 1.0 \u003ca href=\u0022https://cdla.io/permissive-1-0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://cdla.io/permissive-1-0/","displaySequence":1},{"id":21,"name":"Community Data License Agreement - Sharing - Version 1.0","description":"CDLA Sharing 1.0 \u003ca href=\u0022https://cdla.io/sharing-1-0/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://cdla.io/sharing-1-0/","displaySequence":2}],"displaySequence":4},{"id":4,"name":"Special","licenses":[{"id":7,"name":"World Bank Dataset Terms of Use","description":"World Bank Dataset Terms of Use \u003ca href=\u0022https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets","displaySequence":1},{"id":2,"name":"Reddit API Terms","description":"Reddit API Terms \u003ca href=\u0022https://www.reddit.com/wiki/api\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://www.reddit.com/wiki/api","displaySequence":2},{"id":18,"name":"U.S. Government Works","description":"U.S. Government Works \u003ca href=\u0022https://www.usa.gov/government-works/\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://www.usa.gov/government-works/","displaySequence":3},{"id":28,"name":"EU ODP Legal Notice","description":"EU ODP Legal Notice \u003ca href=\u0022https://ec.europa.eu/info/legal-notice_en\u0022 target=\u0022_blank\u0022\u003e\u003cspan class=\u0022fa fa-info-circle\u0022/\u003e\u003c/a\u003e","url":"https://ec.europa.eu/info/legal-notice_en","displaySequence":4}],"displaySequence":5},{"id":5,"name":"Other","licenses":[{"id":11,"name":"Data files © Original Authors","description":"Data files © Original Authors","url":null,"displaySequence":1},{"id":12,"name":"Other (specified in description)","description":"Other (specified in description)","url":null,"displaySequence":2},{"id":4,"name":"Unknown","description":"Unknown","url":null,"displaySequence":3}],"displaySequence":6}],"owners":[{"id":0,"imageUrl":"/image-fetch/0","isOrganization":false,"name":null,"profileUrl":"/","slug":null,"maxFileSizeBytes":null,"userTier":null,"organizationMemberCount":null},{"id":1406799,"imageUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png","isOrganization":false,"name":"Kostya","profileUrl":"/ktochylin","slug":"ktochylin","maxFileSizeBytes":null,"userTier":0,"organizationMemberCount":null}],"referrer":null,"convertToStandardCsvFormat":false,"overview":"","description":"","actions":[],"flags":[],"title":"world-countries.json","slug":"world-countries","licenseId":1,"data":{"id":6834,"databundleId":4456,"databundleVersionType":"fileset","databundleDiffType":"versioned","versionNumber":1,"zipBlobFileId":349596,"totalSize":101951,"ownerInfo":{"databundleVersionId":6834,"dataset":{"datasetId":4456,"datasetVersionId":6834,"dataviewToken":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..gU62oCK3R4S8CcOOUaArNA.nmWbr_6ih0pzoghnfJjPLAfpzTXHLHwObUMauXSEgODRR3cKV3dGPozUuiZkV333hypeYqgb2yc0ALqPOIECpdeHQly0Ep-zD2a8fPQp3FHWSYffdA8P_c4oAuQH_1dIut_UpDbjoGkUTtm1toAAI_yopk3qR8zm6ddtCmWeKXlq08vT7i9rGsAJ8HUCTz9frNqqYJJnQznrOWBryw336eWIsbPsCMBK5lQDWwF0wYhZN67U0pFxJTQX8CJF4AVbKfSBek0nCjU1o97eH_aUA-sl5hRE3eCGZVlm61mYcQVXVuVUmPJvoxhIXWUZX4Di10zuwtiPZHfNoGgEA0JWAO7a3AN6fcRPUOW8yTclHSeKOYKz0lDlnWchKMyZqM_nwwFTTxzlMtblzxoUFECpISW2gPdFHG4PdJmnjHrH84jeTDL5L6KktGHo1gUu3Rta.Huvkf8yUJ2fVTuzo15eEqg","scope":"ktochylin/world-countries"},"competition":null,"kernel":null,"previewsDisabled":false},"usesArchiveV2":false,"type":"databundleVersion","collapsed":false,"info":null,"settings":{"csvSettings":null,"bigQuerySettings":null,"bigQueryMirrorSettings":null,"storageSettings":{"webDataLocation":{"bucket":"kaggle-datasets","path":"4456/6834"},"sdsDataLocation":{"bucket":"kagglesdsdata","path":"datasets/4456/6834"},"responseDataLocation":null},"remoteUrlSettings":null,"remoteGithubSettings":null},"render":null,"children":[{"id":19152,"blobFileId":349595,"databundleVersionId":6834,"databundleVersionObjectType":"file","url":null,"relativePath":"../input/world-countries.json","creationDate":"2017-11-12T13:26:31.003Z","isDummy":false,"size":252515,"fullPath":null,"previewUrl":null,"downloadUrl":"/ktochylin/world-countries/downloads/world-countries.json/1","fileType":".json","contentLength":252515,"contentType":"application/json","contentMD5":"jUu712qsZ+epUlVK+CNNvg==","validationErrors":null,"type":"databundleVersionObject","collapsed":false,"info":null,"settings":null,"render":null,"children":[],"name":"world-countries.json","description":""}],"name":"world-countries.json","description":""},"isPrivate":false,"owner":{"id":1406799,"imageUrl":"https://storage.googleapis.com/kaggle-avatars/thumbnails/default-thumb.png","isOrganization":false,"name":"Kostya","profileUrl":"/ktochylin","slug":"ktochylin","maxFileSizeBytes":null,"userTier":0,"organizationMemberCount":null}});performance && performance.mark && performance.mark("DatasetContainer.componentCouldBootstrap");</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            preferredFont: "TeX",
+            availableFonts: ["STIX", "TeX"],
+            linebreaks: {
+                automatic: true
+            },
+            EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+        },
+        tex2jax: {
+            inlineMath: [["\\(", "\\)"], ["\\\\(", "\\\\)"]],
+            displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+            processEscapes: true,
+            ignoreClass: "tex2jax_ignore|dno"
+        },
+        TeX: {
+            noUndefined: {
+                attributes: {
+                    mathcolor: "red",
+                    mathbackground: "#FFEEEE",
+                    mathsize: "90%"
+                }
+            }
+        },
+        Macros: {
+            href: "{}"
+        },
+        skipStartupTypeset: true,
+        messageStyle: "none"
+    });
+</script>
+<script type="text/javascript" async crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+    </div>
+
+        <div class="site-layout__footer">
+            <footer class="site-footer">
+    <div class="site-footer__content">
+        <div class="site-footer__copyright">
+            <span>&copy; 2019 Kaggle Inc</span>
+        </div>
+        <nav class="site-footer__nav">
+            <a href="/team">Our Team</a>
+            <a href="/terms">Terms</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact/Support</a>
+        </nav>
+        <nav class="site-footer__social">
+            <div data-component-name="SocialIcons" style="display: flex; flex-direction: column; flex: 1 0 auto;"></div><script>var Kaggle=window.Kaggle||{};Kaggle.State=Kaggle.State||[];Kaggle.State.push();performance && performance.mark && performance.mark("SocialIcons.componentCouldBootstrap");</script>
+        </nav>
+    </div>
+</footer>
+
+        </div>
+</div>
+
+
+
+
+</body>
+</html>
