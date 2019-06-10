@@ -66,6 +66,10 @@ html,body {
 	border-radius: 2px; 
 	border-style : solid;
 }
+
+#slider {
+	background-color: green;
+}
 /* ----- GRAPH BOXES ----- */
 
 .graph_box {

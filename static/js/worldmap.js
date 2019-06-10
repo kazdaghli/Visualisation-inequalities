@@ -19,7 +19,7 @@ var svg = d3.select('.map_container')
             .append('g')
             .attr('class', 'map');
 
-var selected_country = d3.select('.year_slider_container')
+var selected_country = d3.select('.map_country_toolbox_container')
                         .append('div');
 
 var list_selected_country = {};

@@ -14,7 +14,7 @@ def index():
 
 @app.route('/canvas', methods=['GET'])
 def canvas():
-    return render_template('canvasV0.1.html')
+    return render_template('canvasV0.2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
