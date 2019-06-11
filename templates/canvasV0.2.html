@@ -13,11 +13,35 @@
 <body>
     <div class="header"></div>
     <div class="main_block">
+
+        <!-- FIRST CONTAINER (MAP) -->
         <div class="map_box">
+
+            <!-- RIGHT SIDE -->
             <div class="map_toolbox_container">
-                <div class="map_attribute_choice_container"></div>
+
+                <!-- UPPER BOX -->
+                <div class="map_attribute_choice_container">
+                    <h2>Map attribute</h2>
+                    <div class="map_attribute_form">
+                        <form method = 'post'>
+                            {% for attribute in map_attributes %}
+                          <div>
+                            <label class="radio_button_container">{{attribute}}
+                              <input type="radio" name="destination" value="map_{{attribute}}" id="{{map_attribute}}">
+                              <span class="checkmark"></span>
+                            </label>
+                          </div>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+
+                <!-- LOWER BOX -->
                 <div class="map_country_toolbox_container"></div>
             </div>
+
+            <!-- LEFT SIDE -->
             <div class="map_container_all">
                     <div class="map_container"></div>
                     <div class="map_year_slider_container">
@@ -26,12 +50,52 @@
                     </div>
             </div>
         </div>
+
+        <!-- 2ND CONTAINER (GRAPH 1) -->
         <div class="graph_box">
-            <div class="graph_attribute_choice_container"></div>
+
+            <!-- RIGHT SIDE -->
+            <div class="graph_attribute_choice_container">
+                <h2>Graph_1 attribute</h2>
+                <div class="graph_attribute_form">
+                    <form method = 'post'>
+                        {% for attribute in graph_attributes %}
+                      <div>
+                        <label class="radio_button_container">{{attribute}}
+                          <input type="radio" name="destination" value="graph_1_{{attribute}}" id="{{graph_1_attribute}}">
+                          <span class="checkmark"></span>
+                        </label>
+                      </div>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+
+            <!-- LEFY SIDE -->
             <div class="graph_container"></div>
         </div>
+
+        <!-- 3RD CONTAINER (GRAPH 2) -->
         <div class="graph_box">
-            <div class="graph_attribute_choice_container"></div>
+
+            <!-- RIGHT SIDE -->
+            <div class="graph_attribute_choice_container">
+                <h2>Graph_2 attribute</h2>
+                <div class="graph_attribute_form">
+                    <form method = 'post'>
+                        {% for attribute in graph_attributes %}
+                      <div>
+                        <label class="radio_button_container">{{attribute}}
+                          <input type="radio" name="destination" value="graph_2_{{attribute}}" id="{{graph_2_attribute}}">
+                          <span class="checkmark"></span>
+                        </label>
+                      </div>
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+
+            <!-- LEFT SIDE -->
             <div class="graph_container"></div>
         </div>
     </div>
