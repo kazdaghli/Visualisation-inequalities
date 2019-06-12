@@ -24,11 +24,11 @@
                 <div class="map_attribute_choice_container">
                     <h2>Map attribute</h2>
                     <div class="map_attribute_form">
-                        <form method = 'post'>
+                        <form method = 'post' id="map_form">
                             {% for attribute in map_attributes %}
                           <div>
                             <label class="radio_button_container">{{attribute}}
-                              <input type="radio" name="destination" value="map_{{attribute}}" id="{{map_attribute}}">
+                              <input type="radio" name="destination" value="map_{{attribute}}" id="map_{{attribute}}" onclick="set_map_attribute('{{attribute}}')">
                               <span class="checkmark"></span>
                             </label>
                           </div>
@@ -38,7 +38,12 @@
                 </div>
 
                 <!-- LOWER BOX -->
-                <div class="map_country_toolbox_container"></div>
+                <div class="map_country_toolbox_container">
+                    <div class="map_country_toolbox"></div>
+                    <div class="reset_button_container">
+                        <button id='reset_countries_button' onclick="reset_countries()">Reset</button>
+                    </div>
+                </div>
             </div>
 
             <!-- LEFT SIDE -->
@@ -58,11 +63,11 @@
             <div class="graph_attribute_choice_container">
                 <h2>Graph_1 attribute</h2>
                 <div class="graph_attribute_form">
-                    <form method = 'post'>
+                    <form method = 'post' id="graph_1_form">
                         {% for attribute in graph_attributes %}
                       <div>
                         <label class="radio_button_container">{{attribute}}
-                          <input type="radio" name="destination" value="graph_1_{{attribute}}" id="{{graph_1_attribute}}">
+                          <input type="radio" name="destination" value="graph_1_{{attribute}}" id="graph_1_{{attribute}}" onclick="set_graph_1_attribute('{{attribute}}')">
                           <span class="checkmark"></span>
                         </label>
                       </div>
@@ -82,11 +87,11 @@
             <div class="graph_attribute_choice_container">
                 <h2>Graph_2 attribute</h2>
                 <div class="graph_attribute_form">
-                    <form method = 'post'>
+                    <form method = 'post' id="graph_2_form">
                         {% for attribute in graph_attributes %}
                       <div>
                         <label class="radio_button_container">{{attribute}}
-                          <input type="radio" name="destination" value="graph_2_{{attribute}}" id="{{graph_2_attribute}}">
+                          <input type="radio" name="destination" value="graph_2_{{attribute}}" id="graph_2_{{attribute}}" onclick="set_graph_2_attribute('{{attribute}}')">
                           <span class="checkmark"></span>
                         </label>
                       </div>
@@ -99,7 +104,7 @@
             <div class="graph_container"></div>
         </div>
     </div>
-<script type="text/javascript" src="/static/js/worldmap.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>    
 <script src="https://unpkg.com/d3-simple-slider"></script>
 <script type="text/javascript" src="/static/js/yearslider.js"></script>
 </body>

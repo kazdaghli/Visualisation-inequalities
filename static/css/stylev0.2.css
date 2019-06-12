@@ -50,7 +50,7 @@ html,body {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #414141	;
+	background-color: #809ebc;
 }
 .map_container {
 	min-width: 100%;
@@ -65,12 +65,17 @@ html,body {
 	height: 10%;
 }
 
+.map {
+	width: 100%;
+} 
+
+
 	/* --- Upper Left-hand corner --- */
 
 .map_attribute_choice_container {
 	width: 100%;
 	height: 40%;
-	border-color: #FF6347;
+	border-color: grey;
 	border-radius: 2px; 
 	border-style : solid;
 	display: flex;
@@ -99,9 +104,24 @@ html,body {
 .map_country_toolbox_container {
 	width: 100%;
 	height: 40%;
-	border-color: #FF6347;
+	border-color: grey;
 	border-radius: 2px; 
 	border-style : solid;
+	display: flex;
+	flex-direction: column;
+}
+
+.map_country_toolbox {
+	width: 100%;
+	flex: 4;
+}
+
+.reset_button_container {
+	width: 100%;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* ----- GRAPH BOXES ----- */
@@ -172,7 +192,7 @@ html,body {
     }
 .country {
 	fill: #1E1E1E;
-	fill-opacity: 0.5 ;
+	fill-opacity: 0.7 ;
 	stroke: white;
 	stroke-width: 1;
 	/*filter: drop-shadow(3px 3px 4px #4444dd);*/
@@ -184,7 +204,17 @@ html,body {
 	stroke-width: 3;
 }
 
+/* ----- SLIDER ----- */
 
+.tick text {
+	font-size: 11px;
+	font-weight: bold;
+	fill : white;
+}
+
+.tick line {
+	stroke : white;
+}
 
 /* ----- RADIO BUTTONS ----- */
 
@@ -254,4 +284,28 @@ html,body {
   height: 8px;
   border-radius: 50%;
   background: white;
+}
+
+
+/* BUTTONS */
+
+button {
+  background-color: #2196F3; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #1978c4;
+}
+
+button:active {
+	  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }

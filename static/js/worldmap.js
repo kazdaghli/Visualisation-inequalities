@@ -23,13 +23,6 @@ var selected_country = d3.select('.map_country_toolbox_container')
                         .append('div');
 
 var list_selected_country = {};
-svg.call(tip);
-
-d3.json('/static/js/world-countries.json')
-    .get((error,rows) => {
-        draw_map(rows);
-
-    });
 
 function draw_map(country_dataset) {
 
