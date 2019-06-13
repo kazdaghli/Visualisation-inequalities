@@ -13,7 +13,7 @@ var map_container_w = d3.select('.map_container').node().getBoundingClientRect()
 var map_container_h = d3.select('.map_container').node().getBoundingClientRect().height;
 
 
-var svg = d3.select('.map_container')
+var worldmap_svg = d3.select('.map_container')
             .append("svg")
             .attr("width", '100%')
             .attr("height", '100%')
@@ -34,6 +34,8 @@ var graph_1_attribute = 'Gini'
 
 var graph_2_attribute = 'Wealth'
 
+var country_color = '#1E1E1E'
+
 
 // ----- WORLD MAP -----
 function draw_map(country_dataset) {
@@ -43,7 +45,7 @@ function draw_map(country_dataset) {
 
     var path = d3.geoPath(projection);
 
-    svg.selectAll("path")
+    worldmap_svg.selectAll("path")
         .data(country_dataset.features)
         .enter().append("path")
         .attr("d", path)
@@ -56,7 +58,7 @@ function draw_map(country_dataset) {
                 delete list_selected_country[d.id]
                 console.log(list_selected_country); // For control only, to be deleted in final version
                 update_list_selected_coutry();
-                d3.select(this).style('fill','#1E1E1E');
+                d3.select(this).style('fill',country_color);
             }
             else {
                 d.clicked=true;
@@ -78,7 +80,7 @@ function update_list_selected_coutry(){
     }
 
 function draw_worldmap() {
-      svg.call(tip);
+      worldmap_svg.call(tip);
 
       d3.json('/static/js/world-countries.json')
           .get((error,rows) => {
@@ -97,9 +99,8 @@ function draw_worldmap() {
 function reset_countries(){
       list_selected_country = {};
       update_list_selected_coutry();
-      svg.selectAll("path")
-            .style('fill','#1E1E1E')
-      svg.selectAll("path")
+      worldmap_svg.selectAll("path")
+            .style('fill',country_color)
             .each(function (d) {
                   d.clicked = false;
             })
@@ -110,7 +111,7 @@ function reset_countries(){
 function set_map_attribute(attribute) {
       console.log(list_selected_country)
       map_attribute = attribute;
-      svg.selectAll("path")
+      worldmap_svg.selectAll("path")
             .each(function (d) {
                   if (d.id in list_selected_country) {
                         d.clicked = true;
