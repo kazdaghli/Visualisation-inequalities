@@ -26,6 +26,10 @@ var selected_country = d3.select('.map_country_toolbox')
 
 var list_selected_country = {};
 
+var country_set = [];
+
+var country_input = document.getElementById("countries-search");
+
 // - MISC. - 
 
 var map_attribute = 'Gini'
@@ -45,11 +49,21 @@ function draw_map(country_dataset) {
 
     var path = d3.geoPath(projection);
 
+    // ----  Country list of the search box ------
+    d3.select('.datalist-countries')
+        .selectAll("option")
+        .data(country_dataset.features)
+        .enter().append("option")
+        .attr("value", function(d){return d.properties.name})
+        ;
+
+    // ---- Draw World map ----
     worldmap_svg.selectAll("path")
         .data(country_dataset.features)
         .enter().append("path")
         .attr("d", path)
         .attr("class","country")
+        .attr("id", function(d){return d.id})
         .on('mouseover', function(d){tip.show(d)})
         .on('mouseout', function (d){tip.hide(d)})
         .on('click', function (d){
@@ -72,6 +86,19 @@ function draw_map(country_dataset) {
                 // PIB
                 else if (map_attribute === 'PIB') {d3.select(this).style('fill','darkred');}
             }
+        })
+        .on('add-by-search', function (d){
+            if (d.clicked == false || d.clicked == undefined){
+                d.clicked=true;
+                list_selected_country[ d.id ] = d.properties.name;
+                update_list_selected_coutry();
+                // Gini
+                if (map_attribute === 'Gini') {d3.select(this).style('fill','darkblue');}
+                // Income
+                else if (map_attribute === 'Income') {d3.select(this).style('fill','darkgreen');}
+                // PIB
+                else if (map_attribute === 'PIB') {d3.select(this).style('fill','darkred');}
+            }
         });
 }
 
@@ -84,7 +111,8 @@ function draw_worldmap() {
 
       d3.json('/static/js/world-countries.json')
           .get((error,rows) => {
-              draw_map(rows);
+              country_set = rows
+              draw_map(country_set);
 
           });
 }
@@ -125,6 +153,28 @@ function set_map_attribute(attribute) {
                   }
          })
 };
+
+
+// Event listener on country search box
+
+country_input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("add-country").click();
+  }
+});
+
+// Trigger function to add country
+function add_country(){
+    let obj = country_set.features.find(d=> d.properties.name == country_input.value);
+    if (obj == undefined) {
+        console.log('Wrong country'); // To ADD in the UI interface
+    }
+    else {
+        document.getElementById(obj.id).dispatchEvent( new MouseEvent("add-by-search"));
+    }
+}
+
 
 // - Graph 1 Attribute choice -
 

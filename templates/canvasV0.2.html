@@ -11,104 +11,107 @@
 </head>
 
 <body>
-    <div class="header"></div>
-    <div class="main_block">
+<div class="header"></div>
+<div class="main_block">
 
-        <!-- FIRST CONTAINER (MAP) -->
-        <div class="map_box">
+    <!-- FIRST CONTAINER (MAP) -->
+    <div class="map_box">
 
-            <!-- LEFT SIDE -->
-            <div class="map_toolbox_container">
+        <!-- LEFT SIDE -->
+        <div class="map_toolbox_container">
 
-                <!-- UPPER BOX -->
-                <div class="map_attribute_choice_container">
-                    <h2>Map attribute</h2>
-                    <div class="map_attribute_form">
-                        <form method = 'post' id="map_form">
-                            {% for attribute in map_attributes %}
-                          <div>
+            <!-- UPPER BOX -->
+            <div class="map_attribute_choice_container">
+                <h2>Map attribute</h2>
+                <div class="map_attribute_form">
+                    <form method = 'post' id="map_form">
+                        {% for attribute in map_attributes %}
+                        <div>
                             <label class="radio_button_container">{{attribute}}
-                              <input type="radio" name="destination" value="map_{{attribute}}" id="map_{{attribute}}" onclick="set_map_attribute('{{attribute}}')">
-                              <span class="checkmark"></span>
+                                <input type="radio" name="destination" value="map_{{attribute}}" id="map_{{attribute}}" onclick="set_map_attribute('{{attribute}}')">
+                                <span class="checkmark"></span>
                             </label>
-                          </div>
-                            {% endfor %}
-                        </form>
-                    </div>
-                </div>
-
-                <!-- LOWER BOX -->
-                <div class="map_country_toolbox_container">
-                    <div class="map_country_toolbox">
-                        
-                    </div>
-                    <div class="reset_button_container">
-                        <button id='reset_countries_button' onclick="reset_countries()">Reset</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT SIDE -->
-            <div class="map_container_all">
-                    <div class="map_container"></div>
-                    <div class="map_year_slider_container">
-                            <!--<p id="value"></p>-->
-                            <div id="slider"></div>
-                    </div>
-            </div>
-        </div>
-
-        <!-- 2ND CONTAINER (GRAPH 1) -->
-        <div class="graph_box">
-
-            <!-- RIGHT SIDE -->
-            <div class="graph_attribute_choice_container">
-                <h2>Graph_1 attribute</h2>
-                <div class="graph_attribute_form">
-                    <form method = 'post' id="graph_1_form">
-                        {% for attribute in graph_attributes %}
-                      <div>
-                        <label class="radio_button_container">{{attribute}}
-                          <input type="radio" name="destination" value="graph_1_{{attribute}}" id="graph_1_{{attribute}}" onclick="set_graph_1_attribute('{{attribute}}')">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
+                        </div>
                         {% endfor %}
                     </form>
                 </div>
             </div>
 
-            <!-- LEFY SIDE -->
-            <div class="graph_container">
-              <div id="graph_1"></div>
+            <!-- LOWER BOX -->
+            <div class="map_country_toolbox_container">
+                <div class="map_country_toolbox">
+                    <label for="countries">Search a country:</label>
+                    <input type="text" list="datalist-countries" name="countries-search" id="countries-search">
+                    <button id="add-country" onclick="add_country()">Add</button>
+                    <datalist id="datalist-countries" class="datalist-countries"></datalist>
+                </div>
+                <div class="reset_button_container">
+                    <button id='reset_countries_button' onclick="reset_countries()">Reset</button>
+                </div>
             </div>
         </div>
 
-        <!-- 3RD CONTAINER (GRAPH 2) -->
-        <div class="graph_box">
-
-            <!-- RIGHT SIDE -->
-            <div class="graph_attribute_choice_container">
-                <h2>Graph_2 attribute</h2>
-                <div class="graph_attribute_form">
-                    <form method = 'post' id="graph_2_form">
-                        {% for attribute in graph_attributes %}
-                      <div>
-                        <label class="radio_button_container">{{attribute}}
-                          <input type="radio" name="destination" value="graph_2_{{attribute}}" id="graph_2_{{attribute}}" onclick="set_graph_2_attribute('{{attribute}}')">
-                          <span class="checkmark"></span>
-                        </label>
-                      </div>
-                        {% endfor %}
-                    </form>
-                </div>
+        <!-- RIGHT SIDE -->
+        <div class="map_container_all">
+            <div class="map_container"></div>
+            <div class="map_year_slider_container">
+                <!--<p id="value"></p>-->
+                <div id="slider"></div>
             </div>
-
-            <!-- LEFT SIDE -->
-            <div class="graph_container"></div>
         </div>
     </div>
-<script type="text/javascript" src="/static/js/main.js"></script>    
+
+    <!-- 2ND CONTAINER (GRAPH 1) -->
+    <div class="graph_box">
+
+        <!-- RIGHT SIDE -->
+        <div class="graph_attribute_choice_container">
+            <h2>Graph_1 attribute</h2>
+            <div class="graph_attribute_form">
+                <form method = 'post' id="graph_1_form">
+                    {% for attribute in graph_attributes %}
+                    <div>
+                        <label class="radio_button_container">{{attribute}}
+                            <input type="radio" name="destination" value="graph_1_{{attribute}}" id="graph_1_{{attribute}}" onclick="set_graph_1_attribute('{{attribute}}')">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+
+        <!-- LEFY SIDE -->
+        <div class="graph_container">
+            <div id="graph_1"></div>
+        </div>
+    </div>
+
+    <!-- 3RD CONTAINER (GRAPH 2) -->
+    <div class="graph_box">
+
+        <!-- RIGHT SIDE -->
+        <div class="graph_attribute_choice_container">
+            <h2>Graph_2 attribute</h2>
+            <div class="graph_attribute_form">
+                <form method = 'post' id="graph_2_form">
+                    {% for attribute in graph_attributes %}
+                    <div>
+                        <label class="radio_button_container">{{attribute}}
+                            <input type="radio" name="destination" value="graph_2_{{attribute}}" id="graph_2_{{attribute}}" onclick="set_graph_2_attribute('{{attribute}}')">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+
+        <!-- LEFT SIDE -->
+        <div class="graph_container"></div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/main.js"></script>
 <script src="https://unpkg.com/d3-simple-slider"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script type="text/javascript" src="/static/js/yearslider.js"></script>
