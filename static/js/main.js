@@ -23,8 +23,8 @@ var worldmap_svg = d3.select('.map_container')
 var selected_country = d3.select('.map_country_toolbox')
                         .append('div');
 
-var list_selected_country = [];
-
+//var list_selected_country = [];
+var list_selected_country = {};
 var country_set = [];
 
 var country_input = document.getElementById("countries-search");
@@ -92,9 +92,9 @@ function draw_worldmap() {
 // - Add / Remove country in worldmap
 
 function add_country_in_worldmap(d, dom){
-    if(list_selected_country.length < limit_selectable_country){
+    if(Object.keys(list_selected_country).length < limit_selectable_country){
     d.clicked=true;
-    list_selected_country.push(d.properties.name);
+    list_selected_country[d.id] = d.properties.name
     update_selected_country_box();
     // Gini
     if (map_attribute === 'Gini') {d3.select(dom).style('fill','darkblue');}
@@ -108,17 +108,61 @@ function add_country_in_worldmap(d, dom){
 
 function remove_country_in_worldmap(d, dom){
     d.clicked = false
-    list_selected_country = list_selected_country.filter(function(value, index, arr){
-        return value != d.properties.name;});
+    console.log("remove by tag process started")
+    delete list_selected_country[d.id]
     update_selected_country_box();
     d3.select(dom).style('fill',country_color);
 }
 
 
+
+
+// - update countries from the tag country
+function update_selected_country_box(){
+
+    let box = d3.select('.selected_country_box')
+                .selectAll("div");
+
+    //  Remove the tag of country  that have been deleted from the list_selected_country
+    box.each(function(){
+        if(Object.values(list_selected_country).includes(this.textContent) == false){
+            d3.select(this)
+            .transition().duration(200)
+            .style("font-size","0pt")
+            .remove();
+        }
+
+    });
+
+    box.data(Object.values(list_selected_country)).enter()
+    .append('div')
+    .style("font-size", '0pt')
+    .on('click', function(d){
+        let obj = country_set.features.find(r=> r.properties.name == d);
+        console.log(obj)
+        if (obj == undefined) {
+            console.log('Wrong country'); // To ADD in the UI interface
+        }
+        else {
+            document.getElementById(obj.id).dispatchEvent( new MouseEvent("remove-by-tag"));
+            d3.select(this)
+                .transition().duration(200)
+                .style("font-size","0pt")
+                .remove();
+        }
+    })
+    .transition().duration(500)
+    .attr('border',"1 px solid #000")
+    .style("font-size", '9pt')
+    .text(function(d){return d});
+
+
+}
+
 // - Reset countries button -
 
 function reset_countries(){
-      list_selected_country = [];
+      list_selected_country = {};
       update_selected_country_box();
       worldmap_svg.selectAll("path")
             .style('fill',country_color)
@@ -126,29 +170,6 @@ function reset_countries(){
                   d.clicked = false;
             })
 };
-
-// - Remove country from the tag country
-function update_selected_country_box(){
-    let box = d3.select('.selected_country_box')
-                .selectAll("div")
-                .data(list_selected_country);
-
-    box.exit().remove();
-    box.enter()
-    .append('div')
-    .attr('border',"1 px solid #000")
-    .style("font-size", '9pt')
-    .text(function(d){return d})
-    .on('click', function(d){
-        let obj = country_set.features.find(r=> r.properties.name == d);
-        if (obj == undefined) {
-            console.log('Wrong country'); // To ADD in the UI interface
-        }
-        else {
-            document.getElementById(obj.id).dispatchEvent( new MouseEvent("remove-by-tag"));
-        }
-    });
-}
 
 // - Map Attribute choice -
 
