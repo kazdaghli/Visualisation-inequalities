@@ -4,9 +4,8 @@
 var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
-            .html(function(d) {
-              return "<span class='details'>" + d.properties.name + "</span>";
-            })
+            .html(function(d) {return "<span class='details'>" + d.properties.name + "</span>";})
+
 
 
 var map_container_w = d3.select('.map_container').node().getBoundingClientRect().width;
@@ -24,7 +23,7 @@ var worldmap_svg = d3.select('.map_container')
 var selected_country = d3.select('.map_country_toolbox')
                         .append('div');
 
-var list_selected_country = {};
+var list_selected_country = [];
 
 var country_set = [];
 
@@ -40,7 +39,7 @@ var graph_2_attribute = 'Wealth'
 
 var country_color = '#1E1E1E'
 
-
+var limit_selectable_country = 5;
 // ----- WORLD MAP -----
 function draw_map(country_dataset) {
 
@@ -67,44 +66,12 @@ function draw_map(country_dataset) {
         .on('mouseover', function(d){tip.show(d)})
         .on('mouseout', function (d){tip.hide(d)})
         .on('click', function (d){
-            if (d.clicked) {
-                d.clicked = false
-                delete list_selected_country[d.id]
-                console.log(list_selected_country); // For control only, to be deleted in final version
-                update_list_selected_coutry();
-                d3.select(this).style('fill',country_color);
-            }
-            else {
-                d.clicked=true;
-                list_selected_country[ d.id ] = d.properties.name;
-                console.log(list_selected_country); // For control only, to be deleted in final version
-                update_list_selected_coutry();
-                // Gini
-                if (map_attribute === 'Gini') {d3.select(this).style('fill','darkblue');}
-                // Income
-                else if (map_attribute === 'Income') {d3.select(this).style('fill','darkgreen');}
-                // PIB
-                else if (map_attribute === 'PIB') {d3.select(this).style('fill','darkred');}
-            }
-        })
-        .on('add-by-search', function (d){
-            if (d.clicked == false || d.clicked == undefined){
-                d.clicked=true;
-                list_selected_country[ d.id ] = d.properties.name;
-                update_list_selected_coutry();
-                // Gini
-                if (map_attribute === 'Gini') {d3.select(this).style('fill','darkblue');}
-                // Income
-                else if (map_attribute === 'Income') {d3.select(this).style('fill','darkgreen');}
-                // PIB
-                else if (map_attribute === 'PIB') {d3.select(this).style('fill','darkred');}
-            }
-        });
+            if (d.clicked) {remove_country_in_worldmap(d, this);}
+            else {add_country_in_worldmap(d, this);}
+            })
+        .on('add-by-search', function (d){if (d.clicked == false || d.clicked == undefined){add_country_in_worldmap(d, this);}})
+        .on("remove-by-tag", function(d){if(d.clicked){remove_country_in_worldmap(d, this);}});
 }
-
-function update_list_selected_coutry(){
-    selected_country.html(Object.values(list_selected_country));
-    }
 
 function draw_worldmap() {
       worldmap_svg.call(tip);
@@ -122,17 +89,66 @@ function draw_worldmap() {
 
 // ----- INTERACTIONS -----
 
+// - Add / Remove country in worldmap
+
+function add_country_in_worldmap(d, dom){
+    if(list_selected_country.length < limit_selectable_country){
+    d.clicked=true;
+    list_selected_country.push(d.properties.name);
+    update_selected_country_box();
+    // Gini
+    if (map_attribute === 'Gini') {d3.select(dom).style('fill','darkblue');}
+    // Income
+    else if (map_attribute === 'Income') {d3.select(dom).style('fill','darkgreen');}
+    // PIB
+    else if (map_attribute === 'PIB') {d3.select(dom).style('fill','darkred');}
+    }
+    else{console.log("Limit  country reached");}  // Add to the UI
+}
+
+function remove_country_in_worldmap(d, dom){
+    d.clicked = false
+    list_selected_country = list_selected_country.filter(function(value, index, arr){
+        return value != d.properties.name;});
+    update_selected_country_box();
+    d3.select(dom).style('fill',country_color);
+}
+
+
 // - Reset countries button -
 
 function reset_countries(){
-      list_selected_country = {};
-      update_list_selected_coutry();
+      list_selected_country = [];
+      update_selected_country_box();
       worldmap_svg.selectAll("path")
             .style('fill',country_color)
             .each(function (d) {
                   d.clicked = false;
             })
 };
+
+// - Remove country from the tag country
+function update_selected_country_box(){
+    let box = d3.select('.selected_country_box')
+                .selectAll("div")
+                .data(list_selected_country);
+
+    box.exit().remove();
+    box.enter()
+    .append('div')
+    .attr('border',"1 px solid #000")
+    .style("font-size", '9pt')
+    .text(function(d){return d})
+    .on('click', function(d){
+        let obj = country_set.features.find(r=> r.properties.name == d);
+        if (obj == undefined) {
+            console.log('Wrong country'); // To ADD in the UI interface
+        }
+        else {
+            document.getElementById(obj.id).dispatchEvent( new MouseEvent("remove-by-tag"));
+        }
+    });
+}
 
 // - Map Attribute choice -
 
@@ -141,15 +157,13 @@ function set_map_attribute(attribute) {
       map_attribute = attribute;
       worldmap_svg.selectAll("path")
             .each(function (d) {
-                  if (d.id in list_selected_country) {
-                        d.clicked = true;
+                  if (d.clicked == true) {
                         // Gini
                         if (map_attribute === 'Gini') {d3.select(this).style('fill','darkblue');}
                         // Income
                         else if (map_attribute === 'Income') {d3.select(this).style('fill','darkgreen');}
                         // PIB
                         else if (map_attribute === 'PIB') {d3.select(this).style('fill','darkred');}
-
                   }
          })
 };

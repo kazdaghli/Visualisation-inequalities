@@ -65,6 +65,21 @@ html,body {
 	height: 10%;
 }
 
+.selected_country_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.selected_country_box > div {
+    border-radius: 10px;
+    border : 2px solid darkblue;
+    background-color: #f1f1f1;
+    padding: 0px 3px;
+	margin: 3px;
+    stroke: #fef;
+    stroke-width: 1.5px;
+}
+
 .map {
 	width: 100%;
 } 
