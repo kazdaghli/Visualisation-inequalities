@@ -96,6 +96,7 @@ function add_country_in_worldmap(d, dom){
     d.clicked=true;
     list_selected_country[d.id] = d.properties.name
     update_selected_country_box();
+    update_graph_by_country();
     // Gini
     if (map_attribute === 'Gini') {d3.select(dom).style('fill','darkblue');}
     // Income
@@ -111,6 +112,7 @@ function remove_country_in_worldmap(d, dom){
     console.log("remove by tag process started")
     delete list_selected_country[d.id]
     update_selected_country_box();
+    update_graph_by_country();
     d3.select(dom).style('fill',country_color);
 }
 
@@ -164,6 +166,7 @@ function update_selected_country_box(){
 function reset_countries(){
       list_selected_country = {};
       update_selected_country_box();
+      update_graph_by_country();
       worldmap_svg.selectAll("path")
             .style('fill',country_color)
             .each(function (d) {
