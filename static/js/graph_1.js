@@ -79,11 +79,12 @@ function draw_graph_lines(file, countries, x, y)
       .append('g')
       .append("text")
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; }) // keep only the last value of each time sery
-      .attr("transform", function(d) { return "translate(" + x(d.value.time) + "," + y(d.value.value) + ")"; }) // Put the text at the position of the last point
+      //.attr("transform", function(d, i) { return "translate(" + x(d.value.time)  + "," + y(d.value.value ) + ")"; }) // Put the text at the position of the last point
+      .attr("transform", function(d, i) { return "translate(" + i*40  + ",5)"; }) 
       .attr("x", 12) // shift the text a bit more right
         .text(function(d) { return d.name; })
         .style("fill", function(d){ return myColor(d.name) })
-        .style("font-size", 15)
+        .style("font-size", 10)
       .on("click", function(d){
         // is the element currently visible ?
         currentOpacity = d3.selectAll("." + d.name).style("opacity")
