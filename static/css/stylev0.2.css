@@ -196,7 +196,7 @@ html,body {
 /* ----- D3 ----- */
 
 .d3-tip {
-    line-height: 1.5;
+    line-height: normal;
     font-weight: 400;
     font-family:"avenir next", Arial, sans-serif;
     padding: 6px;
@@ -205,13 +205,17 @@ html,body {
     border-radius: 1px;
     pointer-events: none;
     }
+
+.d3-tip > span {
+    font-size: 11px;
+    font-family:"avenir next", Arial, sans-serif;
+    color: white;
+    }
+
 .country {
-	fill: #1E1E1E;
 	fill-opacity: 0.7 ;
 	stroke: white;
 	stroke-width: 1;
-	/*filter: drop-shadow(3px 3px 4px #4444dd);*/
-	/*box-shadow: 0 0 30px #333;*/
 }
 
 .country:hover {

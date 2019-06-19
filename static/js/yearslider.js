@@ -19,9 +19,10 @@ var slider = d3
     .default(new Date(2000, 10, 3))
     .displayValue(false)
     // .fill('black')
-    /*.on('onchange', val => {
-      d3.select('#value').text(val);
-    })*/;
+    .on('onchange', val => {
+      current_year = val.getFullYear();
+      Array.from(document.getElementsByClassName("country")).forEach(function(d){d.dispatchEvent(change_year_event)});
+    });
 
 d3.select('#slider')
     .append('svg')
