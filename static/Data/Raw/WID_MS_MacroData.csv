@@ -1,0 +1,68 @@
+Variable Name;.;.;.;Gross domestic product | individuals | Average | All Ages | constant 2015 local currency;Net foreign income | individuals | Average | All Ages | constant 2015 local currency;Population | individuals | Population | All Ages | population;Gross domestic product | individuals | Total | All Ages | constant 2015 local currency;Net foreign income | individuals | Total | All Ages | constant 2015 local currency;National income price index | individuals | Indices | All Ages | constant 2015 local currency;Market exchange rate, LCU per EUR | individuals | Exchange rates | All Ages | local currency per foreign currency;Market exchange rate, LCU per USD | individuals | Exchange rates | All Ages | local currency per foreign currency;Market exchange rate, LCU per CNY | individuals | Exchange rates | All Ages | local currency per foreign currency
+Variable Category;.;.;.;Average & total income;Average & total income;Other macro;Average & total income;Average & total income;Other macro;Other macro;Other macro;Other macro
+Variable Description;.;.;.;Average Gross domestic product. Gross domestic product is the total value of goods and services produced by the national economy.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Average Net foreign income. Net foreign income is the difference between the total value of a country's citizens and companies earned abroad, and the total value of foreign citizens and overseas companies earned in that country.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.;Total Gross domestic product. Gross domestic product is the total value of goods and services produced by the national economy.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Total Net foreign income. Net foreign income is the difference between the total value of a country's citizens and companies earned abroad, and the total value of foreign citizens and overseas companies earned in that country.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Current national income adjusted by CPI, divided by national income of the base year adjusted by CPI. It measures the changes in the purchasing power of national income.;Official exchange rate of the local currency to EUR.;Official exchange rate of the local currency to USD.;Official exchange rate of the local currency to CNY.
+Variable Decomposition;.;.;.;;[Net foreign income]=[Property income received from abroad]-[Property income paid abroad]+[Compensation of employees received from abroad]-[Compensation of employees paid to rest of the world];;;[Net foreign income]=[Property income received from abroad]-[Property income paid abroad]+[Compensation of employees received from abroad]-[Compensation of employees paid to rest of the world];;;;
+Variable Unit;.;.;.;"XCD; East Caribbean dollar | local currency | market";"XCD; East Caribbean dollar | local currency | market";population;"XCD; East Caribbean dollar | local currency | market";"XCD; East Caribbean dollar | local currency | market";;local currency per foreign currency;local currency per foreign currency;local currency per foreign currency
+Methodological Notes;.;.;.;GDP level in 2016 from the UN SNA main tables. Until 2015, we use the GDP growth rates from the UN SNA main tables.  After 2016, we use the GDP growth rates from the value for the previous year.;From 1986 to 2017, we use NFI as a % of GDP from the IMF.;Total 2017 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015);GDP level in 2016 from the UN SNA main tables. Until 2015, we use the GDP growth rates from the UN SNA main tables.  After 2016, we use the GDP growth rates from the value for the previous year.;From 1986 to 2017, we use NFI as a % of GDP from the IMF.;From 1970 to 2016, we use the GDP deflator from the UN SNA. In 2017, we carry the last inflation value forward.;;;
+Sources;.;.;.;WID.world computations using:  http://unstats.un.org/unsd/snaama/Introduction.asp (United Nations National Accounts Main Aggregates Database);WID.world computations using:  http://data.imf.org/BOP (IMF Balance of Payments Statistics);WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).);WID.world computations using:  http://unstats.un.org/unsd/snaama/Introduction.asp (United Nations National Accounts Main Aggregates Database);WID.world computations using:  http://data.imf.org/BOP (IMF Balance of Payments Statistics);WID.world computations using:  http://unstats.un.org/unsd/snaama/Introduction.asp (United Nations National Accounts Main Aggregates Database);;;
+Variable Code;country;year;perc;agdpro999i;annfin999i;npopul999i;mgdpro999i;mnnfin999i;inyixx999i;xlceux999i;xlcusx999i;xlcyux999i
+;MS;2017;p0p100;33894.8828125;248.495391846;5180.0;175575488.0;1287206.125;1.0;3.032548666;2.6913466454;0.3981795013
+;MS;2016;p0p100;33401.9882812;271.595947266;5152.0;172087040.0;1399262.375;0.973570168;;;
+;MS;2015;p0p100;32917.2382812;361.344421387;5124.0;168667920.0;1851528.75;0.9478389025;;;
+;MS;2014;p0p100;32945.8203125;166.401916504;5098.0;167957792.0;848317.0;0.9482150078;;;
+;MS;2013;p0p100;32500.4628906;-1509.79699707;5068.0;164712336.0;-7651651.0;0.9750936031;;;
+;MS;2012;p0p100;31161.140625;-1372.47766113;5031.0;156771696.0;-6904935.0;1.0769160986;;;
+;MS;2011;p0p100;30278.0214844;-1603.6842041;4994.0;151208432.0;-8008799.0;1.137437582;;;
+;MS;2010;p0p100;29000.0410156;-1899.98864746;4944.0;143376192.0;-9393544.0;1.0453622341;;;
+;MS;2009;p0p100;29969.3183594;-1689.64404297;4923.0;147538944.0;-8318117.5;1.0871037245;;;
+;MS;2008;p0p100;30199.5683594;-2132.59667969;4908.0;148219488.0;-10466785.0;1.0456793308;;;
+;MS;2007;p0p100;29023.6484375;-1843.24951172;4889.0;141896624.0;-9011647.0;1.0288482904;;;
+;MS;2006;p0p100;28363.1425781;-910.963378906;4846.0;137447792.0;-4414528.5;1.0137672424;;;
+;MS;2005;p0p100;28973.2441406;-1526.50402832;4778.0;138434160.0;-7293636.0;0.9532330036;;;
+;MS;2004;p0p100;28904.4082031;-2119.30566406;4644.0;134232064.0;-9842055.0;0.8868228793;;;
+;MS;2003;p0p100;28668.1816406;-662.457763672;4471.0;128175440.0;-2961848.75;0.8699795604;;;
+;MS;2002;p0p100;29148.5566406;-2035.9609375;4376.0;127554088.0;-8909365.0;0.8431724906;;;
+;MS;2001;p0p100;27676.7089844;-340.744384766;4505.0;124683576.0;-1535053.5;0.7781304121;;;
+;MS;2000;p0p100;25242.8144531;-1762.92858887;4955.0;125078144.0;-8735311.0;0.7758355737;;;
+;MS;1999;p0p100;22174.2109375;-3414.05078125;5787.0;128322152.0;-19757112.0;0.7791283727;;;
+;MS;1998;p0p100;19992.4882812;-799.762573242;6936.0;138667904.0;-5547153.0;0.7650805712;;;
+;MS;1997;p0p100;20441.0917969;-990.790283203;8216.0;167944016.0;-8140333.0;0.7074829936;;;
+;MS;1996;p0p100;22997.5097656;-488.458679199;9376.0;215624656.0;-4579788.5;0.6877292395;;;
+;MS;1995;p0p100;28554.8359375;-723.469421387;10233.0;292201632.0;-7403262.5;0.6361611485;;;
+;MS;1994;p0p100;29904.6621094;-1613.07568359;10717.0;320488256.0;-17287332.0;0.6160289645;;;
+;MS;1993;p0p100;27805.5039062;-1236.25964355;10886.0;302690720.0;-13457922.0;0.5989586115;;;
+;MS;1992;p0p100;28625.8554688;-232.459976196;10851.0;310619168.0;-2522423.25;0.5854677558;;;
+;MS;1991;p0p100;28796.046875;-490.143280029;10766.0;310018240.0;-5276882.5;0.5604088306;;;
+;MS;1990;p0p100;31067.2753906;-245.865264893;10730.0;333351872.0;-2638134.25;0.6108384132;;;
+;MS;1989;p0p100;28928.2246094;-106.59916687;10785.0;311990880.0;-1149672.0;0.551161468;;;
+;MS;1988;p0p100;27767.1425781;62.8984832764;10888.0;302328640.0;684838.6875;0.5060277581;;;
+;MS;1987;p0p100;25109.2988281;-331.857604981;11028.0;276905344.0;-3659725.5;0.4880930781;;;
+;MS;1986;p0p100;23904.1347656;-367.338867188;11179.0;267224320.0;-4106481.25;0.4675261974;;;
+;MS;1985;p0p100;22991.1289062;;11324.0;260351552.0;;0.4521815181;;;
+;MS;1984;p0p100;21448.9375;;11461.0;245826272.0;;0.4581179023;;;
+;MS;1983;p0p100;20512.7109375;;11610.0;238152576.0;;0.4433401823;;;
+;MS;1982;p0p100;21548.3085938;;11749.0;253171088.0;;0.3927362263;;;
+;MS;1981;p0p100;20308.4824219;;11846.0;240574272.0;;0.3736651242;;;
+;MS;1980;p0p100;19389.3789062;;11920.0;231121408.0;;0.3307772279;;;
+;MS;1979;p0p100;17804.3066406;;11944.0;212654624.0;;0.2438367605;;;
+;MS;1978;p0p100;16244.5869141;;11921.0;193651728.0;;0.2213447094;;;
+;MS;1977;p0p100;15078.2861328;;11881.0;179145120.0;;0.2092082202;;;
+;MS;1976;p0p100;15345.796875;;11827.0;181494736.0;;0.1814491749;;;
+;MS;1975;p0p100;15605.1240234;;11781.0;183843968.0;;0.1697728038;;;
+;MS;1974;p0p100;14966.6884766;;11734.0;175619120.0;;0.1485711783;;;
+;MS;1973;p0p100;14462.6533203;;11687.0;169025024.0;;0.1345555633;;;
+;MS;1972;p0p100;14107.1318359;;11660.0;164489152.0;;0.1218058541;;;
+;MS;1971;p0p100;13896.9521484;;11636.0;161704928.0;;0.10931658;;;
+;MS;1970;p0p100;13592.59375;;11625.0;158013904.0;;0.0987807587;;;
+;MS;1969;p0p100;;;11649.0;;;;;;
+;MS;1968;p0p100;;;11695.0;;;;;;
+;MS;1967;p0p100;;;11755.0;;;;;;
+;MS;1966;p0p100;;;11812.0;;;;;;
+;MS;1965;p0p100;;;11840.0;;;;;;
+;MS;1964;p0p100;;;11841.0;;;;;;
+;MS;1963;p0p100;;;11809.0;;;;;;
+;MS;1962;p0p100;;;11799.0;;;;;;
+;MS;1961;p0p100;;;11880.0;;;;;;
+;MS;1960;p0p100;;;12102.0;;;;;;
+;MS;1959;p0p100;;;12457.0;;;;;;
+;MS;1958;p0p100;;;12923.0;;;;;;

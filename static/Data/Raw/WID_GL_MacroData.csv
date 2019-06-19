@@ -1,0 +1,68 @@
+Variable Name;.;.;.;Gross domestic product | individuals | Average | All Ages | constant 2015 local currency;Population | individuals | Population | All Ages | population;Gross domestic product | individuals | Total | All Ages | constant 2015 local currency;National income price index | individuals | Indices | All Ages | constant 2015 local currency;Market exchange rate, LCU per EUR | individuals | Exchange rates | All Ages | local currency per foreign currency;Market exchange rate, LCU per USD | individuals | Exchange rates | All Ages | local currency per foreign currency;Market exchange rate, LCU per CNY | individuals | Exchange rates | All Ages | local currency per foreign currency
+Variable Category;.;.;.;Average & total income;Other macro;Average & total income;Other macro;Other macro;Other macro;Other macro
+Variable Description;.;.;.;Average Gross domestic product. Gross domestic product is the total value of goods and services produced by the national economy.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.;Total Gross domestic product. Gross domestic product is the total value of goods and services produced by the national economy.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Current national income adjusted by CPI, divided by national income of the base year adjusted by CPI. It measures the changes in the purchasing power of national income.;Official exchange rate of the local currency to EUR.;Official exchange rate of the local currency to USD.;Official exchange rate of the local currency to CNY.
+Variable Decomposition;.;.;.;;;;;;;
+Variable Unit;.;.;.;"DKK; Danish krone | local currency | market";population;"DKK; Danish krone | local currency | market";;local currency per foreign currency;local currency per foreign currency;local currency per foreign currency
+Methodological Notes;.;.;.;GDP level in 2016 from the UN SNA main tables. Until 2015, we use the GDP growth rates from the UN SNA main tables.  After 2016, we use the GDP growth rates from the value for the previous year.;Total 2017 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015);GDP level in 2016 from the UN SNA main tables. Until 2015, we use the GDP growth rates from the UN SNA main tables.  After 2016, we use the GDP growth rates from the value for the previous year.;From 1970 to 2016, we use the GDP deflator from the UN SNA. In 2017, we carry the last inflation value forward.;;;
+Sources;.;.;.;WID.world computations using:  http://unstats.un.org/unsd/snaama/Introduction.asp (United Nations National Accounts Main Aggregates Database);WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).);WID.world computations using:  http://unstats.un.org/unsd/snaama/Introduction.asp (United Nations National Accounts Main Aggregates Database);WID.world computations using:  http://unstats.un.org/unsd/snaama/Introduction.asp (United Nations National Accounts Main Aggregates Database);;;
+Variable Code;country;year;perc;agdpro999i;npopul999i;mgdpro999i;inyixx999i;xlceux999i;xlcusx999i;xlcyux999i
+;GL;2017;p0p100;280083.9375;56447.0;15809897472.0;1.0;7.4385900497;6.6016497612;0.9767012596
+;GL;2016;p0p100;279761.0;56412.0;15781877760.0;0.9737767577;;;
+;GL;2015;p0p100;279438.5625;56377.0;15753908224.0;0.9482412338;;;
+;GL;2014;p0p100;274864.75;56382.0;15497424896.0;0.9239090681;;;
+;GL;2013;p0p100;276968.125;56414.0;15624880128.0;0.892647028;;;
+;GL;2012;p0p100;285139.65625;56470.0;16101836800.0;0.8664981723;;;
+;GL;2011;p0p100;280465.28125;56552.0;15860873216.0;0.8513774872;;;
+;GL;2010;p0p100;275923.5;56638.0;15627754496.0;0.8300611377;;;
+;GL;2009;p0p100;268214.1875;56728.0;15215253504.0;0.8191378117;;;
+;GL;2008;p0p100;263747.4375;56841.0;14991667200.0;0.7857965231;;;
+;GL;2007;p0p100;254198.375;56927.0;14470751232.0;0.7708587646;;;
+;GL;2006;p0p100;252491.75;56971.0;14384707584.0;0.7518949509;;;
+;GL;2005;p0p100;235820.703125;56951.0;13430224896.0;0.7395188808;;;
+;GL;2004;p0p100;229886.375;56861.0;13071568896.0;0.7433307767;;;
+;GL;2003;p0p100;215964.625;56708.0;12246922240.0;0.7572997808;;;
+;GL;2002;p0p100;217516.421875;56518.0;12293593088.0;0.7410176992;;;
+;GL;2001;p0p100;220394.5;56327.0;12414160896.0;0.7187153697;;;
+;GL;2000;p0p100;218221.734375;56175.0;12258606080.0;0.6950672865;;;
+;GL;1999;p0p100;204221.046875;56046.0;11445772288.0;0.680703938;;;
+;GL;1998;p0p100;201797.9375;55948.0;11290190848.0;0.6735612154;;;
+;GL;1997;p0p100;187494.3125;55881.0;10477369344.0;0.6670345664;;;
+;GL;1996;p0p100;184925.6875;55837.0;10325695488.0;0.6637377143;;;
+;GL;1995;p0p100;182224.296875;55811.0;10170120192.0;0.6572955847;;;
+;GL;1994;p0p100;175661.578125;55815.0;9804551168.0;0.6440548301;;;
+;GL;1993;p0p100;165738.65625;55848.0;9256172544.0;0.6410521865;;;
+;GL;1992;p0p100;174472.5625;55861.0;9746211840.0;0.6344410777;;;
+;GL;1991;p0p100;184108.625;55789.0;10271236096.0;0.6247839928;;;
+;GL;1990;p0p100;184931.203125;55604.0;10282913792.0;0.6052626371;;;
+;GL;1989;p0p100;210651.984375;55295.0;11648001024.0;0.5759329796;;;
+;GL;1988;p0p100;199000.171875;54878.0;10920731648.0;0.5466858745;;;
+;GL;1987;p0p100;190190.75;54373.0;10341241856.0;0.5140428543;;;
+;GL;1986;p0p100;182178.53125;53797.0;9800657920.0;0.4913395047;;;
+;GL;1985;p0p100;172046.828125;53190.0;9151170560.0;0.4718539417;;;
+;GL;1984;p0p100;168050.40625;52534.0;8828359680.0;0.4392457604;;;
+;GL;1983;p0p100;179641.21875;51829.0;9310624768.0;0.4034558833;;;
+;GL;1982;p0p100;175918.90625;51157.0;8999483392.0;0.3677237034;;;
+;GL;1981;p0p100;186138.421875;50584.0;9415625728.0;0.3253705502;;;
+;GL;1980;p0p100;186400.703125;50179.0;9353401344.0;0.283111155;;;
+;GL;1979;p0p100;172319.71875;49946.0;8606681088.0;0.2537764907;;;
+;GL;1978;p0p100;164615.796875;49860.0;8207743488.0;0.2360657305;;;
+;GL;1977;p0p100;155323.3125;49844.0;7741935104.0;0.2160246074;;;
+;GL;1976;p0p100;142914.5;49780.0;7114284032.0;0.2019259036;;;
+;GL;1975;p0p100;135404.4375;49586.0;6714164736.0;0.1783892512;;;
+;GL;1974;p0p100;135496.953125;49234.0;6671056896.0;0.1532213539;;;
+;GL;1973;p0p100;129487.0625;48738.0;6310940672.0;0.1325976402;;;
+;GL;1972;p0p100;122902.710938;48077.0;5908793344.0;0.123159647;;;
+;GL;1971;p0p100;117937.945312;47186.0;5565019648.0;0.1165181473;;;
+;GL;1970;p0p100;106831.328125;46074.0;4922146816.0;0.1045495123;;;
+;GL;1969;p0p100;;44699.0;;;;;
+;GL;1968;p0p100;;43097.0;;;;;
+;GL;1967;p0p100;;41361.0;;;;;
+;GL;1966;p0p100;;39610.0;;;;;
+;GL;1965;p0p100;;37964.0;;;;;
+;GL;1964;p0p100;;36445.0;;;;;
+;GL;1963;p0p100;;35043.0;;;;;
+;GL;1962;p0p100;;33730.0;;;;;
+;GL;1961;p0p100;;32471.0;;;;;
+;GL;1960;p0p100;;31239.0;;;;;
+;GL;1959;p0p100;;30017.0;;;;;
+;GL;1958;p0p100;;28850.0;;;;;

@@ -1,0 +1,68 @@
+Variable Name;.;.;.;Gross domestic product | individuals | Average | All Ages | constant 2015 local currency;Population | individuals | Population | All Ages | population;Gross domestic product | individuals | Total | All Ages | constant 2015 local currency;National income price index | individuals | Indices | All Ages | constant 2015 local currency;Market exchange rate, LCU per EUR | individuals | Exchange rates | All Ages | local currency per foreign currency;Market exchange rate, LCU per USD | individuals | Exchange rates | All Ages | local currency per foreign currency;Market exchange rate, LCU per CNY | individuals | Exchange rates | All Ages | local currency per foreign currency
+Variable Category;.;.;.;Average & total income;Other macro;Average & total income;Other macro;Other macro;Other macro;Other macro
+Variable Description;.;.;.;Average Gross domestic product. Gross domestic product is the total value of goods and services produced by the national economy.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.;Total Gross domestic product. Gross domestic product is the total value of goods and services produced by the national economy.The national economy - in the national accounts sense - includes all domestic sectors, i.e. all entities that are resident of a given country (in the sense of their economic activity), whether they belong to the private sector, the corporate sector, the governement sector. The population is comprised of individuals of all ages.;Current national income adjusted by CPI, divided by national income of the base year adjusted by CPI. It measures the changes in the purchasing power of national income.;Official exchange rate of the local currency to EUR.;Official exchange rate of the local currency to USD.;Official exchange rate of the local currency to CNY.
+Variable Decomposition;.;.;.;;;;;;;
+Variable Unit;.;.;.;"USD; United States dollar | local currency | market";population;"USD; United States dollar | local currency | market";;local currency per foreign currency;local currency per foreign currency;local currency per foreign currency
+Methodological Notes;.;.;.;GDP level in 2016 from the World Bank. Until 2015, we use the GDP growth rates from the World Bank.  After 2016, we use the GDP growth rates from the value for the previous year.;Total 2016 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015);GDP level in 2016 from the World Bank. Until 2015, we use the GDP growth rates from the World Bank.  After 2016, we use the GDP growth rates from the value for the previous year.;From 2002 to 2016, we use the GDP deflator from the World Bank. In 2017, we carry the last inflation value forward.;;;
+Sources;.;.;.;WID.world computations using:  http://data.worldbank.org/ (World Bank);WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).);WID.world computations using:  http://data.worldbank.org/ (World Bank);WID.world computations using:  http://data.worldbank.org/ (World Bank);;;
+Variable Code;country;year;perc;agdpro999i;npopul999i;mgdpro999i;inyixx999i;xlceux999i;xlcusx999i;xlcyux999i
+;MP;2017;p0p100;;;1653339136.0;1.0;1.1267774105;1.0;0.1479480565
+;MP;2016;p0p100;;;1285583744.0;0.9660983682;;;
+;MP;2015;p0p100;18236.0800781;54816.0;999628928.0;0.9333460331;;;
+;MP;2014;p0p100;17685.234375;54468.0;963279296.0;0.877212286;;;
+;MP;2013;p0p100;17221.1757812;54036.0;930563456.0;0.8425001502;;;
+;MP;2012;p0p100;16872.0078125;53718.0;906330560.0;0.8286161423;;;
+;MP;2011;p0p100;16760.5742188;53786.0;901484224.0;0.8131039739;;;
+;MP;2010;p0p100;17944.4121094;54424.0;976606656.0;0.8181384802;;;
+;MP;2009;p0p100;17302.1308594;55674.0;963278784.0;0.8253061771;;;
+;MP;2008;p0p100;20338.3496094;57431.0;1168051712.0;0.8039027452;;;
+;MP;2007;p0p100;22070.0292969;59513.0;1313453696.0;0.7141486406;;;
+;MP;2006;p0p100;22823.9101562;61688.0;1407961344.0;0.7031438351;;;
+;MP;2005;p0p100;23722.5058594;63744.0;1512167424.0;0.7016423345;;;
+;MP;2004;p0p100;26369.1933594;65663.0;1731480320.0;0.6988245845;;;
+;MP;2003;p0p100;26507.9082031;67422.0;1787216128.0;0.6932570338;;;
+;MP;2002;p0p100;25885.2089844;68763.0;1779944704.0;0.7213704586;;;
+;MP;2001;p0p100;;69388.0;;;;;
+;MP;2000;p0p100;;69094.0;;;;;
+;MP;1999;p0p100;;67755.0;;;;;
+;MP;1998;p0p100;;65474.0;;;;;
+;MP;1997;p0p100;;62528.0;;;;;
+;MP;1996;p0p100;;59364.0;;;;;
+;MP;1995;p0p100;;56278.0;;;;;
+;MP;1994;p0p100;;53380.0;;;;;
+;MP;1993;p0p100;;50602.0;;;;;
+;MP;1992;p0p100;;47919.0;;;;;
+;MP;1991;p0p100;;45249.0;;;;;
+;MP;1990;p0p100;;42538.0;;;;;
+;MP;1989;p0p100;;39808.0;;;;;
+;MP;1988;p0p100;;37134.0;;;;;
+;MP;1987;p0p100;;34480.0;;;;;
+;MP;1986;p0p100;;31802.0;;;;;
+;MP;1985;p0p100;;29092.0;;;;;
+;MP;1984;p0p100;;26302.0;;;;;
+;MP;1983;p0p100;;23503.0;;;;;
+;MP;1982;p0p100;;20856.0;;;;;
+;MP;1981;p0p100;;18604.0;;;;;
+;MP;1980;p0p100;;16920.0;;;;;
+;MP;1979;p0p100;;15862.0;;;;;
+;MP;1978;p0p100;;15372.0;;;;;
+;MP;1977;p0p100;;15251.0;;;;;
+;MP;1976;p0p100;;15234.0;;;;;
+;MP;1975;p0p100;;15117.0;;;;;
+;MP;1974;p0p100;;14859.0;;;;;
+;MP;1973;p0p100;;14492.0;;;;;
+;MP;1972;p0p100;;14040.0;;;;;
+;MP;1971;p0p100;;13569.0;;;;;
+;MP;1970;p0p100;;13127.0;;;;;
+;MP;1969;p0p100;;12691.0;;;;;
+;MP;1968;p0p100;;12257.0;;;;;
+;MP;1967;p0p100;;11823.0;;;;;
+;MP;1966;p0p100;;11435.0;;;;;
+;MP;1965;p0p100;;11105.0;;;;;
+;MP;1964;p0p100;;10857.0;;;;;
+;MP;1963;p0p100;;10667.0;;;;;
+;MP;1962;p0p100;;10499.0;;;;;
+;MP;1961;p0p100;;10302.0;;;;;
+;MP;1960;p0p100;;10035.0;;;;;
+;MP;1959;p0p100;;9689.0;;;;;
+;MP;1958;p0p100;;9280.0;;;;;

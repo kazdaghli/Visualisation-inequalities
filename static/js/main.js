@@ -156,11 +156,11 @@ function draw_worldmap() {
 
       d3.queue()
             .defer(d3.json, "/static/js/world-countries.json" )
-            .defer(d3.csv, 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv' )
-            .defer(d3.csv, 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/PIB_afterFillNA.csv')
+            .defer(d3.csv, '/static/Data/Preprocessed/Gini_afterFillNA.csv' )
+            .defer(d3.csv, '/static/Data/Preprocessed/PIB_afterFillNA.csv')
             .await(function(error, map_data,gini_data, pib_data){
                 if (error){
-                    console.error("Issue while loadint the data")
+                    console.error("Issue while loading the data")
                 }else{
                     country_set = map_data;
                     gini_dataset = gini_data;
@@ -255,10 +255,12 @@ function reset_countries(){
       update_selected_country_box();
       update_graph_by_country();
       worldmap_svg.selectAll("path")
-            .style('fill',country_color)
-            .each(function (d) {
+                .style("filter", "")
+                .style("stroke", "white")
+                .style("stroke-width",1)
+                 .each(function (d) {
                   d.clicked = false;
-            })
+                  })
 };
 
 // - Map Attribute choice -

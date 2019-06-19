@@ -1,0 +1,66 @@
+Variable Name;.;.;.;Population | individuals | Population | All Ages | population
+Variable Category;.;.;.;Other macro
+Variable Description;.;.;.;Number of individuals in a group. The population is comprised of individuals of all ages. The base unit is the individual (rather than the household). This is equivalent to assuming no sharing of resources within couples.
+Variable Decomposition;.;.;.;
+Variable Unit;.;.;.;
+Methodological Notes;.;.;.;Total 2016 population estimated by extending past year observed population growth rate. Data on other years comes from the UN World Population Prospects (2015)
+Sources;.;.;.;WID.world computations using:  https://esa.un.org/unpd/wpp/ (UN World Population Prospects (2015).)
+Variable Code;country;year;perc;npopul999i
+;TK;2015;p0p100;1252.0
+;TK;2014;p0p100;1219.0
+;TK;2013;p0p100;1187.0
+;TK;2012;p0p100;1167.0
+;TK;2011;p0p100;1151.0
+;TK;2010;p0p100;1140.0
+;TK;2009;p0p100;1126.0
+;TK;2008;p0p100;1126.0
+;TK;2007;p0p100;1141.0
+;TK;2006;p0p100;1167.0
+;TK;2005;p0p100;1208.0
+;TK;2004;p0p100;1273.0
+;TK;2003;p0p100;1351.0
+;TK;2002;p0p100;1435.0
+;TK;2001;p0p100;1503.0
+;TK;2000;p0p100;1554.0
+;TK;1999;p0p100;1574.0
+;TK;1998;p0p100;1575.0
+;TK;1997;p0p100;1547.0
+;TK;1996;p0p100;1529.0
+;TK;1995;p0p100;1517.0
+;TK;1994;p0p100;1529.0
+;TK;1993;p0p100;1535.0
+;TK;1992;p0p100;1558.0
+;TK;1991;p0p100;1578.0
+;TK;1990;p0p100;1608.0
+;TK;1989;p0p100;1634.0
+;TK;1988;p0p100;1665.0
+;TK;1987;p0p100;1697.0
+;TK;1986;p0p100;1703.0
+;TK;1985;p0p100;1709.0
+;TK;1984;p0p100;1697.0
+;TK;1983;p0p100;1657.0
+;TK;1982;p0p100;1620.0
+;TK;1981;p0p100;1576.0
+;TK;1980;p0p100;1553.0
+;TK;1979;p0p100;1543.0
+;TK;1978;p0p100;1542.0
+;TK;1977;p0p100;1556.0
+;TK;1976;p0p100;1567.0
+;TK;1975;p0p100;1572.0
+;TK;1974;p0p100;1572.0
+;TK;1973;p0p100;1573.0
+;TK;1972;p0p100;1573.0
+;TK;1971;p0p100;1588.0
+;TK;1970;p0p100;1621.0
+;TK;1969;p0p100;1675.0
+;TK;1968;p0p100;1734.0
+;TK;1967;p0p100;1818.0
+;TK;1966;p0p100;1876.0
+;TK;1965;p0p100;1922.0
+;TK;1964;p0p100;1947.0
+;TK;1963;p0p100;1953.0
+;TK;1962;p0p100;1935.0
+;TK;1961;p0p100;1902.0
+;TK;1960;p0p100;1873.0
+;TK;1959;p0p100;1823.0
+;TK;1958;p0p100;1782.0
