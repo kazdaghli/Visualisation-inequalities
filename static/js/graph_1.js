@@ -103,8 +103,8 @@ svgGraph.append("line")
       .style("fill", "none");
   })
 }
-var counFlags = "https://gist.githubusercontent.com/espinielli/5107491/raw/world-country-flags.tsv",
-var imFlags =  ""
+//var counFlags = "https://gist.githubusercontent.com/espinielli/5107491/raw/world-country-flags.tsv",
+//var imFlags =  ""
 function draw_graph(attribute, countries){
   if (attribute == 'Gini'){
     var file = 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv'

@@ -4,7 +4,7 @@
 var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
-            .html(function(d) {return gauge.html/*"<span class='details'>" + d.properties.name + "</span>";*/})
+            .html(function(d) {return "<span class='details'>" + d.properties.name + "</span>";})
 
 
 
@@ -214,7 +214,6 @@ function add_country(){
 }
 
 // ----- MAIN -----
-
 function main(){
       document.getElementById("map_" + map_attribute).checked = true;
       document.getElementById("graph_1_" + graph_1_attribute).checked = true;
