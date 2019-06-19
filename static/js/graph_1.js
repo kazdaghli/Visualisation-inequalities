@@ -92,9 +92,19 @@ function draw_graph_lines(file, countries, x, y)
         d3.selectAll("." + d.name).transition().style("opacity", currentOpacity == 1 ? 0:1)
 
       })
+
+svgGraph.append("line")
+      .attr("x1", x("2001"))  //<<== change your code here
+      .attr("y1", 0)
+      .attr("x2", x("2001"))  //<<== and here
+      .attr("y2", height )//- margin.top - margin.bottom
+      .style("stroke-width", 2)
+      .style("stroke", "red")
+      .style("fill", "none");
   })
 }
-
+var counFlags = "https://gist.githubusercontent.com/espinielli/5107491/raw/world-country-flags.tsv",
+var imFlags =  ""
 function draw_graph(attribute, countries){
   if (attribute == 'Gini'){
     var file = 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv'

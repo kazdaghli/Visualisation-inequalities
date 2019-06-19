@@ -4,7 +4,7 @@
 var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
-            .html(function(d) {return "<span class='details'>" + d.properties.name + "</span>";})
+            .html(function(d) {return gauge.html/*"<span class='details'>" + d.properties.name + "</span>";*/})
 
 
 
@@ -212,19 +212,6 @@ function add_country(){
         document.getElementById(obj.id).dispatchEvent( new MouseEvent("add-by-search"));
     }
 }
-
-
-// - Graph 1 Attribute choice -
-
-function set_graph_1_attribute(attribute) {
-      graph_1_attribute = attribute;    
-};
-
-// - Graph 2 Attribute choice -
-
-function set_graph_2_attribute(attribute) {
-      graph_2_attribute = attribute;    
-};
 
 // ----- MAIN -----
 
