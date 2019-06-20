@@ -17,8 +17,16 @@ var attribute = 'Gini'
 var parseDate = d3.timeParse("%Y")
 var minYear = '2000',
     maxYear = '2015'
-var counFlags = "https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Flags/countries.csv",
-    imFlags =  "/static/Data/Flags/flags/"
+var counFlags = "/static/Data/Flags/countries.csv",
+    imFlags =  "/static/Data/Flags/flags/",
+    events = "/static/Data/Preprocessed/event.csv"
+
+var tipEvent = d3.tip()
+    .attr('class', 'd3-tip_event')
+    .offset([-10, 0])
+    .style("fill", "#000066")
+    .style("stroke", "#ffffff")
+    .html(function(d) {return "<strong>" + d.event +"</strong>";})
 //let dataFlags = []
 function draw_graph_lines(file, countries, x, y)
 {
@@ -87,37 +95,34 @@ function draw_graph_lines(file, countries, x, y)
       .attr('xlink:href', function(d) { 
             return imFlags + d.flag; 
       })
-      //.append("text")
-      //.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; }) // keep only the last value of each time sery
-      //.attr("transform", function(d, i) { return "translate(" + x(d.value.time)  + "," + y(d.value.value ) + ")"; }) // Put the text at the position of the last point
       .attr("transform", function(d, i) { return "translate(" + i*40  + ",5)"; }) 
       .attr("x", 12) // shift the text a bit more right
-        //.text(function(d) { return d.name; })
-        //.style("fill", function(d){ return myColor(d.name) })
-        //.style("font-size", 10)
-      /*.on("click", function(d){
+      .on("click", function(d){
         // is the element currently visible ?
         currentOpacity = d3.selectAll("." + d.name ).style("opacity")
         // Change the opacity: from 0 to 1 or from 1 to 0
         d3.selectAll("." + d.name).transition().style("opacity", currentOpacity == 1 ? 0:1)
-      })*/
+      })
       .attr('width', 32)
       .attr('height', 32)
 
-svgGraph.append("line")
-      .attr("x1", x("2001"))  //<<== change your code here
-      .attr("y1", 0)
-      .attr("x2", x("2001"))  //<<== and here
-      .attr("y2", height )//- margin.top - margin.bottom
-      .style("stroke-width", 2)
-      .style("stroke", "red")
-      .style("fill", "none");
+      svgGraph.selectAll("myLegend")//
+    .data(dataReady)
+    .enter()
+      .append('g')
+      .append("text")
+      .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+      .text(function(d) { return d.name; })
+      .style("fill", function(d){ return myColor(d.name) })
+      .style("font-size", 10)
+      .attr("transform", function(d, i) { return "translate(" + i*40  + ",3)"; }) 
+      .attr("x", 12) // shift the text a bit more right
   })
 })
 }
 
 
-function draw_graph(attribute, countries){
+function draw_graph(attribute, countries, year){
   if (attribute == 'Gini'){
     var file = 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv'
     var minValue = 25,
@@ -159,14 +164,15 @@ function draw_graph(attribute, countries){
   svgGraph.append("text")
           .attr("class", "yText") 
           .attr("transform", "rotate(-90)")
-          .attr("y", 0 - margin.left)
-          .attr("x",0 - (height / 2))
+          .attr("y", 0 - margin.left - 5)
+          .attr("x",0 - (height / 2) )
           .attr("dy", "1em")
           .style("text-anchor", "middle")
           .text(attribute + " Value"); 
 
   if (countries.length > 0){
      draw_graph_lines(file, countries, xx, y)
+     update_events(year, xx, y)
   }
 }
 
@@ -177,14 +183,88 @@ function update_graph_by_country(){
   svgGraph.selectAll("path").remove()
   svgGraph.selectAll("g").remove()
   svgGraph.selectAll("image").remove()
-  draw_graph(attribute, countries)
-
+  svgGraph.selectAll("line").remove()
+  svgGraph.selectAll("polygon").remove()
+  draw_graph(attribute, countries, current_year)
 }
 
-/*function update_graph_by_attribute()
-{
+function update_graph_by_year(){
+  svgGraph.selectAll("path").remove()
+  svgGraph.selectAll("g").remove()
+  svgGraph.selectAll("image").remove()
+  svgGraph.selectAll("line").remove()
+  svgGraph.selectAll("polygon").remove()
+  draw_graph(attribute, countries, current_year)
+  console.log('year', current_year)
+}
 
-}*/
+function CalculateStarPoints(centerX, centerY, arms, outerRadius, innerRadius)
+{
+   var results = "";
+
+   var angle = Math.PI / arms;
+
+   for (var i = 0; i < 2 * arms; i++)
+   {
+      // Use outer or inner radius depending on what iteration we are in.
+      var r = (i & 1) == 0 ? outerRadius : innerRadius;
+      
+      var currX = centerX + Math.cos(i * angle) * r;
+      var currY = centerY + Math.sin(i * angle) * r;
+
+      // Our first time we simply append the coordinates, subsequet times
+      // we append a ", " to distinguish each coordinate pair.
+      if (i == 0)
+      {
+         results = currX + "," + currY;
+      }
+      else
+      {
+         results += ", " + currX + "," + currY;
+      }
+   }
+   return results;
+}
+function update_events(year, x, y)
+{
+  
+
+  d3.csv(events, function(data) {
+  var dataEvents = data.filter( function(k) { // .map allows to do something for each element of the list
+    return k.year == year}).map(function(d) {
+        return {year: d.year, event: d.event};
+    }) 
+  svgGraph.call(tipEvent)
+  svgGraph.append("line")
+    .attr("x1", x(year))  //<<== change your code here
+    .attr("y1", 0)
+    .attr("x2", x(year))  //<<== and here
+    .attr("y2", height )//- margin.top - margin.bottom
+    .style("stroke-width", 2)
+    .style("stroke-dasharray", ("3, 3")) 
+    .style("stroke", "red")
+    .style("fill", "none");
+    
+  svgGraph.selectAll("star")
+      .data(dataEvents)
+      .enter()
+      .append("svg:polygon")
+      .attr("id", "star_1")
+      .attr("visibility", "visible")
+      .attr("points", CalculateStarPoints(x(year), 50, 5, 10, 5))
+      .style("fill", "#FFFF00")
+      .style("stroke", "black")
+      .on("mouseover", function(d) {	
+        console.log(d.event)	
+        tipEvent.show(d);
+        })					
+    .on("mouseout", function(d) {		
+      tipEvent.hide(d);	
+    });
+  }) 
+
+ 
+}
 
 function set_graph_1_attribute(attribute)
 {
@@ -193,8 +273,9 @@ function set_graph_1_attribute(attribute)
   svgGraph.selectAll("text").remove(["yText", "xText"])
   svgGraph.selectAll("path").remove()
   svgGraph.selectAll("image").remove()
-  console.log(countries)
-  draw_graph(attribute, countries)
+  svgGraph.selectAll("line").remove()
+  svgGraph.selectAll("polygon").remove()
+  draw_graph(attribute, countries, current_year)
 }
 d3.csv(counFlags)
   .row(function(d) {
@@ -212,5 +293,6 @@ d3.csv(counFlags)
         //console.log('flags', dataFlags)
     }
   })
+
 
 draw_graph(attribute, countries)

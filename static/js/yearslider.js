@@ -21,6 +21,7 @@ var slider = d3
     // .fill('black')
     .on('onchange', val => {
       current_year = val.getFullYear();
+      update_graph_by_year();
       Array.from(document.getElementsByClassName("country")).forEach(function(d){d.dispatchEvent(change_year_event)});
     });
 
