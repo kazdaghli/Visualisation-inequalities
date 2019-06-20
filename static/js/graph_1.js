@@ -17,21 +17,26 @@ var attribute = 'Gini'
 var parseDate = d3.timeParse("%Y")
 var minYear = '2000',
     maxYear = '2015'
-
+var counFlags = "https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Flags/countries.csv",
+    imFlags =  "/static/data/Flags/flags/"
+//let dataFlags = []
 function draw_graph_lines(file, countries, x, y)
 {
   //Read the data
   d3.csv(file, function(data) {
-  
+    d3.csv(counFlags, function(dataFlags) {
   var dataReady = countries.map( function(grpName) { // .map allows to do something for each element of the list
     return {
       name: grpName,
       values: data.filter(function(k){return k.year >= minYear && k.year <= maxYear;}).map(function(d) {
         return {time: d.year, value: +d[grpName]};
-      })
+      }),
+      flag : dataFlags.filter(function(k){return k.code3 == grpName;})[0].im32
     };
-  });
-
+  })
+  console.log(dataReady)
+  
+  
   // A color scale: one color for each group
   var myColor = d3.scaleOrdinal()
     .domain(countries)
@@ -72,26 +77,32 @@ function draw_graph_lines(file, countries, x, y)
 
 
   // Add a legend (interactive)
-  svgGraph
-    .selectAll("myLegend")
+    svgGraph.selectAll("myLegend")//
     .data(dataReady)
     .enter()
-      .append('g')
-      .append("text")
-      .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; }) // keep only the last value of each time sery
+      //.append('g')
+      //.append('img')
+      .append("svg:image")
+      .attr('class', 'picture')
+      .attr('xlink:href', function(d) { 
+            return imFlags + d.flag; 
+      })
+      //.append("text")
+      //.datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; }) // keep only the last value of each time sery
       //.attr("transform", function(d, i) { return "translate(" + x(d.value.time)  + "," + y(d.value.value ) + ")"; }) // Put the text at the position of the last point
       .attr("transform", function(d, i) { return "translate(" + i*40  + ",5)"; }) 
       .attr("x", 12) // shift the text a bit more right
-        .text(function(d) { return d.name; })
-        .style("fill", function(d){ return myColor(d.name) })
-        .style("font-size", 10)
-      .on("click", function(d){
+        //.text(function(d) { return d.name; })
+        //.style("fill", function(d){ return myColor(d.name) })
+        //.style("font-size", 10)
+      /*.on("click", function(d){
         // is the element currently visible ?
-        currentOpacity = d3.selectAll("." + d.name).style("opacity")
+        currentOpacity = d3.selectAll("." + d.name ).style("opacity")
         // Change the opacity: from 0 to 1 or from 1 to 0
         d3.selectAll("." + d.name).transition().style("opacity", currentOpacity == 1 ? 0:1)
-
-      })
+      })*/
+      .attr('width', 32)
+      .attr('height', 32)
 
 svgGraph.append("line")
       .attr("x1", x("2001"))  //<<== change your code here
@@ -102,9 +113,10 @@ svgGraph.append("line")
       .style("stroke", "red")
       .style("fill", "none");
   })
+})
 }
-//var counFlags = "https://gist.githubusercontent.com/espinielli/5107491/raw/world-country-flags.tsv",
-//var imFlags =  ""
+
+
 function draw_graph(attribute, countries){
   if (attribute == 'Gini'){
     var file = 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv'
@@ -158,6 +170,7 @@ function draw_graph(attribute, countries){
   }
 }
 
+
 function update_graph_by_country(){
   console.log(Object.keys(list_selected_country))
   countries = Object.keys(list_selected_country)
@@ -178,6 +191,24 @@ function set_graph_1_attribute(attribute)
   svgGraph.selectAll("g").remove("yAxis")
   svgGraph.selectAll("text").remove(["yText", "xText"])
   svgGraph.selectAll("path").remove()
+  svgGraph.selectAll("myLegend").remove(['picture'])
   draw_graph(attribute, countries)
 }
+d3.csv(counFlags)
+  .row(function(d) {
+    return {
+          code: d.code3,
+          flag: d.im32
+      }; 
+  })
+  .get((error, rows) => {
+    // Handle error or set up visualisation here
+    console.log("Loaded " + rows.length + "rows");
+    if (rows.length > 0){
+        //The dataset
+        dataFlags = rows
+        //console.log('flags', dataFlags)
+    }
+  })
+
 draw_graph(attribute, countries)
