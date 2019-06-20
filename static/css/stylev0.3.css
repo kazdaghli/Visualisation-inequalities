@@ -381,6 +381,7 @@ button:active {
   transform: scale(0.9);
 }
 
+/*
 .switch {
   position: relative;
   display: inline-block;
@@ -424,7 +425,7 @@ input:checked + .slider:before {
   transform: translateX(55px);
 }
 
-/*------ ADDED CSS ---------*/
+!*------ ADDED CSS ---------*!
 .on, .off
 {
   color: white;
@@ -460,12 +461,30 @@ input:checked+ .slider .on
 input:checked + .slider .off
 {display: none;}
 
-/*--------- END --------*/
+!*--------- END --------*!
 
-/* Rounded sliders */
+!* Rounded sliders *!
 .slider.round {
   border-radius: 34px;
 }
 
 .slider.round:before {
-  border-radius: 50%;}
+  border-radius: 50%;}*/
+
+
+.map_attribute_choice_container > div > .btn-secondary.active, .change_view_container > div > .btn-secondary.active{
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+.badge {
+    margin: 3px;
+}
+
+
+.legend_attribute > svg{
+    width: 7%;
+    height : 25%;
+    position: absolute;
+    top : 0;
+    right : 0;
+}

@@ -34,10 +34,22 @@ var current_year = 2000 ;
 var current_attribute = "Gini"
 var country_input = document.getElementById("countries-search");
 
-var gini_gradient_color = d3.schemePuOr[3];
-var pib_gradient_color = d3.schemePiYG[3];
+function gini_gradient_color(t){return d3.interpolateOranges(t)};
+function pib_gradient_color(t){return d3.interpolateReds(t)};
+function income_gradient_color(t){return d3.interpolateGreens(t)};
+
+function attr_gradient_color(t){
+    if(map_attribute == 'Gini'){
+        return gini_gradient_color(t);
+    } else if(map_attribute =='PIB'){
+        return pib_gradient_color(t);
+    } else if (map_attribute =='Income'){
+        return income_gradient_color(t);
+    }
+}
+
 var change_year_event = new Event("change-year");
-var color_na = 'white'
+var color_na = 'black'
 
 // - MISC. - 
 
@@ -60,7 +72,7 @@ function get_attr_color(date, country_code){
             return color_na;
         }else {
         t = gr_gini(val);
-        return d3.interpolateRdYlBu(t);
+        return gini_gradient_color(t);
         }
     } else if (current_attribute == "PIB") {
         val = pib_dataset[date-init_date][country_code]
@@ -68,7 +80,7 @@ function get_attr_color(date, country_code){
             return color_na
         }else {
         t = gr_pib(val);
-        return d3.interpolateBrBG(t);
+        return pib_gradient_color(t);
         }
     } else if (current_attribute == "Income") {
         val = income_dataset[date-init_date][country_code]
@@ -76,7 +88,7 @@ function get_attr_color(date, country_code){
             return color_na
         }else {
         t = gr_income(val);
-        return d3.interpolateBrBG(t);
+        return income_gradient_color(t);
         }
      }
 }
@@ -110,6 +122,10 @@ function draw_map_2d(country_dataset) {
             .domain([8824448,1371564453640])
             .range([0,1])
 
+    gr_income = d3.scaleLinear()
+            .domain([50,90500])
+            .range([0,1])
+
     // ----  Country list of the search box ------
     d3.select('.datalist-countries')
         .selectAll("option")
@@ -129,6 +145,13 @@ function draw_map_2d(country_dataset) {
         .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
         .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
         .attr("fill", function(d){return get_attr_color(current_year,d.id)})
+        .style("filter", function(d){
+            if(d.clicked){
+                return "drop-shadow(3px 3px 4px black)"
+            }else{
+                return ''
+            }
+        })
         .on('mouseover', function(d){tip.show(d)})
         .on('mouseout', function (d){tip.hide(d)})
         .on('click', function (d){
@@ -144,17 +167,11 @@ function draw_map_2d(country_dataset) {
             d3.select(this)
               .attr("fill", function(d){return get_attr_color(current_year,d.id)});
            });
+    set_map_attribute_legend();
 }
 
 
 function draw_map_3d(country_dataset) {
-
-/*
-    var projection = d3.geoMercator()
-        .fitExtent([[0,10],[map_container_w, map_container_h-10]], country_dataset)
-
-    var path = d3.geoPath(projection);
-*/
 
     var projection = d3.geoOrthographic()
             .scale(map_container_w/3)
@@ -194,6 +211,10 @@ function draw_map_3d(country_dataset) {
             .domain([8824448,1371564453640])
             .range([0,1])
 
+     gr_income = d3.scaleLinear()
+            .domain([50,90500])
+            .range([0,1])
+
     // ----  Country list of the search box ------
     d3.select('.datalist-countries')
         .selectAll("option")
@@ -213,6 +234,13 @@ function draw_map_3d(country_dataset) {
         .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
         .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
         .attr("fill", function(d){return get_attr_color(current_year,d.id)})
+        .style("filter", function(d){
+            if(d.clicked){
+                return "drop-shadow(3px 3px 4px black)"
+            }else{
+                return ''
+            }
+        })
         .on('mouseover', function(d){tip.show(d)})
         .on('mouseout', function (d){tip.hide(d)})
         .on('click', function (d){
@@ -257,6 +285,7 @@ function draw_map_3d(country_dataset) {
     });
 
 worldmap_svg.call(drag);
+set_map_attribute_legend();
 }
 
 function draw_worldmap() {
@@ -266,25 +295,26 @@ function draw_worldmap() {
             .defer(d3.json, "/static/js/world-countries.json" )
             .defer(d3.csv, '/static/Data/Preprocessed/Gini_afterFillNA.csv' )
             .defer(d3.csv, '/static/Data/Preprocessed/PIB_afterFillNA.csv')
-            .await(function(error, map_data,gini_data, pib_data){
+            .defer(d3.csv, '/static/Data/Preprocessed/Income_converted_AfterFillNA.csv')
+            .await(function(error, map_data,gini_data, pib_data,income_data){
                 if (error){
                     console.error("Issue while loading the data")
                 }else{
                     country_set = map_data;
                     gini_dataset = gini_data;
                     pib_dataset = pib_data;
-                    console.log(map_data);
+                    income_dataset = income_data;
                     draw_map_2d(country_set);
                 }
             })
 }
 
-function change_view(){
-    var state = document.getElementById("togBtn").checked
+function change_view(view_type){
     worldmap_svg.selectAll('*').remove();
-    if(state){
+    d3.select('.map').on('mousedown.drag', null);
+    if(view_type == '2D'){
         console.log("Triggered 2d");
-        console.log(country_set)
+        console.log(country_set);
         draw_map_2d(country_set);
     }else{
     console.log("Triggered 3d");
@@ -309,8 +339,6 @@ function add_country_in_worldmap(d, dom){
     update_graph_by_country();
     d3.select(dom)
         .style("filter", "drop-shadow(3px 3px 4px black)")
-        .style("stroke", "black")
-        .style("stroke-width",1);
     }else{console.log("Limit  country reached");}  // Add to the UI
 }
 
@@ -322,8 +350,6 @@ function remove_country_in_worldmap(d, dom){
     update_graph_by_country();
     d3.select(dom)
         .style("filter", "")
-        .style("stroke", "white")
-        .style("stroke-width",1)
         .attr('fill',function(d){return get_attr_color(current_year,d.id)});
 }
 
@@ -331,14 +357,16 @@ function remove_country_in_worldmap(d, dom){
 // - update countries from the tag country
 function update_selected_country_box(){
 
-    let box = d3.select('.selected_country_box')
-                .selectAll("div");
+    box = d3.select('.selected_country_box')
+                .selectAll("a");
 
     //  Remove the tag of country  that have been deleted from the list_selected_country
     box.each(function(){
         if(Object.values(list_selected_country).includes(this.textContent) == false){
+            console.log(list_selected_country)
+            console.log('remove tag ' + this.textContent);
             d3.select(this)
-            .transition().duration(200)
+            .transition().duration(700)
             .style("font-size","0pt")
             .remove();
         }
@@ -346,11 +374,12 @@ function update_selected_country_box(){
     });
 
     box.data(Object.values(list_selected_country)).enter()
-    .append('div')
+    .append('a')
+        .attr('href','#')
+        .attr('class','badge badge-primary')
     .style("font-size", '0pt')
     .on('click', function(d){
         let obj = country_set.features.find(r=> r.properties.name == d);
-        console.log(obj)
         if (obj == undefined) {
             console.log('Wrong country'); // To ADD in the UI interface
         }
@@ -363,10 +392,8 @@ function update_selected_country_box(){
         }
     })
     .transition().duration(500)
-    .attr('border',"1 px solid #000")
-    .style("font-size", '9pt')
+    .style("font-size", '10pt')
     .text(function(d){return d});
-
 
 }
 
@@ -378,8 +405,6 @@ function reset_countries(){
       update_graph_by_country();
       worldmap_svg.selectAll("path")
                 .style("filter", "")
-                .style("stroke", "white")
-                .style("stroke-width",1)
                  .each(function (d) {
                   d.clicked = false;
                   })
@@ -388,22 +413,51 @@ function reset_countries(){
 // - Map Attribute choice -
 
 function set_map_attribute(attribute) {
-      console.log(list_selected_country)
       map_attribute = attribute;
       current_attribute = map_attribute;
+      set_map_attribute_legend();
       Array.from(document.getElementsByClassName("country")).forEach(function(d){d.dispatchEvent(change_year_event)});
-      worldmap_svg.selectAll("path")
-            .each(function (d) {
-                  if (d.clicked == true) {
-                        // Gini
-                        if (map_attribute === 'Gini') {d3.select(this).style('fill','darkblue');}
-                        // Income
-                        else if (map_attribute === 'Income') {d3.select(this).style('fill','darkgreen');}
-                        // PIB
-                        else if (map_attribute === 'PIB') {d3.select(this).style('fill','darkred');}
-                  }
-         })
 };
+
+
+
+function set_map_attribute_legend(){
+
+
+    d3.select('.legend_attribute')
+        .selectAll('*')
+        .remove();
+
+    leg = d3.select('.legend_attribute')
+        .append("svg");
+
+    var leg_defs = leg.append("defs")
+          .append("svg:linearGradient")
+          .attr("id", "gr_attr")
+          .attr("x1", "100%")
+          .attr("y1", "0%")
+          .attr("x2", "100%")
+          .attr("y2", "100%");
+
+    leg_defs.append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", attr_gradient_color(0))
+      .attr("stop-opacity", 1);
+
+    leg_defs.append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", attr_gradient_color(1))
+      .attr("stop-opacity", 1);
+
+    leg.append("rect")
+      .attr("width", '70%')
+      .attr("height", '100%')
+      .style("fill", "url(#gr_attr)")
+      // .attr("transform", "translate(0,10)")
+       .attr('stroke','black')
+        // .attr('stroke-width',1);
+
+}
 
 
 // Event listener on country search box

@@ -21,7 +21,8 @@ def index():
 @app.route('/canvas', methods=['GET'])
 def canvas():
 	init()
-	return render_template('canvasV0.3.html', map_attributes = session['map_attributes'], graph_attributes = session['graph_attributes'])
+	return render_template('canvasV0.3.html', len_attributes = len(session['map_attributes']),
+						   map_attributes = session['map_attributes'], graph_attributes = session['graph_attributes'])
 
 if __name__ == '__main__':
     app.run(debug=True)
