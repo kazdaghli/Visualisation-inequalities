@@ -18,7 +18,7 @@ var parseDate = d3.timeParse("%Y")
 var minYear = '2000',
     maxYear = '2015'
 var counFlags = "https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Flags/countries.csv",
-    imFlags =  "/static/data/Flags/flags/"
+    imFlags =  "/static/Data/Flags/flags/"
 //let dataFlags = []
 function draw_graph_lines(file, countries, x, y)
 {
