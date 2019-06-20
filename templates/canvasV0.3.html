@@ -13,7 +13,6 @@
 </head>
 
 <body>
-<div class="header"></div>
 <div class="main_block">
 
     <!-- FIRST CONTAINER (MAP) -->
@@ -46,7 +45,7 @@
                     <datalist id="datalist-countries" class="datalist-countries"></datalist>
                 </div>
                 <div class="reset_button_container">
-                    <button id="add-country" onclick="add_country()">Add</button>
+                    <button id="add-country" onclick="add_country()" style="display:none;">Add</button>
                     <button id='reset_countries_button' onclick="reset_countries()">Reset</button>
                 </div>
 
@@ -66,7 +65,6 @@
 
             <!-- RIGHT SIDE -->
             <div class="graph_attribute_choice_container">
-                <h2>Graph_1 attribute</h2>
                 <div class="graph_attribute_form">
                     <form method = 'post' id="graph_1_form">
                         {% for attribute in graph_attributes %}
@@ -92,7 +90,6 @@
 
             <!-- RIGHT SIDE -->
             <div class="graph_attribute_choice_container">
-                <h2>Graph_2 attribute</h2>
                 <div class="graph_attribute_form">
                     <form method = 'post' id="graph_2_form">
                         {% for attribute in graph_attributes %}
