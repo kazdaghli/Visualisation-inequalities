@@ -41,12 +41,18 @@
                 </div>
                 <div class="map_country_toolbox">
                     <input type="text" list="datalist-countries" name="countries-search" id="countries-search">
-
                     <datalist id="datalist-countries" class="datalist-countries"></datalist>
                 </div>
                 <div class="reset_button_container">
                     <button id="add-country" onclick="add_country()" style="display:none;">Add</button>
                     <button id='reset_countries_button' onclick="reset_countries()">Reset</button>
+                    <label class="switch">
+                        <input type="checkbox" id="togBtn" onclick="change_view()">
+                        <div class="slider round">
+                            <span class="on"><strong>2D</strong></span>
+                            <span class="off"><strong>3D</strong></span>
+                        </div>
+                    </label>
                 </div>
 
 

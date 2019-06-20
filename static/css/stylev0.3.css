@@ -72,7 +72,7 @@ html,body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #809ebc;
+	background-color: white;
 }
 
 .map_year_slider_container {
@@ -260,8 +260,8 @@ html,body {
 
 .country {
 	fill-opacity: 0.7 ;
-	stroke: white;
-	stroke-width: 1;
+	stroke: black;
+	stroke-width: 0.5;
 }
 
 .country:hover {
@@ -380,3 +380,92 @@ button:active {
 	  -webkit-transform: scale(0.9);
   transform: scale(0.9);
 }
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196F3;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(55px);
+  -ms-transform: translateX(55px);
+  transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.on, .off
+{
+  color: white;
+  font-size: 15px;
+  font-family: Verdana, sans-serif;
+  transition: .9s;
+}
+
+.on
+{
+  display: none;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  font-size: 15px;
+}
+
+.off
+{
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 60%;
+  font-size: 15px;
+}
+
+
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;}

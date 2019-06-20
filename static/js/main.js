@@ -93,10 +93,8 @@ function get_pib_value(date, country_code){
 
 
 
-
 // ----- WORLD MAP -----
-function draw_map(country_dataset) {
-
+function draw_map_2d(country_dataset) {
     var projection = d3.geoMercator()
         .fitExtent([[0,10],[map_container_w, map_container_h-10]], country_dataset)
 
@@ -111,9 +109,6 @@ function draw_map(country_dataset) {
      gr_pib = d3.scaleLinear()
             .domain([8824448,1371564453640])
             .range([0,1])
-//            .clip(true)
-
-
 
     // ----  Country list of the search box ------
     d3.select('.datalist-countries')
@@ -151,6 +146,119 @@ function draw_map(country_dataset) {
            });
 }
 
+
+function draw_map_3d(country_dataset) {
+
+/*
+    var projection = d3.geoMercator()
+        .fitExtent([[0,10],[map_container_w, map_container_h-10]], country_dataset)
+
+    var path = d3.geoPath(projection);
+*/
+
+    var projection = d3.geoOrthographic()
+            .scale(map_container_w/3)
+            .translate([map_container_w / 2, map_container_h / 2])
+            .clipAngle(90) // without this options countries on the other side are visible
+            .precision(.1)
+            .rotate([0,0,0]);
+
+    var path = d3.geoPath()
+            .projection(projection);
+
+    world_svg = d3.select('.map')
+
+    const graticule = d3.geoGraticule();
+
+    world_svg.append("circle")
+		.attr("class", "water")
+		.attr("cx", map_container_w/2)
+		.attr("cy", map_container_h/2)
+		.attr("r", map_container_w/3)
+		.style('fill','#809ebc');
+
+    world_svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path)
+    .attr("fill","#809ebc");
+
+
+    // --- Gradient Color definition ------
+    // GINI
+     gr_gini = d3.scaleLinear()
+		        .domain([21,63])
+			    .range([0,1])
+
+     gr_pib = d3.scaleLinear()
+            .domain([8824448,1371564453640])
+            .range([0,1])
+
+    // ----  Country list of the search box ------
+    d3.select('.datalist-countries')
+        .selectAll("option")
+        .data(country_dataset.features)
+        .enter().append("option")
+        .attr("value", function(d){return d.properties.name})
+        ;
+
+    // ---- Draw World map ----
+    worldmap_svg.selectAll("path")
+        .data(country_dataset.features)
+        .enter().append("path")
+        .attr("d", path)
+        .attr("class","country")
+        .attr("id", function(d){return d.id})
+        .attr("year", function(d){d.year = current_year;return current_year})
+        .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
+        .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
+        .attr("fill", function(d){return get_attr_color(current_year,d.id)})
+        .on('mouseover', function(d){tip.show(d)})
+        .on('mouseout', function (d){tip.hide(d)})
+        .on('click', function (d){
+            if (d.clicked) {remove_country_in_worldmap(d, this);}
+            else {add_country_in_worldmap(d, this);}
+            })
+        .on('add-by-search', function (d){if (d.clicked == false || d.clicked == undefined){add_country_in_worldmap(d, this);}})
+        .on("remove-by-tag", function(d){if(d.clicked){remove_country_in_worldmap(d, this);}})
+        .on('change-year', function(d) {
+            d.year = current_year;
+            d.gini = get_gini_value(current_year,d.id);
+            d.pib  = get_pib_value(current_year,d.id);
+            d3.select(this)
+              .attr("fill", function(d){return get_attr_color(current_year,d.id)});
+           });
+
+     const λ = d3.scaleLinear()
+    .domain([0, map_container_w])
+    .range([-180, 180]);
+
+    const φ = d3.scaleLinear()
+    .domain([0, map_container_h])
+    .range([90, -90]);
+
+    var drag = d3.drag().subject(function() {
+    var r = projection.rotate();
+    return {
+        x: λ.invert(r[0]),
+        y: φ.invert(r[1])
+    };
+    }).on("drag", function() {
+        projection.rotate([λ(d3.event.x), φ(d3.event.y)]);
+
+        worldmap_svg.selectAll(".graticule")
+            .datum(graticule)
+            .attr("d", path);
+
+        worldmap_svg.selectAll(".country")
+            .attr("d", path);
+
+        worldmap_svg.style("fill", "#809ebc")
+    });
+
+worldmap_svg.call(drag);
+}
+
 function draw_worldmap() {
       worldmap_svg.call(tip);
 
@@ -165,11 +273,27 @@ function draw_worldmap() {
                     country_set = map_data;
                     gini_dataset = gini_data;
                     pib_dataset = pib_data;
-                    draw_map(country_set);
-                    console.log(d3.schemeReds)
+                    console.log(map_data);
+                    draw_map_2d(country_set);
                 }
             })
 }
+
+function change_view(){
+    var state = document.getElementById("togBtn").checked
+    worldmap_svg.selectAll('*').remove();
+    if(state){
+        console.log("Triggered 2d");
+        console.log(country_set)
+        draw_map_2d(country_set);
+    }else{
+    console.log("Triggered 3d");
+    console.log(country_set);
+        draw_map_3d(country_set);
+    }
+}
+
+
 // ----- HELPER FUNCTIONS -----
 
 
@@ -202,8 +326,6 @@ function remove_country_in_worldmap(d, dom){
         .style("stroke-width",1)
         .attr('fill',function(d){return get_attr_color(current_year,d.id)});
 }
-
-
 
 
 // - update countries from the tag country
