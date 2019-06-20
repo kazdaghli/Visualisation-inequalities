@@ -82,7 +82,7 @@ function draw_graph_lines(file, countries, x, y)
     .enter()
       //.append('g')
       //.append('img')
-      .append("svg:image")
+      .append("image")
       .attr('class', 'picture')
       .attr('xlink:href', function(d) { 
             return imFlags + d.flag; 
@@ -176,6 +176,7 @@ function update_graph_by_country(){
   countries = Object.keys(list_selected_country)
   svgGraph.selectAll("path").remove()
   svgGraph.selectAll("g").remove()
+  svgGraph.selectAll("image").remove()
   draw_graph(attribute, countries)
 
 }
@@ -191,7 +192,8 @@ function set_graph_1_attribute(attribute)
   svgGraph.selectAll("g").remove("yAxis")
   svgGraph.selectAll("text").remove(["yText", "xText"])
   svgGraph.selectAll("path").remove()
-  svgGraph.selectAll("myLegend").remove(['picture'])
+  svgGraph.selectAll("image").remove()
+  console.log(countries)
   draw_graph(attribute, countries)
 }
 d3.csv(counFlags)
