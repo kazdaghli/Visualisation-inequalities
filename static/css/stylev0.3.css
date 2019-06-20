@@ -1,0 +1,347 @@
+html,body {
+    height:100%;
+    margin:0;
+    padding:0;
+    font-family: Helvetica,Arial, sans-serif;
+}
+
+.header{
+	height:5%;
+    margin:0;
+    padding:0;
+	background-color: grey;	
+}
+
+.main_block {
+/*    height: 100vh; *//* For 100% screen height *//* *//*ML*//*
+    width:  100vw; *//* For 100% screen width *//* *//*ML*/
+	/*height:95%;*/ /*ML*/
+    margin:0;
+    padding:0;
+	display: flex;
+	background-color: white;
+	flex-direction: row;
+	align-items : center;
+	overflow-y: auto;
+}
+
+
+
+/* ----- MAP BOX ----- */
+.map_box {
+	margin:0;
+    padding:0;
+/*	ML min-width: 90%;
+	min-height: 90%;*/
+	height : 100vh; /*ML*/
+	width : 50vw; /*ML*/
+	display: flex;
+}
+
+.map_toolbox_container {
+    position: absolute; /*ML*/
+	margin-top : 40px;
+	margin-bottom : 40px;
+	margin-left: 40px;
+/*	flex : 1;
+	display: flex;
+	flex-direction: column;*/
+/*	justify-content: space-around;
+	align-items: center;*/
+}
+
+.map_container_all {
+	margin : 0px;
+	flex : 4;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #809ebc;
+	width: 100% ;/*ML*/
+	position: relative;
+}
+.map_container {
+	min-width: 100%;
+	height: 100%;
+	border-color: transparent;
+	border-radius: 2px; 
+	border-style : solid;;
+}
+
+.map_year_slider_container {
+	min-width: 80%;
+	height: 10%;
+}
+
+.selected_country_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.selected_country_box > div {
+    border-radius: 10px;
+    border : 2px solid darkblue;
+    background-color: #f1f1f1;
+    padding: 0px 3px;
+	margin: 3px;
+    stroke: #fef;
+    stroke-width: 1.5px;
+}
+
+.map {
+	width: 100%;
+} 
+
+
+	/* --- Upper Left-hand corner --- */
+
+.map_attribute_choice_container {
+/*	width: 100%;
+	height: 40%;*/
+
+	position: absolute;
+    top:0px;
+	left:0px;
+/*	border-color: grey;
+	border-radius: 2px; 
+	border-style : solid;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.map_attribute_form{
+/*	flex : 8;
+	width: 100%;*/
+}
+
+.map_attribute_form form div {
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+	/* --- Lower Left-hand corner --- */
+
+.map_country_toolbox_container {
+    /*width: 100%;
+	height: 40%;*//*ML*/
+	width: 250px;
+	position: absolute;
+	bottom:100px;
+    left:0;
+/*    border-color: grey;
+	border-radius: 2px; 
+	border-style : solid;*/
+	display: flex;
+	flex-direction: column;
+}
+
+
+.map_country_toolbox > input{
+	width: 90%;
+}
+
+
+.reset_button_container {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* ----- GRAPH BOXES ----- */
+
+.graph_box_all{
+    height: 100%;
+    width: 50%;
+    display:flex;
+    flex-direction:column;
+    	justify-content: space-around;
+}
+
+.graph_box {
+    padding:0;
+	min-width: 80%;
+	min-height: 45%;
+	display: flex;
+}
+
+	/* --- LEFT BOX --- */
+
+.graph_attribute_choice_container {
+	margin-top : 40px;
+	margin-bottom : 40px;
+	margin-left: 40px;
+	padding: 0;
+	flex : 1;
+	border-color: #9ACD32;
+	border-radius: 2px; 
+	border-style : solid;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.graph_attribute_choice_container h2 {
+	font-size: 22px;
+	font-weight: bold;
+	flex: 1; 
+}
+
+.graph_attribute_form{
+	flex : 8;
+	width: 100%;
+}
+
+.graph_attribute_form form div {
+	margin-left: 75px;
+	margin-top: 20px;
+}
+
+	/* --- RIGHT BOX --- */
+
+.graph_container {
+	margin:40px;
+    padding:0;
+	flex : 4;
+	border-color: #9ACD32;
+	border-radius: 2px; 
+	border-style : solid;
+}
+
+/* ----- D3 ----- */
+
+.d3-tip {
+    line-height: normal;
+    font-weight: 400;
+    font-family:"avenir next", Arial, sans-serif;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFA500;
+    border-radius: 1px;
+    pointer-events: none;
+    }
+
+.d3-tip > span {
+    font-size: 11px;
+    font-family:"avenir next", Arial, sans-serif;
+    color: white;
+    }
+
+.country {
+	fill-opacity: 0.7 ;
+	stroke: white;
+	stroke-width: 1;
+}
+
+.country:hover {
+	filter: drop-shadow(3px 3px 4px white);
+	stroke-width: 3;
+}
+
+/* ----- SLIDER ----- */
+
+.tick text {
+	font-size: 11px;
+	font-weight: bold;
+	fill : black;
+}
+
+.tick line {
+	stroke : white;
+}
+
+/* ----- RADIO BUTTONS ----- */
+
+/* https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+
+/* Customize the label (the container) */
+.radio_button_container {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio_button_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio_button_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio_button_container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio_button_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio_button_container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+
+/* BUTTONS */
+
+button {
+  background-color: #2196F3; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #1978c4;
+}
+
+button:active {
+	  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
