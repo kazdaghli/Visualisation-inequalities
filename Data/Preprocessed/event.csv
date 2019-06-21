@@ -1,30 +1,30 @@
-﻿year,event
-2000,Dot-com bubble
-2000,Poutine election
-2001,Turkish economic crisi
-2001,11 september
-2002,Stock market crash
-2002,Uruguay banking crisis
-2002,Venesuela oil lockout
-2002,Euro
-2003,Irak war
-2004,10 new EU members
-2005,Katrina & Rita hurricane
-2006,Saddam Hussein execution
-2008,Financial crisis
-2008,Madoff scandal
-2009,H1N1 crisis
-2010,Grece economic crisis
-2010,Portuguese financial crisis
-2011,Fukushima
-2011,Arab spring
-2012,Poutine election
-2012,Venezuela crisis
-2013,Ukrenian crisis
-2014,Russian financial crisis
-2014,Brasilian economic crisis
-2014,Obamacare
-2014,Crimee war
-2015,Grece debt crisis
-2015,Chinese stock market crisis
-2016,Brexit
+﻿country,year,event
+WRD,2000,Dot-com bubble
+RUS,2000,Poutine election
+TUR,2001,Turkish economic crisi
+USA,2001,11 september
+WRD,2002,Stock market crash
+URY,2002,Uruguay banking crisis
+VEN,2002,Venesuela oil lockout
+WRD,2002,Euro
+IRQ,2003,Irak war
+WRD,2004,10 new EU members
+USA,2005,Katrina & Rita hurricane
+USA,2006,Saddam Hussein execution
+WRD,2008,Financial crisis
+WRD,2008,Madoff scandal
+WRD,2009,H1N1 crisis
+GRC,2010,Grece economic crisis
+PRT,2010,Portuguese financial crisis
+JPN,2011,Fukushima
+WRD,2011,Arab spring
+RUS,2012,Poutine election
+VEN,2012,Venezuela crisis
+UKR,2013,Ukrenian crisis
+RUS,2014,Russian financial crisis
+BRA,2014,Brasilian economic crisis
+USA,2014,Obamacare
+WRD,2014,Crimee war
+GRC,2015,Grece debt crisis
+CHN,2015,Chinese stock market crisis
+GBR,2016,Brexit

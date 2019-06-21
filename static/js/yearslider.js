@@ -28,7 +28,7 @@ var slider = d3
 d3.select('#slider')
     .append('svg')
     .attr('width', '100%')
-    .attr('height', '100%')
+    /*.attr('height', '100%')*/
     .append('g')
     .attr('transform', 'translate(10,5)')
     .call(slider);
