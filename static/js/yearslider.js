@@ -2,7 +2,7 @@
 var slider_container_w = d3.select('.map_year_slider_container').node().getBoundingClientRect().width;
 var slider_container_h = d3.select('.map_year_slider_container').node().getBoundingClientRect().height;
 
-var dataTime = d3.range(0, 15).map(function(d) {
+var dataTime = d3.range(0, 17).map(function(d) {
     return new Date(2000 + d, 10, 3);
   });
 

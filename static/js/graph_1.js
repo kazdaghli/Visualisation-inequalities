@@ -151,6 +151,31 @@ function draw_graph(attribute, countries, year){
     var minValue = 100,
         maxValue = 30000000000000; 
   }
+  else if (attribute == 'Investment freedom')
+  {
+    var file = 'static/Data/Preprocessed/investment freedom.csv'
+    var minValue = 10,
+        maxValue = 100; 
+  }
+  else if (attribute == 'Trade freedom')
+  {
+    var file = 'static/Data/Preprocessed/trade freedom.csv'
+    var minValue = 10,
+        maxValue = 100; 
+  }
+  else if (attribute == 'Government integrity')
+  {
+    var file = 'static/Data/Preprocessed/government integrity.csv'
+    var minValue = 10,
+        maxValue = 100; 
+  }
+  else if (attribute == 'Property rights')
+  {
+    var file = 'static/Data/Preprocessed/property rights.csv'
+    var minValue = 10,
+        maxValue = 100; 
+  }
+
   var xx = d3.scaleTime()
             .domain([minYear, maxYear])
             .range([ 0, width ])
