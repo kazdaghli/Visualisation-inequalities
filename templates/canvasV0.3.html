@@ -143,15 +143,15 @@
                 <div class="graph_attribute_form">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             {% for i in range(0,len_graph_attributes) %}
-                            {% if (i==0) %}
+                            {% if (i==1) %}
                             <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
                                 <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                       id="graph_2_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
+                                       id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
                             </label>
                             {% else %}
                             <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
                                 <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                       id="graph_2_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
+                                       id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
                             </label>
                             {% endif%}
                             {% endfor %}
@@ -170,7 +170,9 @@
             </div>
 
             <!-- LEFT SIDE -->
-            <div class="graph_container"></div>
+            <div class="graph_container">
+                <div id="graph_2"></div>
+            </div>
         </div>
 
     </div>
@@ -184,6 +186,7 @@
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script type="text/javascript" src="/static/js/yearslider.js"></script>
 <script type="text/javascript" src="/static/js/graph_1.js"></script>
+<script type="text/javascript" src="/static/js/graph_2.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

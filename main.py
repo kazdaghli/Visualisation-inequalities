@@ -11,7 +11,7 @@ session_id_init = "hds62bbddsb0b35"
 # Initialisation function
 def init():
 	session['map_attributes'] = ['Gini', 'Income', 'PIB']
-	session['graph_attributes'] = ['Gini', 'Wealth', 'Test']
+	session['graph_attributes'] = ['Gini', 'Income', 'PIB']
 
 @app.route('/', methods=['GET'])
 def index():

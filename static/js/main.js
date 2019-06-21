@@ -57,7 +57,7 @@ var map_attribute = 'Gini'
 
 var graph_1_attribute = 'Gini'
 
-var graph_2_attribute = 'Wealth'
+var graph_2_attribute = 'Income'
 
 var country_color = '#1E1E1E'
 
@@ -339,6 +339,7 @@ function add_country_in_worldmap(d, dom){
     list_selected_country[d.id] = d.properties.name
     update_selected_country_box();
     update_graph_by_country();
+    update_graph_2_by_country();
     d3.select(dom)
         .style("stroke-width","3")
 //        .style("stroke","black")
@@ -352,6 +353,7 @@ function remove_country_in_worldmap(d, dom){
     delete list_selected_country[d.id]
     update_selected_country_box();
     update_graph_by_country();
+    update_graph_2_by_country();
     d3.select(dom)
         .style("stroke-width","0.5")
 //        .style("filter", "")
@@ -408,6 +410,7 @@ function reset_countries(){
       list_selected_country = {};
       update_selected_country_box();
       update_graph_by_country();
+      update_graph_2_by_country();
       worldmap_svg.selectAll("path")
                    .style("stroke-width","0.5")
 //                .style("filter", "")
@@ -504,6 +507,7 @@ function set_graph_2_attribute(attribute) {
 function main(){
       document.getElementById("map_" + map_attribute).checked = true;
       document.getElementById("graph_1_" + graph_1_attribute).checked = true;
+      console.log('attribute', graph_2_attribute)
       document.getElementById("graph_2_" + graph_2_attribute).checked = true;
       draw_worldmap();
 };

@@ -4,14 +4,14 @@ var margin = {top: 10, right: 100, bottom: 30, left: 40},
     height = d3.select('.graph_container').node().getBoundingClientRect().height - margin.top - margin.bottom;//  
 
 // append the svg object to the body of the page
-var svgGraph = d3.selectAll("#graph_1")//
+var svgGraph2 = d3.selectAll("#graph_2")//
     .append('svg')
     .attr("width", width + margin.left + margin.right )
     .attr("height", height + margin.top + margin.bottom )
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var countries =  []
-var attribute_1 = 'Gini'
+var attribute_2 = 'Income'
 var parseDate = d3.timeParse("%Y")
 var minYear = '2000',
     maxYear = '2015'
@@ -38,9 +38,9 @@ var tipDot = d3.tip()
     })
     
 //let dataFlags = []
-function draw_graph_lines(file, countries, x, y)
+function draw_graph_lines_2(file, countries, x, y)
 {
-  svgGraph.call(tipDot)
+  svgGraph2.call(tipDot)
   //Read the data
   d3.csv(file, function(data) {
     d3.csv(counFlags, function(dataFlags) {
@@ -63,27 +63,27 @@ function draw_graph_lines(file, countries, x, y)
   var line = d3.line()
     .x(function(d) { return x(+d.time) })
     .y(function(d) { return y(+d.value) })
-    svgGraph.selectAll("myLines")
+    svgGraph2.selectAll("myLines2")
     .data(dataReady)
     .enter()
     .append("path")
-      .attr("class", function(d){ return d.name })
+      .attr("class", function(d){ return d.name + '_2'  })
       .attr("d", function(d){ return line(d.values) } )
       .attr("stroke", function(d){ return myColor(d.name) })
       .style("stroke-width", 4)
       .style("fill", "none")
 
   // Add the points
-  svgGraph
+  svgGraph2
     // First we need to enter in a group
-    .selectAll("myDots")
+    .selectAll("myDots2")
     .data(dataReady)
     .enter()
       .append('g')
       .style("fill", function(d){ return myColor(d.name) })
-      .attr("class", function(d){ return d.name })
+      .attr("class", function(d){ return d.name + '_2' })
     // Second we need to enter in the 'values' part of this group
-    .selectAll("myPoints")
+    .selectAll("myPoints2")
     .data(function(d){ return d.values })
     .enter()
     .append("circle")
@@ -96,13 +96,13 @@ function draw_graph_lines(file, countries, x, y)
 
 
   // Add a legend (interactive)
-    svgGraph.selectAll("myLegend")//
+    svgGraph2.selectAll("myLegend2")//
     .data(dataReady)
     .enter()
       //.append('g')
       //.append('img')
       .append("image")
-      .attr('class', 'picture')
+      .attr('class', 'picture2')
       .attr('xlink:href', function(d) { 
             return imFlags + d.flag; 
       })
@@ -110,18 +110,19 @@ function draw_graph_lines(file, countries, x, y)
       .attr("x", 12) // shift the text a bit more right
       .on("click", function(d){
         // is the element currently visible ?
-        currentOpacity = d3.selectAll("." + d.name ).style("opacity")
+        currentOpacity = d3.selectAll("." + d.name + '_2' ).style("opacity")
         // Change the opacity: from 0 to 1 or from 1 to 0
-        d3.selectAll("." + d.name).transition().style("opacity", currentOpacity == 1 ? 0:1)
+        d3.selectAll("." + d.name + '_2').transition().style("opacity", currentOpacity == 1 ? 0:1)
       })
       .attr('width', 32)
       .attr('height', 32)
 
-      svgGraph.selectAll("myLegend")//
+      svgGraph2.selectAll("myLegend2")//
     .data(dataReady)
     .enter()
       .append('g')
       .append("text")
+      .attr('class', 'title2')
       .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
       .text(function(d) { return d.name; })
       .style("fill", function(d){ return myColor(d.name) })
@@ -133,7 +134,7 @@ function draw_graph_lines(file, countries, x, y)
 }
 
 
-function draw_graph(attribute, countries, year){
+function draw_graph_2(attribute, countries, year){
   if (attribute == 'Gini'){
     var file = 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv'
     var minValue = 25,
@@ -158,14 +159,14 @@ function draw_graph(attribute, countries, year){
   var x = d3.scaleTime()
             .domain([parseDate(minYear), parseDate(maxYear)])
             .range([ 0, width ])
-  svgGraph.append('g')
-          .attr("class", "xAxis")
+  svgGraph2.append('g')
+          .attr("class", "xAxis2")
           .attr("transform", "translate(0," + height + ")")
           .style("dominant-baseline", "central")
           .call(d3.axisBottom(x));
 
-  svgGraph.append("text")  
-          .attr("class", "xText")           
+  svgGraph2.append("text")  
+          .attr("class", "xText2")           
           .attr("transform", "translate(" + (width/2) + " ," + 
                                (height + margin.top + 20) + ")")
           .style("text-anchor", "middle")
@@ -174,13 +175,13 @@ function draw_graph(attribute, countries, year){
   var y = d3.scaleLinear()
             .domain( [minValue,maxValue])
             .range([ height, 0 ]);
-  svgGraph.append('g')
-          .attr("class", "yAxis")
+  svgGraph2.append('g')
+          .attr("class", "yAxis2")
           .call(d3.axisLeft(y));
   
   // text label for the y axis
-  svgGraph.append("text")
-          .attr("class", "yText") 
+  svgGraph2.append("text")
+          .attr("class", "yText2") 
           .attr("transform", "rotate(-90)")
           .attr("y", 0 - margin.left - 5)
           .attr("x",0 - (height / 2) )
@@ -189,31 +190,31 @@ function draw_graph(attribute, countries, year){
           .text(attribute + " Value"); 
 
   if (countries.length > 0){
-     draw_graph_lines(file, countries, xx, y)
-     update_events(year, countries, xx, y)
+     draw_graph_lines_2(file, countries, xx, y)
+     update_events_2(year, countries, xx, y)
   }
 }
 
 
-function update_graph_by_country(){
+function update_graph_2_by_country(){
   countries = Object.keys(list_selected_country)
-  svgGraph.selectAll("path").remove()
-  svgGraph.selectAll("text").remove()
-  svgGraph.selectAll("g").remove()
-  svgGraph.selectAll("image").remove()
-  svgGraph.selectAll("line").remove()
-  svgGraph.selectAll("polygon").remove()
-  draw_graph(attribute_1, countries, current_year)
+  svgGraph2.selectAll("path").remove()
+  svgGraph2.selectAll("text").remove()
+  svgGraph2.selectAll("g").remove()
+  svgGraph2.selectAll("image").remove()
+  svgGraph2.selectAll("line").remove()
+  svgGraph2.selectAll("polygon").remove()
+  draw_graph_2(attribute_2, countries, current_year)
 }
 
-function update_graph_by_year(){
-  svgGraph.selectAll("path").remove()
-  svgGraph.selectAll("text").remove()
-  svgGraph.selectAll("g").remove()
-  svgGraph.selectAll("image").remove()
-  svgGraph.selectAll("line").remove()
-  svgGraph.selectAll("polygon").remove()
-  draw_graph(attribute_1, countries, current_year)
+function update_graph_2_by_year(){
+  svgGraph2.selectAll("path").remove()
+  svgGraph2.selectAll("text").remove()
+  svgGraph2.selectAll("g").remove()
+  svgGraph2.selectAll("image").remove()
+  svgGraph2.selectAll("line").remove()
+  svgGraph2.selectAll("polygon").remove()
+  draw_graph_2(attribute_2, countries, current_year)
 }
 
 function CalculateStarPoints(centerX, centerY, arms, outerRadius, innerRadius)
@@ -243,7 +244,7 @@ function CalculateStarPoints(centerX, centerY, arms, outerRadius, innerRadius)
    }
    return results;
 }
-function update_events(year, countries, x, y)
+function update_events_2(year, countries, x, y)
 {
   d3.csv(events, function(data) {
     d3.csv(counFlags, function(dataFlags) {
@@ -254,8 +255,8 @@ function update_events(year, countries, x, y)
           event: d.event,
           flag:  dataFlags.filter(function(k){return  k.code3 == d.country;})[0].im32};//
     }) 
-  svgGraph.call(tipEvent)
-  svgGraph.append("line")
+  svgGraph2.call(tipEvent)
+  svgGraph2.append("line")
     .attr("x1", x(year))  //<<== change your code here
     .attr("y1", 0)
     .attr("x2", x(year))  //<<== and here
@@ -265,7 +266,7 @@ function update_events(year, countries, x, y)
     .style("stroke", "red")
     .style("fill", "none");
     
-  svgGraph.selectAll("star")
+  svgGraph2.selectAll("star")
       .data(dataEvents)
       .enter()
       .append("svg:polygon")
@@ -278,20 +279,18 @@ function update_events(year, countries, x, y)
     .on("mouseout", function(d) { return tipEvent.hide(dataEvents)})
   })
   }) 
-
- 
 }
 
-function set_graph_1_attribute(new_attribute)
+function set_graph_2_attribute(new_attribute)
 {
-  attribute_1 = new_attribute
-  svgGraph.selectAll("g").remove()//"yAxis"
-  svgGraph.selectAll("text").remove()//["yText", "xText"]
-  svgGraph.selectAll("path").remove()
-  svgGraph.selectAll("image").remove()
-  svgGraph.selectAll("line").remove()
-  svgGraph.selectAll("polygon").remove()
-  draw_graph(attribute_1, countries, current_year)
+  attribute_2 = new_attribute
+  svgGraph2.selectAll("g").remove()//"yAxis"
+  svgGraph2.selectAll("text").remove()//["yText", "xText"]
+  svgGraph2.selectAll("path").remove()
+  svgGraph2.selectAll("image").remove()
+  svgGraph2.selectAll("line").remove()
+  svgGraph2.selectAll("polygon").remove()
+  draw_graph_2(attribute_2, countries, current_year)
 }
 d3.csv(counFlags)
   .row(function(d) {
@@ -309,4 +308,4 @@ d3.csv(counFlags)
   })
 
 
-draw_graph(attribute_1, countries)
+draw_graph_2(attribute_2, countries)
