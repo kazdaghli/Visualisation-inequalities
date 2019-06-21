@@ -123,7 +123,8 @@ function draw_map_2d(country_dataset) {
             .range([0,1])
 
     gr_income = d3.scaleLinear()
-            .domain([50,90500])
+             .domain([0,1])
+//            .domain([50,90500])
             .range([0,1])
 
     // ----  Country list of the search box ------
@@ -145,9 +146,9 @@ function draw_map_2d(country_dataset) {
         .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
         .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
         .attr("fill", function(d){return get_attr_color(current_year,d.id)})
-        .style("filter", function(d){
+        .style("stroke-width", function(d){
             if(d.clicked){
-                return "drop-shadow(3px 3px 4px black)"
+                return "3"
             }else{
                 return ''
             }
@@ -234,9 +235,9 @@ function draw_map_3d(country_dataset) {
         .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
         .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
         .attr("fill", function(d){return get_attr_color(current_year,d.id)})
-        .style("filter", function(d){
+        .style("stroke-width", function(d){
             if(d.clicked){
-                return "drop-shadow(3px 3px 4px black)"
+                return "3"
             }else{
                 return ''
             }
@@ -295,7 +296,8 @@ function draw_worldmap() {
             .defer(d3.json, "/static/js/world-countries.json" )
             .defer(d3.csv, '/static/Data/Preprocessed/Gini_afterFillNA.csv' )
             .defer(d3.csv, '/static/Data/Preprocessed/PIB_afterFillNA.csv')
-            .defer(d3.csv, '/static/Data/Preprocessed/Income_converted_AfterFillNA.csv')
+//            .defer(d3.csv, '/static/Data/Preprocessed/Income_converted_AfterFillNA.csv')
+            .defer(d3.csv, '/static/Data/Preprocessed/Purchasing_power.csv')
             .await(function(error, map_data,gini_data, pib_data,income_data){
                 if (error){
                     console.error("Issue while loading the data")
@@ -338,7 +340,9 @@ function add_country_in_worldmap(d, dom){
     update_selected_country_box();
     update_graph_by_country();
     d3.select(dom)
-        .style("filter", "drop-shadow(3px 3px 4px black)")
+        .style("stroke-width","3")
+//        .style("stroke","black")
+//        .style("filter", "drop-shadow(3px 3px 4px black)")
     }else{console.log("Limit  country reached");}  // Add to the UI
 }
 
@@ -349,7 +353,8 @@ function remove_country_in_worldmap(d, dom){
     update_selected_country_box();
     update_graph_by_country();
     d3.select(dom)
-        .style("filter", "")
+        .style("stroke-width","0.5")
+//        .style("filter", "")
         .attr('fill',function(d){return get_attr_color(current_year,d.id)});
 }
 
@@ -404,7 +409,8 @@ function reset_countries(){
       update_selected_country_box();
       update_graph_by_country();
       worldmap_svg.selectAll("path")
-                .style("filter", "")
+                   .style("stroke-width","0.5")
+//                .style("filter", "")
                  .each(function (d) {
                   d.clicked = false;
                   })
