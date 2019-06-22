@@ -83,7 +83,7 @@ var map_attribute = 'Gini'
 
 var graph_1_attribute = 'Gini'
 
-var graph_2_attribute = 'Income'
+var graph_2_attribute = 'PP'
 
 var country_color = '#1E1E1E'
 

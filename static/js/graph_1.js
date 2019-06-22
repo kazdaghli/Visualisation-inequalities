@@ -139,13 +139,13 @@ function draw_graph(attribute, countries, year){
     var minValue = 25,
         maxValue = 70;  
   }
-  else if (attribute == 'Income')
+  else if (attribute == 'PP')
   {
     var file = 'static/Data/Preprocessed/Purchasing_power.csv'
     var minValue = 0,
         maxValue = 2; 
   }
-  else if (attribute == 'PIB')
+  else if (attribute == 'GDP')
   {
     var file = 'static/Data/Preprocessed/PIB_afterFillNA.csv'
     var minValue = 100,
