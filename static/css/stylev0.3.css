@@ -583,3 +583,81 @@ input:checked + .slider .off
     top : 0;
     right : 0;
 }
+
+
+
+
+/*TEST */
+.page_header{
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.page_header > div {
+
+    width: 50vw;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: "Times header";
+    font-size: 3.5rem;
+    color: #313C53;
+    font-weight: bold;
+}
+
+.page_header > div > img {
+    height: 75vh;
+}
+
+header{
+    position: fixed;
+    width: 90%;
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    z-index: 10;
+    font-family: "Times header";
+}
+.header-nav {
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    background-color: rgba(49,60,83,0.4);
+
+    overflow: hidden;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.header-center{
+    flex:1 1 auto; /* Lets middle column shrink/grow to available width */
+
+}
+
+div.header{
+    padding-top: 1em;
+    color: white;
+}
+
+a.active{
+    text-decoration: none;
+    color:white;
+}
+
+div.header-left:hover{
+    background-color: white;
+}
+a.active:hover{
+    color:white;
+}

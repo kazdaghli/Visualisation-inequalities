@@ -15,6 +15,33 @@
 </head>
 
 <body>
+{#<header>
+    <div class="header-nav">
+        <div class="header-left">
+            <a class="active" >Left</a>
+        </div>
+
+        <div class="header-center">
+            <a>Inequalities in the world</a>
+        </div>
+        <div class="header-right">
+            <a>Right</a>
+        </div>
+    </div>
+</header>#}
+<div class="page_header">
+    <div style="display: flex; flex-direction: column; align-items: center">
+        <img src="/static/images/Scale-of-Justice.png">
+    </div>
+    <div class="page_presentation">
+        <h1>
+            Inequalities accross the World
+        </h1>
+        <h2>
+            dbsjkdnskl
+        </h2>
+    </div>
+</div>
 <div class="main_block">
     <!-- FIRST CONTAINER (MAP) -->
     <div class="map_box">
@@ -51,17 +78,17 @@
                     <div class="map_attribute_choice_container">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             {% for i in range(0,len_attributes) %}
-                            {% if (i==0) %}
-                            <label class="btn btn-secondary active" onclick="set_map_attribute('{{map_attributes[i]}}')">
-                                <input type="radio" name="options" autocomplete="off" value="map_{{attribute}}"
-                                       id="map_{{map_attributes[i]}}"  checked> {{map_attributes[i]}}
-                            </label>
-                            {% else %}
-                            <label class="btn btn-secondary" onclick="set_map_attribute('{{map_attributes[i]}}')">
-                                <input type="radio" name="options"  autocomplete="off" value="map_{{attribute}}"
-                                       id="map_{{map_attributes[i]}}" > {{map_attributes[i]}}
-                            </label>
-                            {% endif%}
+                                {% if (i==0) %}
+                                    <label class="btn btn-secondary active" onclick="set_map_attribute('{{map_attributes[i]}}')">
+                                        <input type="radio" name="options" autocomplete="off" value="map_{{attribute}}"
+                                               id="map_{{map_attributes[i]}}"  checked> {{map_attributes[i]}}
+                                    </label>
+                                {% else %}
+                                    <label class="btn btn-secondary" onclick="set_map_attribute('{{map_attributes[i]}}')">
+                                        <input type="radio" name="options"  autocomplete="off" value="map_{{attribute}}"
+                                               id="map_{{map_attributes[i]}}" > {{map_attributes[i]}}
+                                    </label>
+                                {% endif%}
                             {% endfor %}
                         </div>
 
@@ -103,21 +130,21 @@
             <div class="graph_attribute_choice_container">
                 <div class="graph_attribute_form">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            {% for i in range(0,len_graph_attributes) %}
+                        {% for i in range(0,len_graph_attributes) %}
                             {% if (i==0) %}
-                            <label class="btn btn-secondary active" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
-                                <input type="radio" name="options" autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
-                                       id="graph_1_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
-                            </label>
+                                <label class="btn btn-secondary active" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
+                                    <input type="radio" name="options" autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
+                                           id="graph_1_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
+                                </label>
                             {% else %}
-                            <label class="btn btn-secondary" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
-                                <input type="radio" name="options"  autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
-                                       id="graph_1_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
-                            </label>
+                                <label class="btn btn-secondary" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
+                                    <input type="radio" name="options"  autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
+                                           id="graph_1_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
+                                </label>
                             {% endif%}
-                            {% endfor %}
-                        </div>
- <!--                   <form method = 'post' id="graph_1_form">
+                        {% endfor %}
+                    </div>
+                    <!--                   <form method = 'post' id="graph_1_form">
                         {% for attribute in graph_attributes %}
                         <div>
                             <label class="radio_button_container">{{attribute}}
@@ -143,20 +170,20 @@
             <div class="graph_attribute_choice_container">
                 <div class="graph_attribute_form">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            {% for i in range(0,len_graph_attributes) %}
+                        {% for i in range(0,len_graph_attributes) %}
                             {% if (i==1) %}
-                            <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
-                                <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                       id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
-                            </label>
+                                <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
+                                    <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
+                                           id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
+                                </label>
                             {% else %}
-                            <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
-                                <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                       id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
-                            </label>
+                                <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
+                                    <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
+                                           id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
+                                </label>
                             {% endif%}
-                            {% endfor %}
-                        </div>
+                        {% endfor %}
+                    </div>
                     <!--<form method = 'post' id="graph_2_form">
                         {% for attribute in graph_attributes %}
                         <div>
@@ -183,14 +210,14 @@
     <div id="slider"></div>
 </div>
 <div class="bubble_container">
-        <div class="bubble">
-    <!--<p id="value"></p>-->
-            <div id="bubble_1"></div>
+    <div class="bubble">
+        <!--<p id="value"></p>-->
+        <div id="bubble_1"></div>
     </div>
     <div class="bubble">
-            <!--<p id="value"></p>-->
-                    <div id="bubble_2"></div>
-            </div>
+        <!--<p id="value"></p>-->
+        <div id="bubble_2"></div>
+    </div>
 </div>
 <script type="text/javascript" src="/static/js/main.js"></script>
 <script src="https://unpkg.com/d3-simple-slider"></script>
