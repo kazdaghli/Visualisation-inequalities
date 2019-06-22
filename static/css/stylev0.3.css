@@ -261,6 +261,23 @@ html,body {
 	border-style : solid;
 	*/
 }
+/* -- Bubble -- */
+.bubble_container {
+  width: 1000px;
+  background-color: white;
+  margin: 0px;
+}
+#bubble_1 {
+  width: 100px;
+  float: left;
+  height: 300px;
+}
+
+#bubble_2 {
+  width: 100px;
+  float: right;
+  height: 300px;
+}
 
 /* ----- D3 ----- */
 
@@ -297,6 +314,41 @@ html,body {
   font-family:"avenir next", Arial, sans-serif;
   color: white;
   }
+
+  .d3-tipBubble {
+    line-height: normal;
+    font-weight: 400;
+    font-family:"avenir next", Arial, sans-serif;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFA500;
+    border-radius: 1px;
+    pointer-events: none;
+    }
+
+.d3-tipBubble > span {
+    font-size: 11px;
+    font-family:"avenir next", Arial, sans-serif;
+    color: white;
+    }
+
+.d3-tipBubble2 {
+      line-height: normal;
+      font-weight: 400;
+      font-family:"avenir next", Arial, sans-serif;
+      padding: 6px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #FFA500;
+      border-radius: 1px;
+      pointer-events: none;
+      }
+  
+.d3-tipBubble2 > span {
+      font-size: 11px;
+      font-family:"avenir next", Arial, sans-serif;
+      color: white;
+      }
+
 .country {
 	fill-opacity: 0.7 ;
 	stroke: black;

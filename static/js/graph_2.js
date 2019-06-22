@@ -11,7 +11,7 @@ var svgGraph2 = d3.selectAll("#graph_2")//
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 var countries =  []
-var attribute_2 = 'Income'
+var attribute_2 = 'PP'
 var parseDate = d3.timeParse("%Y")
 var minYear = '2000',
     maxYear = '2016'
@@ -140,7 +140,7 @@ function draw_graph_2(attribute, countries, year){
     var minValue = 25,
         maxValue = 70;  
   }
-  else if (attribute == 'Income')
+  else if (attribute == 'PP')
   {
     var file = 'static/Data/Preprocessed/Purchasing_power.csv'
     var minValue = 0,

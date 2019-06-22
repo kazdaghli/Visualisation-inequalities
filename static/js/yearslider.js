@@ -23,6 +23,8 @@ var slider = d3
       current_year = val.getFullYear();
       update_graph_by_year();
       update_graph_2_by_year();
+      update_bubble();
+      update_bubble_2();
       Array.from(document.getElementsByClassName("country")).forEach(function(d){d.dispatchEvent(change_year_event)});
     });
 
