@@ -10,7 +10,7 @@ session_id_init = "hds62bbddsb0b35"
 
 # Initialisation function
 def init():
-	session['map_attributes'] = ['Gini', 'Income', 'PIB']
+	session['map_attributes'] = ['Gini', 'PP', 'PIB']
 	session['graph_attributes'] = ['Gini', 'Income', 'PIB', 'Investment freedom', 'Trade freedom', 'Government integrity', 'Property rights']
 
 @app.route('/', methods=['GET'])

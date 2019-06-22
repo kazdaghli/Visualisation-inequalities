@@ -7,7 +7,7 @@ var tip = d3.tip()
             .html(function(d) {return "<strong>" + d.properties.name +"</strong> <span class='details'> "+
                                       "<br> Year: " + d.year +
                                       "<br> Gini: " + d.gini +
-                                      "<br> Pib : " + d.pib +
+                                      "<br> Pib : " + convert_int(d.pib) +
                                       "</span>";})
 
 var map_container_w = d3.select('.map_container').node().getBoundingClientRect().width;
@@ -26,30 +26,56 @@ var selected_country = d3.select('.map_country_toolbox')
                         .append('div');
 
 var list_selected_country = {};
+var list_of_country_code = [];
 var country_set = [];
 var gini_dataset = {};
 var pib_dataset = {};
-var income_dataset = {} ;
+var pp_dataset = {} ;
 var current_year = 2000 ;
 var current_attribute = "Gini"
 var country_input = document.getElementById("countries-search");
-
-function gini_gradient_color(t){return d3.interpolateOranges(t)};
-function pib_gradient_color(t){return d3.interpolateReds(t)};
-function income_gradient_color(t){return d3.interpolateGreens(t)};
-
-function attr_gradient_color(t){
-    if(map_attribute == 'Gini'){
-        return gini_gradient_color(t);
-    } else if(map_attribute =='PIB'){
-        return pib_gradient_color(t);
-    } else if (map_attribute =='Income'){
-        return income_gradient_color(t);
-    }
-}
-
 var change_year_event = new Event("change-year");
-var color_na = 'black'
+
+function convert_int(t){return numeral(t).format('0.0 a')};
+
+//  - Color gradient definition -
+    // -- range of values for the different attr
+    var range_pib = [257926882, 19485394000000] ;
+    var range_pp = [0,2.1] ;
+    var range_gini = [23,65] ;
+    // --- Scale definition for gradient ------
+    // GINI
+     gr_gini = d3.scaleLinear()
+		        .domain(range_gini)
+			    .range([0,1])
+    // PIB
+     gr_pib = d3.scaleLog()
+            .domain(range_pib)
+            .range([0,1])
+
+     console.log(gr_pib(1000000000))
+     console.log(gr_pib(1000000000000))
+    // Purchasing Power
+    gr_pp = d3.scaleLinear()
+             .domain(range_pp)
+             .range([0,1])
+
+    // -- Color palette --
+    function gini_gradient_color(t){return d3.interpolateOranges(t)};
+    function pib_gradient_color(t){return d3.interpolateReds(t)};
+    function pp_gradient_color(t){return d3.interpolateGreens(t)};
+    var color_na = 'black'
+
+    // -- Macro function that return the corresponding color according to the current attribute
+    function attr_gradient_color(t){
+        if(map_attribute == 'Gini'){
+            return gini_gradient_color(t);
+        } else if(map_attribute =='PIB'){
+            return pib_gradient_color(t);
+        } else if (map_attribute =='PP'){
+            return pp_gradient_color(t);
+        }
+    }
 
 // - MISC. - 
 
@@ -82,13 +108,13 @@ function get_attr_color(date, country_code){
         t = gr_pib(val);
         return pib_gradient_color(t);
         }
-    } else if (current_attribute == "Income") {
-        val = income_dataset[date-init_date][country_code]
+    } else if (current_attribute == "PP") {
+        val = pp_dataset[date-init_date][country_code]
         if(val == undefined){
             return color_na
         }else {
-        t = gr_income(val);
-        return income_gradient_color(t);
+        t = gr_pp(val);
+        return pp_gradient_color(t);
         }
      }
 }
@@ -102,6 +128,27 @@ function get_pib_value(date, country_code){
         return pib_dataset[date-init_date][country_code];
 }
 
+function def_list_of_country_code(dataset){
+    dataset.features.forEach(function(d){list_of_country_code.push(d.id)});
+
+}
+
+function def_range_value(dataset){
+        pib_values = []
+        console.log(dataset);
+        dataset.forEach(function(d){
+        if(d.year > 1999){
+            console.log(d.year)
+            let keys = Object.keys(d)
+            for (const key of keys) {
+              if((list_of_country_code.indexOf(key) != -1) & (d[key] != "")){
+                pib_values.push(parseFloat(d[key]))
+              }
+            }
+        }
+        });
+        console.log(pib_values)
+   }
 
 
 
@@ -111,21 +158,6 @@ function draw_map_2d(country_dataset) {
         .fitExtent([[0,10],[map_container_w, map_container_h-10]], country_dataset)
 
     var path = d3.geoPath(projection);
-
-    // --- Gradient Color definition ------
-    // GINI
-     gr_gini = d3.scaleLinear()
-		        .domain([21,63])
-			    .range([0,1])
-
-     gr_pib = d3.scaleLinear()
-            .domain([8824448,1371564453640])
-            .range([0,1])
-
-    gr_income = d3.scaleLinear()
-             .domain([0,1])
-//            .domain([50,90500])
-            .range([0,1])
 
     // ----  Country list of the search box ------
     d3.select('.datalist-countries')
@@ -201,20 +233,6 @@ function draw_map_3d(country_dataset) {
     .attr("d", path)
     .attr("fill","#809ebc");
 
-
-    // --- Gradient Color definition ------
-    // GINI
-     gr_gini = d3.scaleLinear()
-		        .domain([21,63])
-			    .range([0,1])
-
-     gr_pib = d3.scaleLinear()
-            .domain([8824448,1371564453640])
-            .range([0,1])
-
-     gr_income = d3.scaleLinear()
-            .domain([50,90500])
-            .range([0,1])
 
     // ----  Country list of the search box ------
     d3.select('.datalist-countries')
@@ -296,17 +314,22 @@ function draw_worldmap() {
             .defer(d3.json, "/static/js/world-countries.json" )
             .defer(d3.csv, '/static/Data/Preprocessed/Gini_afterFillNA.csv' )
             .defer(d3.csv, '/static/Data/Preprocessed/PIB_afterFillNA.csv')
-//            .defer(d3.csv, '/static/Data/Preprocessed/Income_converted_AfterFillNA.csv')
             .defer(d3.csv, '/static/Data/Preprocessed/Purchasing_power.csv')
-            .await(function(error, map_data,gini_data, pib_data,income_data){
+            .await(function(error, map_data,gini_data, pib_data,pp_data){
                 if (error){
                     console.error("Issue while loading the data")
                 }else{
+
                     country_set = map_data;
                     gini_dataset = gini_data;
                     pib_dataset = pib_data;
-                    income_dataset = income_data;
+                    pp_dataset = pp_data;
+
+/*                    def_list_of_country_code(country_set); // for internal use to display rnage of data filtered by the countries in the map
+                    def_range_value(pp_dataset);
+                    console.log(d3.extent(pib_values))*/
                     draw_map_2d(country_set);
+
                 }
             })
 }
@@ -513,3 +536,5 @@ function main(){
 };
 
 main();
+
+
