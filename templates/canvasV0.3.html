@@ -43,28 +43,34 @@
             Is the wealth dispatch equally ?
         </h2>
     </div>
-    <a class="slider_button_bottom" href="#dashboard">FirstPage</a>
+    <a id="slider_button_bottom" class="slider_button" href="#dashboard">
+        <svg class="arrows_nav">
+            <polygon class="arrow-top" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+            <polygon class="arrow-middle" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+            <polygon class="arrow-bottom" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+        </svg>
+    </a>
 </div>
 
 <div class="slider_pages">
     <div class="dashboard" id="dashboard">
-    <a class="slider_button_right" href="#bubble">1</a>
-    <div class="title_page">
-        <h2>
-            Title Page
-        </h2>
-        <h3>
-            bla bla bla
-        </h3>
-    </div>
-    <div class="main_block">
-        <!-- FIRST CONTAINER (MAP) -->
-        <div class="map_box">
+        <a class="slider_button_right" href="#bubble"><i></i></a>
+        <div class="title_page">
+            <h2>
+                Title Page
+            </h2>
+            <h3>
+                bla bla bla
+            </h3>
+        </div>
+        <div class="main_block">
+            <!-- FIRST CONTAINER (MAP) -->
+            <div class="map_box">
 
-            <!-- RIGHT SIDE -->
-            <div class="map_container_all">
-                <div class="map_container"></div>
-                <!--<div class="map_attribute_choice_container">
+                <!-- RIGHT SIDE -->
+                <div class="map_container_all">
+                    <div class="map_container"></div>
+                    <!--<div class="map_attribute_choice_container">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     {% for i in range(0,len_attributes) %}
                     {% if (i==0) %}
@@ -82,84 +88,84 @@
                 </div>
 
             </div>-->
-                <!--            <div class="legend_attribute">-->
+                    <!--            <div class="legend_attribute">-->
 
-                <!--            </div>-->
-                <div class="map_country_toolbox_container">
-                    <div class="selected_country_box">
-
-                    </div>
-                    <div class="map_settings_container">
-                        <div class="map_attribute_choice_container">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                {% for i in range(0,len_attributes) %}
-                                    {% if (i==0) %}
-                                        <label class="btn btn-secondary active" onclick="set_map_attribute('{{map_attributes[i]}}')">
-                                            <input type="radio" name="options" autocomplete="off" value="map_{{attribute}}"
-                                                   id="map_{{map_attributes[i]}}"  checked> {{map_attributes[i]}}
-                                        </label>
-                                    {% else %}
-                                        <label class="btn btn-secondary" onclick="set_map_attribute('{{map_attributes[i]}}')">
-                                            <input type="radio" name="options"  autocomplete="off" value="map_{{attribute}}"
-                                                   id="map_{{map_attributes[i]}}" > {{map_attributes[i]}}
-                                        </label>
-                                    {% endif%}
-                                {% endfor %}
-                            </div>
+                    <!--            </div>-->
+                    <div class="map_country_toolbox_container">
+                        <div class="selected_country_box">
 
                         </div>
-                        <div class="map_country_toolbox">
-                            <input type="text" list="datalist-countries" name="countries-search" id="countries-search">
-                            <datalist id="datalist-countries" class="datalist-countries"></datalist>
-                        </div>
-                        <div class="map_buttons_container">
-                            <button id="add-country" onclick="add_country()" style="display:none;">Add</button>
-                            <div class="btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-secondary " onclick="reset_countries()">
-                                    <input type="checkbox" checked autocomplete="off"> Reset
-                                </label>
-                            </div>
-                            <div class="change_view_container">
+                        <div class="map_settings_container">
+                            <div class="map_attribute_choice_container">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary active" onclick="change_view('2D')">
-                                        <input type="radio" name="options_view" autocomplete="off" value="view_2D" id="view_2D"  checked> 2D
+                                    {% for i in range(0,len_attributes) %}
+                                        {% if (i==0) %}
+                                            <label class="btn btn-secondary active" onclick="set_map_attribute('{{map_attributes[i]}}')">
+                                                <input type="radio" name="options" autocomplete="off" value="map_{{attribute}}"
+                                                       id="map_{{map_attributes[i]}}"  checked> {{map_attributes[i]}}
+                                            </label>
+                                        {% else %}
+                                            <label class="btn btn-secondary" onclick="set_map_attribute('{{map_attributes[i]}}')">
+                                                <input type="radio" name="options"  autocomplete="off" value="map_{{attribute}}"
+                                                       id="map_{{map_attributes[i]}}" > {{map_attributes[i]}}
+                                            </label>
+                                        {% endif%}
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+                            <div class="map_country_toolbox">
+                                <input type="text" list="datalist-countries" name="countries-search" id="countries-search">
+                                <datalist id="datalist-countries" class="datalist-countries"></datalist>
+                            </div>
+                            <div class="map_buttons_container">
+                                <button id="add-country" onclick="add_country()" style="display:none;">Add</button>
+                                <div class="btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-secondary " onclick="reset_countries()">
+                                        <input type="checkbox" checked autocomplete="off"> Reset
                                     </label>
-                                    <label class="btn btn-secondary" onclick="change_view('3D')">
-                                        <input type="radio" name="options_view" autocomplete="off" value="view_3D" id="view_3D"> 3D
-                                    </label>
+                                </div>
+                                <div class="change_view_container">
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active" onclick="change_view('2D')">
+                                            <input type="radio" name="options_view" autocomplete="off" value="view_2D" id="view_2D"  checked> 2D
+                                        </label>
+                                        <label class="btn btn-secondary" onclick="change_view('3D')">
+                                            <input type="radio" name="options_view" autocomplete="off" value="view_3D" id="view_3D"> 3D
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--2ND and 3RD contaiter (all Graph)-->
+            <!--2ND and 3RD contaiter (all Graph)-->
+            <div class="visualisation_box_all">
+                <div class="graph_box_all">
+                    <!-- 2ND CONTAINER (GRAPH 1) -->
+                    <div class="graph_box">
 
-        <div class="graph_box_all">
-            <!-- 2ND CONTAINER (GRAPH 1) -->
-            <div class="graph_box">
-
-                <!-- RIGHT SIDE -->
-                <div class="graph_attribute_choice_container">
-                    <div class="graph_attribute_form">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            {% for i in range(0,len_graph_attributes) %}
-                                {% if (i==0) %}
-                                    <label class="btn btn-secondary active" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options" autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
-                                               id="graph_1_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
-                                    </label>
-                                {% else %}
-                                    <label class="btn btn-secondary" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options"  autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
-                                               id="graph_1_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
-                                    </label>
-                                {% endif%}
-                            {% endfor %}
-                        </div>
-                        <!--                   <form method = 'post' id="graph_1_form">
+                        <!-- RIGHT SIDE -->
+                        <div class="graph_attribute_choice_container">
+                            <div class="graph_attribute_form">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    {% for i in range(0,len_graph_attributes) %}
+                                        {% if (i==0) %}
+                                            <label class="btn btn-secondary active" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options" autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
+                                                       id="graph_1_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
+                                            </label>
+                                        {% else %}
+                                            <label class="btn btn-secondary" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options"  autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
+                                                       id="graph_1_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
+                                            </label>
+                                        {% endif%}
+                                    {% endfor %}
+                                </div>
+                                <!--                   <form method = 'post' id="graph_1_form">
                         {% for attribute in graph_attributes %}
                         <div>
                             <label class="radio_button_container">{{attribute}}
@@ -169,37 +175,37 @@
                         </div>
                         {% endfor %}
                     </form>-->
-                    </div>
-                </div>
-
-                <!-- LEFY SIDE -->
-                <div class="graph_container">
-                    <div id="graph_1"></div>
-                </div>
-            </div>
-
-            <!-- 3RD CONTAINER (GRAPH 2) -->
-            <div class="graph_box">
-
-                <!-- RIGHT SIDE -->
-                <div class="graph_attribute_choice_container">
-                    <div class="graph_attribute_form">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            {% for i in range(0,len_graph_attributes) %}
-                                {% if (i==1) %}
-                                    <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                               id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
-                                    </label>
-                                {% else %}
-                                    <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                               id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
-                                    </label>
-                                {% endif%}
-                            {% endfor %}
+                            </div>
                         </div>
-                        <!--<form method = 'post' id="graph_2_form">
+
+                        <!-- LEFY SIDE -->
+                        <div class="graph_container">
+                            <div id="graph_1"></div>
+                        </div>
+                    </div>
+
+                    <!-- 3RD CONTAINER (GRAPH 2) -->
+                    <div class="graph_box">
+
+                        <!-- RIGHT SIDE -->
+                        <div class="graph_attribute_choice_container">
+                            <div class="graph_attribute_form">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    {% for i in range(0,len_graph_attributes) %}
+                                        {% if (i==1) %}
+                                            <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
+                                                       id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
+                                            </label>
+                                        {% else %}
+                                            <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
+                                                       id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
+                                            </label>
+                                        {% endif%}
+                                    {% endfor %}
+                                </div>
+                                <!--<form method = 'post' id="graph_2_form">
                         {% for attribute in graph_attributes %}
                         <div>
                             <label class="radio_button_container">{{attribute}}
@@ -209,38 +215,46 @@
                         </div>
                         {% endfor %}
                     </form>-->
+                            </div>
+                        </div>
+
+                        <!-- LEFT SIDE -->
+                        <div class="graph_container">
+                            <div id="graph_2"></div>
+                        </div>
                     </div>
+                    <a id="slider_button_right" class="slider_button" href="#bubble_1">
+                        <svg class="arrows_nav">
+                            <polygon class="arrow-top" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+                            <polygon class="arrow-middle" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+                            <polygon class="arrow-bottom" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+                        </svg>
+                    </a>
                 </div>
-
-                <!-- LEFT SIDE -->
-                <div class="graph_container">
-                    <div id="graph_2"></div>
-                </div>
+                <div id="bubble_1"></div>
             </div>
-
         </div>
     </div>
-</div>
-    <div class="bubble" id ="bubble">
-    <div class="title_page">
-        <h2>
-            Title Page 2
-        </h2>
-        <h3>
-            bla bla bla 2
-        </h3>
-    </div>
-    <div class="bubble_container">
-        <div class="bubble">
-            <!--<p id="value"></p>-->
-            <div id="bubble_1"></div>
-        </div>
-        <div class="bubble">
-            <!--<p id="value"></p>-->
-            <div id="bubble_2"></div>
-        </div>
-    </div>
-</div>
+{#    <div class="bubble" id ="bubble">#}
+{#        <div class="title_page">#}
+{#            <h2>#}
+{#                Title Page 2#}
+{#            </h2>#}
+{#            <h3>#}
+{#                bla bla bla 2#}
+{#            </h3>#}
+{#        </div>#}
+{#        <div class="bubble_container">#}
+{#            <div class="bubble">#}
+{#                <!--<p id="value"></p>-->#}
+{#                <div id="bubble_1"></div>#}
+{#            </div>#}
+{#            <div class="bubble">#}
+{#                <!--<p id="value"></p>-->#}
+{#                <div id="bubble_2"></div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
 </div>
 
 

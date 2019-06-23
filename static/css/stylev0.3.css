@@ -34,6 +34,8 @@ html,body {
 	flex-direction: row;
 	align-items : center;
 	overflow: visible;
+
+    position: relative;
 }
 
 
@@ -49,7 +51,7 @@ html,body {
 /*	ML min-width: 90%;
 	min-height: 90%;*/
 	height : 100%; /*ML*/
-	width : 48%; /*ML*/
+	width : 50%; /*ML*/
 	display: flex;
 }
 
@@ -202,10 +204,11 @@ html,body {
 /* ----- GRAPH BOXES ----- */
 
 .graph_box_all{
-	margin:0%;
+    margin-left: 10%;
+    margin-right: 10%;
     padding:0;
-	height : 100%; /*ML*/
-	width : 50%; /*ML*/
+	height : 100%;
+	width : 100%;
     display:flex;
     flex-direction:column;
     justify-content: space-between;
@@ -287,9 +290,8 @@ html,body {
     flex-direction: row;
 }
 #bubble_1 {
-  /*width: 100px;*/
-  /*float: left;*/
-  /*height: 300px;*/
+  width: 100%;
+  height: 100%;
 }
 
 #bubble_2 {
@@ -604,7 +606,7 @@ input:checked + .slider .off
 }
 
 
-/*TEST */
+
 .page_header{
     background-color: white;
     height: 100vh;
@@ -674,17 +676,73 @@ input:checked + .slider .off
 
 }
 
-.slider_button_right {
-    position: absolute;
-    right:30px;
-    top:50%;
+#slider_button_bottom {
+    position:absolute;
+    bottom:10px;
+    left:0;
+    right:0;
+    width:100px; /* Assign a value */
+    height:60px; /* Assign a value */
+    margin:auto;
 }
 
-.slider_button_bottom {
+#slider_button_right {
     position: absolute;
-    right:50%;
-    bottom:20px;
+    right:10px;
+    top:0;
+    bottom: 0;
+    width:60px;
+    height:100px;
+    margin:auto;
+
 }
+
+.slider_button > svg{
+    width: 100%;
+    height: 100%;
+
+}
+
+.arrows_nav > polygon {
+    fill: #FFF;
+    transition: all .2s ease-out;
+}
+.arrow-top {
+	  opacity: 0.2
+	}
+.arrow-middle {
+	  opacity: 0.75;
+}
+.arrow-bottom {
+	  opacity: 1
+	}
+
+.arrows_nav:hover .arrow-middle{
+    transform: translateY(-15px);
+}
+.arrows_nav:hover .arrow-top{
+    transform: translateY(-25px);
+}
+
+
+/* RIGHT Part of page - Visualisation */
+
+.visualisation_box_all{
+    height : 100%;
+	width : 50%;
+    display: flex;
+    overflow-x: scroll;
+    position: absolute;
+    left: 50%;
+}
+
+
+
+
+
+
+
+
 
 
 /*
