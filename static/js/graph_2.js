@@ -99,15 +99,13 @@ function draw_graph_lines_2(file, countries, x, y)
     svgGraph2.selectAll("myLegend2")//
     .data(dataReady)
     .enter()
-      //.append('g')
-      //.append('img')
       .append("image")
       .attr('class', 'picture2')
       .attr('xlink:href', function(d) { 
             return imFlags + d.flag; 
       })
       .attr("transform", function(d, i) { return "translate(" + i*40  + ",5)"; }) 
-      .attr("x", 12) // shift the text a bit more right
+      .attr("x", 50) // shift the text a bit more right
       .on("click", function(d){
         // is the element currently visible ?
         currentOpacity = d3.selectAll("." + d.name + '_2' ).style("opacity")
@@ -128,7 +126,7 @@ function draw_graph_lines_2(file, countries, x, y)
       .style("fill", function(d){ return myColor(d.name) })
       .style("font-size", 10)
       .attr("transform", function(d, i) { return "translate(" + i*40  + ",3)"; }) 
-      .attr("x", 12) // shift the text a bit more right
+      .attr("x", 50) // shift the text a bit more right
   })
 })
 }
@@ -146,7 +144,7 @@ function draw_graph_2(attribute, countries, year){
     var minValue = 0,
         maxValue = 2; 
   }
-  else if (attribute == 'PIB')
+  else if (attribute == 'GDP')
   {
     var file = 'static/Data/Preprocessed/PIB_afterFillNA.csv'
     var minValue = 100,
@@ -155,34 +153,34 @@ function draw_graph_2(attribute, countries, year){
   else if (attribute == 'Investment freedom')
   {
     var file = 'static/Data/Preprocessed/investment freedom.csv'
-    var minValue = 10,
+    var minValue = 0,
         maxValue = 100; 
   }
   else if (attribute == 'Trade freedom')
   {
     var file = 'static/Data/Preprocessed/trade freedom.csv'
-    var minValue = 10,
+    var minValue = 0,
         maxValue = 100; 
   }
   else if (attribute == 'Government integrity')
   {
     var file = 'static/Data/Preprocessed/government integrity.csv'
-    var minValue = 10,
+    var minValue = 0,
         maxValue = 100; 
   }
   else if (attribute == 'Property rights')
   {
     var file = 'static/Data/Preprocessed/property rights.csv'
-    var minValue = 10,
+    var minValue = 0,
         maxValue = 100; 
   }
   var xx = d3.scaleTime()
             .domain([minYear, maxYear])
-            .range([ 0, width ])
+            .range([ margin.left, width ])
 
   var x = d3.scaleTime()
             .domain([parseDate(minYear), parseDate(maxYear)])
-            .range([ 0, width ])
+            .range([ margin.left, width ])
   svgGraph2.append('g')
           .attr("class", "xAxis2")
           .attr("transform", "translate(0," + height + ")")
@@ -201,13 +199,15 @@ function draw_graph_2(attribute, countries, year){
             .range([ height, 0 ]);
   svgGraph2.append('g')
           .attr("class", "yAxis2")
+          .attr("transform", "translate(" + margin.left + ",0 )")
+          .style("dominant-baseline", "central")
           .call(d3.axisLeft(y));
   
   // text label for the y axis
   svgGraph2.append("text")
           .attr("class", "yText2") 
           .attr("transform", "rotate(-90)")
-          .attr("y", 0 - margin.left - 5)
+          .attr("y", margin.left - 50)
           .attr("x",0 - (height / 2) )
           .attr("dy", "1em")
           .style("text-anchor", "middle")
