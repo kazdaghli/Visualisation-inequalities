@@ -12,7 +12,7 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 var fileBubble = "/static/Data/Preprocessed/unemp.csv"
 var svgBubble = d3.select('#bubble_1')
 		.append("svg")
-		.style('transform', 'translate(0%, -10%)')
+		.style('transform', 'translate(0%, 10%)')
 		.attr("width", diameter)
 		.attr("height", diameter)
 
@@ -23,7 +23,7 @@ svgBubble.append("text")
     .attr("text-anchor", "start")  
     .style("font-size", "24px")  
   	.style("font-weight", "bold")
-    .text("UnEmployement")
+    // .text("UnEmployement")
 
 //var selected_year = '2000'
 function update_bubble()

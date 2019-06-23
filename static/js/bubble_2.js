@@ -11,7 +11,7 @@ var color2 = d3.scaleOrdinal(d3.schemeCategory20);
 var fileBubble2 = "/static/Data/Preprocessed/inf.csv"
 var svgBubble2 = d3.select('#bubble_2')
 		.append("svg")
-		.style('transform', 'translate(0%, -10%)')
+		.style('transform', 'translate(0%, 10%)')
 		.attr("width", diameter)
 		.attr("height", diameter)
 
@@ -22,7 +22,7 @@ svgBubble2.append("text")
     .attr("text-anchor", "start")  
     .style("font-size", "24px")  
   	.style("font-weight", "bold")
-    .text("Inflation By Consumer Price")
+    // .text("Inflation By Consumer Price")
 
 //var selected_year = '2000'
 function update_bubble_2()

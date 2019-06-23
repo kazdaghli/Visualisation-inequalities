@@ -97,17 +97,17 @@
                         <div class="map_attribute_choice_container">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 {% for i in range(0,len_attributes) %}
-                                {% if (i==0) %}
-                                <label class="btn btn-secondary active" onclick="set_map_attribute('{{map_attributes[i]}}')">
-                                    <input type="radio" name="options" autocomplete="off" value="map_{{attribute}}"
-                                           id="map_{{map_attributes[i]}}"  checked> {{map_attributes[i]}}
-                                </label>
-                                {% else %}
-                                <label class="btn btn-secondary" onclick="set_map_attribute('{{map_attributes[i]}}')">
-                                    <input type="radio" name="options"  autocomplete="off" value="map_{{attribute}}"
-                                           id="map_{{map_attributes[i]}}" > {{map_attributes[i]}}
-                                </label>
-                                {% endif%}
+                                    {% if (i==0) %}
+                                        <label class="btn btn-secondary active" onclick="set_map_attribute('{{map_attributes[i]}}')">
+                                            <input type="radio" name="options" autocomplete="off" value="map_{{attribute}}"
+                                                   id="map_{{map_attributes[i]}}"  checked> {{map_attributes[i]}}
+                                        </label>
+                                    {% else %}
+                                        <label class="btn btn-secondary" onclick="set_map_attribute('{{map_attributes[i]}}')">
+                                            <input type="radio" name="options"  autocomplete="off" value="map_{{attribute}}"
+                                                   id="map_{{map_attributes[i]}}" > {{map_attributes[i]}}
+                                        </label>
+                                    {% endif%}
                                 {% endfor %}
                             </div>
 
@@ -142,8 +142,7 @@
         <!--2ND and 3RD contaiter (all Graph)-->
         <div class="data_box">
             <div class="visualisation_box_all">
-                <div id="graph_box_left" class="slider_page_border"></div>
-                <div class="graph_box_all">
+                <div id="graph_box_all" class="graph_box_all">
 
                     <div class="title_page">
                         <h2>
@@ -161,17 +160,17 @@
                             <div class="graph_attribute_form">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     {% for i in range(0,len_graph_attributes) %}
-                                    {% if (i==0) %}
-                                    <label class="btn btn-secondary active" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options" autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
-                                               id="graph_1_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
-                                    </label>
-                                    {% else %}
-                                    <label class="btn btn-secondary" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options"  autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
-                                               id="graph_1_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
-                                    </label>
-                                    {% endif%}
+                                        {% if (i==0) %}
+                                            <label class="btn btn-secondary active" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options" autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
+                                                       id="graph_1_{{graph_attributes[i]}}"  checked> {{graph_attributes[i]}}
+                                            </label>
+                                        {% else %}
+                                            <label class="btn btn-secondary" onclick="set_graph_1_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options"  autocomplete="off" value="graph_1_{{graph_attributes[i]}}"
+                                                       id="graph_1_{{graph_attributes[i]}}" > {{graph_attributes[i]}}
+                                            </label>
+                                        {% endif%}
                                     {% endfor %}
                                 </div>
                                 <!--                   <form method = 'post' id="graph_1_form">
@@ -201,17 +200,17 @@
                             <div class="graph_attribute_form">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     {% for i in range(0,len_graph_attributes) %}
-                                    {% if (i==1) %}
-                                    <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                               id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
-                                    </label>
-                                    {% else %}
-                                    <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
-                                        <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
-                                               id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
-                                    </label>
-                                    {% endif%}
+                                        {% if (i==1) %}
+                                            <label class="btn btn-secondary active" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options" autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
+                                                       id="graph_2_{{graph_attributes[i]}}"  checked = 'True'> {{graph_attributes[i]}}
+                                            </label>
+                                        {% else %}
+                                            <label class="btn btn-secondary" onclick="set_graph_2_attribute('{{graph_attributes[i]}}')">
+                                                <input type="radio" name="options"  autocomplete="off" value="graph_2_{{graph_attributes[i]}}"
+                                                       id="graph_2_{{graph_attributes[i]}}" checked=> {{graph_attributes[i]}}
+                                            </label>
+                                        {% endif%}
                                     {% endfor %}
                                 </div>
                                 <!--<form method = 'post' id="graph_2_form">
@@ -232,29 +231,57 @@
                             <div id="graph_2"></div>
                         </div>
                     </div>
-                    <a id="slider_button_right" class="slider_button" href="#bubble_1">
+                    <a id="slider_button_right" class="slider_button" href="#bubble_1_container">
                         <svg class="arrows_nav">
-                            <polygon class="arrow-top" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
-                            <polygon class="arrow-middle" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
-                            <polygon class="arrow-bottom" points="50,45 15,25 20,30 50,55 80,30 85,25"/>
+                            <polygon class="arrow-top" points="45,50 25,15 30,20 55,50 30,80 25,85"/>
+                            <polygon class="arrow-middle" points="45,50 25,15 30,20 55,50 30,80 25,85"/>
+                            <polygon class="arrow-bottom" points="45,50 25,15 30,20 55,50 30,80 25,85"/>
                         </svg>
                     </a>
                 </div>
-                <div id="graph_box_right" class="slider_page_border"></div>
-                <div id="bubble_1_left" class="slider_page_border"></div>
                 <div id="bubble_1_container" class="bubble_container">
-
+                    <a id="slider_button_left" class="slider_button" href="#graph_box_all">
+                        <svg class="arrows_nav">
+                            <polygon class="arrow-top" points="15,50 35,15 30,20 5,50 30,80 35,85"/>
+                            <polygon class="arrow-middle" points="15,50 35,15 30,20 5,50 30,80 35,85"/>
+                            <polygon class="arrow-bottom" points="15,50 35,15 30,20 5,50 30,80 35,85"/>
+                        </svg>
+                    </a>
                     <div class="title_page">
                         <h2>
-                            Title Page 2
+                            Bubble View
                         </h2>
                         <h3>
-                            bla bla bla 2
+                            Unemployement per country
                         </h3>
                     </div>
-                    <div id="bubble_1"></div>
+                    <div id="bubble_1" class="bubble"></div>
+                    <a id="slider_button_right" class="slider_button" href="#bubble_2_container">
+                        <svg class="arrows_nav">
+                            <polygon class="arrow-top" points="45,50 25,15 30,20 55,50 30,80 25,85"/>
+                            <polygon class="arrow-middle" points="45,50 25,15 30,20 55,50 30,80 25,85"/>
+                            <polygon class="arrow-bottom" points="45,50 25,15 30,20 55,50 30,80 25,85"/>
+                        </svg>
+                    </a>
                 </div>
-                <div id="bubble_1_right" class="slider_page_border">h</div>
+                <div id="bubble_2_container" class="bubble_container">
+                    <a id="slider_button_left" class="slider_button" href="#bubble_1_container">
+                        <svg class="arrows_nav">
+                            <polygon class="arrow-top" points="15,50 35,15 30,20 5,50 30,80 35,85"/>
+                            <polygon class="arrow-middle" points="15,50 35,15 30,20 5,50 30,80 35,85"/>
+                            <polygon class="arrow-bottom" points="15,50 35,15 30,20 5,50 30,80 35,85"/>
+                        </svg>
+                    </a>
+                    <div class="title_page">
+                        <h2>
+                            Bubble View
+                        </h2>
+                        <h3>
+                            Inflation by Consumer Price
+                        </h3>
+                    </div>
+                    <div id="bubble_2" class="bubble"></div>
+                </div>
             </div>
         </div>
     </div>
