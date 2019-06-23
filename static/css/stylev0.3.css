@@ -17,7 +17,7 @@ html,body {
 */
 
 .dashboard{
-    height: 90vh;
+    height: 100vh;
 	width: 100vw;
     position: relative;
 }
@@ -96,8 +96,9 @@ html,body {
     margin: 0% 5%;
     flex :1;
 	min-width: 80%;
-    height: 10vh;
-/*	height: 10%;*/
+    /*height: 10vh;*/
+	height: 10%;
+}
 }
 
 .selected_country_box {
@@ -204,15 +205,14 @@ html,body {
 /* ----- GRAPH BOXES ----- */
 
 .graph_box_all{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 20vw;
     padding:0;
 	height : 100%;
-	width : 100%;
+	width : auto;
     display:flex;
     flex-direction:column;
-    justify-content: space-between;
-    align-items: center;
+
 }
 
 .graph_box {
@@ -284,10 +284,11 @@ html,body {
 
 .bubble_container {
   width: 100%;
+    margin-left: 10%;
+    margin-right: 10vw;
   background-color: white;
-  margin: 0px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 #bubble_1 {
   width: 100%;
@@ -729,14 +730,21 @@ input:checked + .slider .off
 
 .visualisation_box_all{
     height : 100%;
-	width : 50%;
+    width: auto;
     display: flex;
     overflow-x: scroll;
-    position: absolute;
-    left: 50%;
+
 }
 
+.slider_page_border{
+    width: 0;
+    height: 100%;
+}
 
+.data_box{
+    height: 100%;
+    width: 50%;
+}
 
 
 
