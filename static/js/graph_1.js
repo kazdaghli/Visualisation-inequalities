@@ -21,7 +21,8 @@ var counFlags = "/static/Data/Flags/countries.csv",
 
 var tipEvent = d3.tip()
     .attr('class', 'd3-tipEvent')
-    .offset([-10, 0])
+    .style("z-index","-1")
+    .offset([-tip_height_offset-60, 0])
     .html(function(d){
       var string = ''; 
       d.forEach(function(k){
@@ -32,7 +33,8 @@ var tipEvent = d3.tip()
 
 var tipDot = d3.tip()
     .attr('class', 'd3-tipDot')
-    .offset([-10, 0])
+        .style("z-index","-1")
+    .offset([-tip_height_offset-60, 0])
     .html(function(d){
       return  "<strong>" + d.value +"</strong>"
     })

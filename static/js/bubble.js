@@ -1,7 +1,7 @@
 var imFlagsBubble =  "/static/Data/Flags/flags/"
 var tipBubble = d3.tip()
     .attr('class', 'd3-tipBubble')
-	.offset([-10, 0])
+	.offset([-tip_height_offset+10, 0])
     .html(function(d){
 		return "<img src=" +  imFlagsBubble + d.data.flag + "/>" + "<strong>" + d.data.name +"</strong> <span class='details'> "+
 		"<br> Value: " + d.data.value 
