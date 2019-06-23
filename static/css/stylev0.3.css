@@ -3,6 +3,8 @@ html,body {
     margin:0;
     padding:0;
     font-family: Helvetica,Arial, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /*
@@ -13,12 +15,18 @@ html,body {
 	background-color: grey;	
 }
 */
+
+.dashboard{
+    height: 90vh;
+	width: 100vw;
+    position: relative;
+}
 .main_block {
 /*    height: 100vh; *//* For 100% screen height *//* *//*ML*//*
     width:  100vw; *//* For 100% screen width *//* *//*ML*/
 	/*height:95%;*/ /*ML*/
-	height: 85vh;
-	width: 100vw;
+	height: 90%;
+	width: 100%;
     margin:0;
     padding:0;
 	display: flex;
@@ -27,6 +35,8 @@ html,body {
 	align-items : center;
 	overflow: visible;
 }
+
+
 
 
 
@@ -84,6 +94,7 @@ html,body {
     margin: 0% 5%;
     flex :1;
 	min-width: 80%;
+    height: 10vh;
 /*	height: 10%;*/
 }
 
@@ -262,21 +273,29 @@ html,body {
 	*/
 }
 /* -- Bubble -- */
+
+.bubble{
+    height: 90vh;
+	width: 100vw;
+}
+
 .bubble_container {
-  width: 1000px;
+  width: 100%;
   background-color: white;
   margin: 0px;
+    display: flex;
+    flex-direction: row;
 }
 #bubble_1 {
-  width: 100px;
-  float: left;
-  height: 300px;
+  /*width: 100px;*/
+  /*float: left;*/
+  /*height: 300px;*/
 }
 
 #bubble_2 {
-  width: 100px;
-  float: right;
-  height: 300px;
+  /*width: 100px;*/
+  /*float: right;*/
+  /*height: 300px;*/
 }
 
 /* ----- D3 ----- */
@@ -585,8 +604,6 @@ input:checked + .slider .off
 }
 
 
-
-
 /*TEST */
 .page_header{
     background-color: white;
@@ -594,6 +611,8 @@ input:checked + .slider .off
     display: flex;
     flex-direction: row;
     align-items: center;
+    background-color: #313C53;
+    position: relative;
 }
 
 .page_header > div {
@@ -602,19 +621,73 @@ input:checked + .slider .off
     margin: 50px;
     display: flex;
     flex-direction: column;
-}
 
-h1 {
-    font-family: "Times header";
-    font-size: 3.5rem;
-    color: #313C53;
-    font-weight: bold;
 }
 
 .page_header > div > img {
     height: 75vh;
+
 }
 
+.page_header > div > h1 {
+    font-family: "Times header";
+    font-size: 3.5rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.page_header > div > h2{
+    font-family: "Times header";
+    font-size: 2.5rem;
+    color: #FFFFFF;
+
+}
+
+.title_page > h2 {
+    font-family: "Times header";
+    font-size: 2.5rem;
+    color: #313C53;
+    text-align: center;
+    margin: 0;
+}
+
+.title_page > h3 {
+    font-family: "Times header";
+    font-size: 1.5rem;
+    color: #313C53;
+    text-align: center;
+    margin: 0;
+}
+
+/* Slider Button */
+
+.slider_pages{
+    display: flex;
+    overflow-y: hidden;
+    align-content: space-between;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.slider_pages > div {
+    min-width: 100vw;
+
+}
+
+.slider_button_right {
+    position: absolute;
+    right:15px;
+    top:50%;
+}
+
+.slider_button_bottom {
+    position: absolute;
+    right:50%;
+    bottom:20px;
+}
+
+
+/*
 header{
     position: fixed;
     width: 90%;
@@ -629,7 +702,6 @@ header{
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     background-color: rgba(49,60,83,0.4);
-
     overflow: hidden;
     text-align: center;
     padding: 14px 16px;
@@ -641,7 +713,7 @@ header{
 
 }
 .header-center{
-    flex:1 1 auto; /* Lets middle column shrink/grow to available width */
+    flex:1 1 auto; !* Lets middle column shrink/grow to available width *!
 
 }
 
@@ -660,4 +732,4 @@ div.header-left:hover{
 }
 a.active:hover{
     color:white;
-}
+}*/
