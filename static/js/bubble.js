@@ -31,7 +31,7 @@ function update_bubble()
 	svgBubble.selectAll('g').remove()
 	draw_bubble()
 }
-
+var countries = Object.keys(list_selected_country)
 function draw_bubble()
 {
 d3.csv(fileBubble, function(dataBubble) {
@@ -40,13 +40,15 @@ d3.csv(fileBubble, function(dataBubble) {
 		//console.log(k.Year)
 		return  (k.Year).toString() == current_year  }).map(function(d){
 			var liste = dataFlagsBubble.filter(function(k){return k.code3 == d['Country Code'];})
-			var test = liste.length > 0 //	
+			var test = liste.length > 0 //
+			var sel = countries.includes(d['Country Code'] )	
 			return {
 				year: d.Year,
 				country: d['Country Code'],
 				name: d['Country Name'],
 				value: d['Unemp'],
-				flag:  test? liste[0].im32 : '' 
+				flag:  test? liste[0].im32 : '',
+				selected : sel ? true : false
 			};
 		})
 	console.log(dataBubbleunEmp)
@@ -81,10 +83,34 @@ d3.csv(fileBubble, function(dataBubble) {
 		return d.r;
 	})
 	.style("fill", function(d,i) {
+		if (countries.length > 0)
+		{
+		if (d.data.selected == true)
+		{
+			return '#DC143C';
+		}
+		else
+		{
+			return color(i);
+		}
+		}
+		else{
 		return color(i);
+		}
 	})
-	
-	console.log('node', node)
+	.attr("opacity", function(d) {
+		if (countries.length > 0)
+		{
+		if (d.data.selected == true)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0.2;
+		}
+		}
+	})
 
 	node.append("text")
 	.attr("dy", ".2em")

@@ -363,6 +363,8 @@ function add_country_in_worldmap(d, dom){
     update_selected_country_box();
     update_graph_by_country();
     update_graph_2_by_country();
+    update_bubble();
+    update_bubble_2();
     d3.select(dom)
         .style("stroke-width","3")
 //        .style("stroke","black")
@@ -377,6 +379,8 @@ function remove_country_in_worldmap(d, dom){
     update_selected_country_box();
     update_graph_by_country();
     update_graph_2_by_country();
+    update_bubble();
+    update_bubble_2();
     d3.select(dom)
         .style("stroke-width","0.5")
 //        .style("filter", "")
@@ -434,6 +438,8 @@ function reset_countries(){
       update_selected_country_box();
       update_graph_by_country();
       update_graph_2_by_country();
+      update_bubble();
+      update_bubble_2();
       worldmap_svg.selectAll("path")
                    .style("stroke-width","0.5")
 //                .style("filter", "")
