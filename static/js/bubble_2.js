@@ -30,7 +30,7 @@ function update_bubble_2()
 	svgBubble2.selectAll('g').remove()
 	draw_bubble_2()
 }
-
+var countries = Object.keys(list_selected_country)
 function draw_bubble_2()
 {
 d3.csv(fileBubble2, function(dataBubble) {
@@ -40,12 +40,14 @@ d3.csv(fileBubble2, function(dataBubble) {
 		return k.Year == current_year}).map(function(d){
 			var liste = dataFlagsBubble.filter(function(k){return k.code3 == d['Country Code'];})
 			var test = liste.length > 0
+			var sel = countries.includes(d['Country Code'] )
 			return {
 				year: d.Year,
 				country: d['Country Code'],
 				name: d['Country'],
 				value: d.Inflation,
-				flag:  test? liste[0].im32 : ''
+				flag:  test? liste[0].im32 : '',
+				selected : sel ? true : false
 			}
 		})
 
@@ -79,7 +81,33 @@ d3.csv(fileBubble2, function(dataBubble) {
 		return d.r;
 	})
 	.style("fill", function(d,i) {
-		return color2(i);
+		if (countries.length > 0)
+		{
+		if (d.data.selected == true)
+		{
+			return '#DC143C';
+		}
+		else
+		{
+			return color(i);
+		}
+		}
+		else{
+		return color(i);
+		}
+	})
+	.attr("opacity", function(d) {
+		if (countries.length > 0)
+		{
+		if (d.data.selected == true)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0.2;
+		}
+		}
 	})
 
 	node2.append("text")
