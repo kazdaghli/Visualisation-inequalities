@@ -146,9 +146,9 @@ function draw_graph_2(attribute, countries, year){
   }
   else if (attribute == 'GDP')
   {
-    var file = 'static/Data/Preprocessed/PIB_afterFillNA.csv'
-    var minValue = 100,
-        maxValue = 30000000000000; 
+    var file = 'static/Data/Preprocessed/gdp_per_capita.csv'
+    var minValue = 50,
+        maxValue = 60000; 
   }
   else if (attribute == 'Investment freedom')
   {

@@ -9,7 +9,7 @@ var tip = d3.tip()
             .html(function(d) {return "<strong>" + d.properties.name +"</strong> <span class='details'> "+
                                       "<br> Year: " + d.year +
                                       "<br> Gini: " + d.gini +
-                                      "<br> GDP : " + convert_int(d.pib) +
+                                      "<br> GDP : " + d.pib +
                                       "</span>";})
 
 var map_container_w = d3.select('.map_container').node().getBoundingClientRect().width;
@@ -42,7 +42,7 @@ function convert_int(t){return numeral(t).format('0.0 a')};
 
 //  - Color gradient definition -
     // -- range of values for the different attr
-    var range_pib = [257926882, 19485394000000] ;
+    var range_pib = [50, 60000] ;
     var range_pp = [0,2.1] ;
     var range_gini = [23,65] ;
     // --- Scale definition for gradient ------
@@ -51,7 +51,7 @@ function convert_int(t){return numeral(t).format('0.0 a')};
 		        .domain(range_gini)
 			    .range([0,1])
     // PIB
-     gr_pib = d3.scaleLog()
+     gr_pib = d3.scaleLinear()
             .domain(range_pib)
             .range([0,1])
 
@@ -315,7 +315,7 @@ function draw_worldmap() {
       d3.queue()
             .defer(d3.json, "/static/js/world-countries.json" )
             .defer(d3.csv, '/static/Data/Preprocessed/Gini_afterFillNA.csv' )
-            .defer(d3.csv, '/static/Data/Preprocessed/PIB_afterFillNA.csv')
+            .defer(d3.csv, '/static/Data/Preprocessed/gdp_per_capita.csv')
             .defer(d3.csv, '/static/Data/Preprocessed/Purchasing_power.csv')
             .await(function(error, map_data,gini_data, pib_data,pp_data){
                 if (error){
