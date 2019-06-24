@@ -9,7 +9,7 @@ var tip = d3.tip()
             .html(function(d) {return "<strong>" + d.properties.name +"</strong> <span class='details'> "+
                                       "<br> Year: " + d.year +
                                       "<br> Gini: " + d.gini +
-                                      "<br> Pib : " + convert_int(d.pib) +
+                                      "<br> GDP : " + convert_int(d.pib) +
                                       "</span>";})
 
 var map_container_w = d3.select('.map_container').node().getBoundingClientRect().width;
@@ -72,7 +72,7 @@ function convert_int(t){return numeral(t).format('0.0 a')};
     function attr_gradient_color(t){
         if(map_attribute == 'Gini'){
             return gini_gradient_color(t);
-        } else if(map_attribute =='PIB'){
+        } else if(map_attribute =='GDP'){
             return pib_gradient_color(t);
         } else if (map_attribute =='PP'){
             return pp_gradient_color(t);
@@ -102,7 +102,7 @@ function get_attr_color(date, country_code){
         t = gr_gini(val);
         return gini_gradient_color(t);
         }
-    } else if (current_attribute == "PIB") {
+    } else if (current_attribute == "GDP") {
         val = pib_dataset[date-init_date][country_code]
         if(val == undefined){
             return color_na
