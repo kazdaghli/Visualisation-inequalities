@@ -50,7 +50,6 @@ function update_bubble()
         };
     })
 
-    console.log(dataBubbleunEmp)
 
 
     var root = d3.hierarchy({children: dataBubbleunEmp})
@@ -63,7 +62,9 @@ function update_bubble()
     var node = svgBubble.selectAll(".node")
                 .data(bubble(root).leaves());
 
-
+    fontscale = d3.scaleLinear()
+                    .domain(d3.extent(bubble(root).leaves(), function(d){return d.r}))
+                    .range([0.2,0.9])
 
     node.transition()
         .duration(1500)
@@ -95,7 +96,12 @@ function update_bubble()
 		} else {
 		    return 1;
 		}
-	})
+	});
+
+    node.select("text")
+         .transition()
+        .duration(1500)
+        .attr("font-size", function(d){return fontscale(d.r) + "em"});
 
 }
 var countries = Object.keys(list_selected_country)
@@ -146,7 +152,10 @@ d3.csv(fileBubble, function(dataBubble) {
 		tipBubble.hide(d)	
 	  })
 
-	
+    fontscale = d3.scaleLinear()
+                .domain(d3.extent(bubble(root).leaves(), function(d){return d.r}))
+                .range([0.2,0.9])
+
 	node.append("circle")
 	.attr("r", function(d) {
 		return d.r;
@@ -187,12 +196,11 @@ d3.csv(fileBubble, function(dataBubble) {
 	node.append("text")
 	.attr("dy", ".2em")
 	.style("text-anchor", "middle")
-	.text(function(d) {
-		return d.data.country.substring(0, d.r / 3);
+	.text(function(d) {	return d.data.country.substring(0, d.r / 3);
 	})
 	.attr("font-family", "sans-serif")
 	.attr("font-size", function(d){
-		return d.r/5;
+		return fontscale(d.r) + "em";
 	})
 })
 })
