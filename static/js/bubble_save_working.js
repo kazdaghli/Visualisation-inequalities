@@ -4,7 +4,7 @@ var tipBubble = d3.tip()
 	.offset([-tip_height_offset+10, 0])
     .html(function(d){
 		return "<img src=" +  imFlagsBubble + d.data.flag + "/>" + "<strong>" + d.data.name +"</strong> <span class='details'> "+
-		"<br> Value: " + d.data.value +
+		"<br> Value: " + d.data.value 
 		"</span>"
 	    })
 var diameter = 600;
@@ -25,86 +25,17 @@ svgBubble.append("text")
   	.style("font-weight", "bold")
     // .text("UnEmployement")
 
-dataBubble_set = []
-dataFlagsBubble_set = []
-
 //var selected_year = '2000'
 function update_bubble()
 {
-// Old version
-//	svgBubble.selectAll('g').remove()
-//	draw_bubble()
-
-    var dataBubbleunEmp = dataBubble_set.filter( function(k) {
-    return  (k.Year).toString() == current_year  }).map(function(d){
-        var liste = dataFlagsBubble_set.filter(function(k){return k.code3 == d['Country Code'];})
-        var test = liste.length > 0 //
-        var sel = countries.includes(d['Country Code'] )
-        return {
-            year: d.Year,
-            country: d['Country Code'],
-            name: d['Country Name'],
-            value: d['Unemp'],
-            flag:  test? liste[0].im32 : '',
-            selected : sel ? true : false
-        };
-    })
-
-    console.log(dataBubbleunEmp)
-
-
-    var root = d3.hierarchy({children: dataBubbleunEmp})
-                .sum(function(d) { return d.value; })
-
-    var bubble = d3.pack(dataBubbleunEmp)
-            .size([diameter, diameter])
-            .padding(1.5);
-
-    var node = svgBubble.selectAll(".node")
-                .data(bubble(root).leaves());
-
-
-
-    node.transition()
-        .duration(1500)
-        .attr("class", "node")
-        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-        .select('circle')
-        .attr("r", function(d) {return d.r;})
-        .style("fill", function(d,i) {
-        if (countries.length > 0) {
-		    if (d.data.selected == true) {
-			    return '#DC143C';
-		    }
-		    else {
-			    return color(i);
-		    }
-		}
-		else{
-		    return color(i);
-		}
-	})
-	.attr("opacity", function(d) {
-		if (countries.length > 0){
-		    if (d.data.selected == true) {
-			    return 1;
-		    }
-		    else {
-			    return 0.2;
-		    }
-		} else {
-		    return 1;
-		}
-	})
-
+	svgBubble.selectAll('g').remove()
+	draw_bubble()
 }
 var countries = Object.keys(list_selected_country)
 function draw_bubble()
 {
 d3.csv(fileBubble, function(dataBubble) {
 	d3.csv(counFlags, function(dataFlagsBubble) {
-	dataBubble_set = dataBubble;
-	dataFlagsBubble_set = dataFlagsBubble;
 	var dataBubbleunEmp = dataBubble.filter( function(k) {		
 		//console.log(k.Year)
 		return  (k.Year).toString() == current_year  }).map(function(d){
@@ -180,9 +111,6 @@ d3.csv(fileBubble, function(dataBubble) {
 		}
 		}
 	})
-
-	    svgBubble.selectAll("circle")
-            .attr("opacity",1);
 
 	node.append("text")
 	.attr("dy", ".2em")

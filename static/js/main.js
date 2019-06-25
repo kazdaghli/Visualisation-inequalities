@@ -539,7 +539,7 @@ function set_map_attribute_legend(){
               .range([h_legendbar, 0]);
               leg_axis = d3.axisRight(leg_yScale)
                 .ticks(10)
-                .tickFormat((d,i)=>{return convert_int(d) + "" });
+                .tickFormat((d,i)=>{return convert_int(d) + "%" });
           } else {
             leg_yScale = d3
               .scaleLinear()
