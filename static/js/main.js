@@ -9,7 +9,8 @@ var tip = d3.tip()
             .html(function(d) {return "<strong>" + d.properties.name +"</strong> <span class='details'> "+
                                       "<br> Year: " + d.year +
                                       "<br> Gini: " + d.gini +
-                                      "<br> GDP : " + d.pib +
+                                      "<br> PP  : " + convert_int(d.pp) +
+                                      "<br> GDP : " + convert_int(d.pib) +"$/hab" +
                                       "</span>";})
 
 var map_container_w = d3.select('.map_container').node().getBoundingClientRect().width;
@@ -78,7 +79,16 @@ function convert_int(t){return numeral(t).format('0.0 a')};
             return pp_gradient_color(t);
         }
     }
-
+    // macro function that return the range according to the current attribute
+    function attr_range(t){
+        if(map_attribute == 'Gini'){
+            return range_gini;
+        } else if(map_attribute =='GDP'){
+            return range_pib;
+        } else if (map_attribute =='PP'){
+            return range_pp;
+        }
+    }
 // - MISC. - 
 
 var map_attribute = 'Gini'
@@ -130,6 +140,11 @@ function get_pib_value(date, country_code){
         return pib_dataset[date-init_date][country_code];
 }
 
+function get_pp_value(date, country_code){
+        let init_date = 1960;
+        return pp_dataset[date-init_date][country_code];
+}
+
 function def_list_of_country_code(dataset){
     dataset.features.forEach(function(d){list_of_country_code.push(d.id)});
 
@@ -179,6 +194,7 @@ function draw_map_2d(country_dataset) {
         .attr("year", function(d){d.year = current_year;return current_year})
         .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
         .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
+        .attr("pp", function(d){d.pp = get_pp_value(current_year,d.id); return get_pp_value(current_year,d.id)})
         .attr("fill", function(d){return get_attr_color(current_year,d.id)})
         .style("stroke-width", function(d){
             if(d.clicked){
@@ -199,6 +215,7 @@ function draw_map_2d(country_dataset) {
             d.year = current_year;
             d.gini = get_gini_value(current_year,d.id);
             d.pib  = get_pib_value(current_year,d.id);
+            d.pp  = get_pp_value(current_year,d.id);
             d3.select(this)
               .attr("fill", function(d){return get_attr_color(current_year,d.id)});
            });
@@ -254,6 +271,7 @@ function draw_map_3d(country_dataset) {
         .attr("year", function(d){d.year = current_year;return current_year})
         .attr("gini", function(d){d.gini = get_gini_value(current_year,d.id); return get_gini_value(current_year,d.id)})
         .attr("pib", function(d){d.pib = get_pib_value(current_year,d.id); return get_pib_value(current_year,d.id)})
+        .attr("pp", function(d){d.pp = get_pp_value(current_year,d.id); return get_pp_value(current_year,d.id)})
         .attr("fill", function(d){return get_attr_color(current_year,d.id)})
         .style("stroke-width", function(d){
             if(d.clicked){
@@ -274,6 +292,7 @@ function draw_map_3d(country_dataset) {
             d.year = current_year;
             d.gini = get_gini_value(current_year,d.id);
             d.pib  = get_pib_value(current_year,d.id);
+            d.pp  = get_pp_value(current_year,d.id);
             d3.select(this)
               .attr("fill", function(d){return get_attr_color(current_year,d.id)});
            });
@@ -463,21 +482,23 @@ function set_map_attribute(attribute) {
 
 function set_map_attribute_legend(){
 
-
     d3.select('.legend_attribute')
         .selectAll('*')
         .remove();
 
+
     leg = d3.select('.legend_attribute')
-        .append("svg");
+        .append("svg")
+        .style("min-width","10%");
+
 
     var leg_defs = leg.append("defs")
           .append("svg:linearGradient")
           .attr("id", "gr_attr")
           .attr("x1", "100%")
-          .attr("y1", "0%")
+          .attr("y1", "100%")
           .attr("x2", "100%")
-          .attr("y2", "100%");
+          .attr("y2", "0%");
 
     leg_defs.append("stop")
       .attr("offset", "0%")
@@ -490,12 +511,51 @@ function set_map_attribute_legend(){
       .attr("stop-opacity", 1);
 
     leg.append("rect")
-      .attr("width", '70%')
-      .attr("height", '100%')
+       .attr("class","legendbar")
+      .attr("width", "50%")
+      .attr("height", "100%")
       .style("fill", "url(#gr_attr)")
       // .attr("transform", "translate(0,10)")
-       .attr('stroke','black')
+       .attr('stroke','black');
         // .attr('stroke-width',1);
+
+    // Gini
+//    h_legendbar = d3.select(".legendbar").node().getBoundingClientRect.height;
+    h_legendbar = d3.select('.legendbar').node().getBoundingClientRect().height;
+    console.log(h_legendbar)
+    if (map_attribute =="Gini") {
+            leg_yScale = d3
+              .scaleLinear()
+              .domain(range_gini)
+              .range([h_legendbar, 0]);
+
+            leg_axis = d3.axisRight(leg_yScale)
+							.ticks(10)
+          }
+    else if (map_attribute =="PP") {
+            leg_yScale = d3
+              .scaleLinear()
+              .domain(range_pp)
+              .range([h_legendbar, 0]);
+              leg_axis = d3.axisRight(leg_yScale)
+                .ticks(10)
+                .tickFormat((d,i)=>{return convert_int(d) + "" });
+          } else {
+            leg_yScale = d3
+              .scaleLinear()
+              .domain(range_pib)
+              .range([h_legendbar, 0]);
+          leg_axis = d3.axisRight(leg_yScale)
+//            .ticks(5)
+            .tickFormat((d,i)=>{return (convert_int(d) + "$/hab")});
+
+          }
+
+
+
+    leg.append("g")
+        .attr("transform","translate(50,0)")
+        .call(leg_axis)
 
 }
 
