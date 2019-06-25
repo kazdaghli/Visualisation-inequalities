@@ -135,7 +135,7 @@ function draw_graph_lines(file, countries, x, y)
 
 function draw_graph(attribute, countries, year){
   if (attribute == 'Gini'){
-    var file = 'https://raw.githubusercontent.com/kazdaghli/Visualisation-inequalities/master/Data/Preprocessed/Gini_afterFillNA.csv'
+    var file = '/static/Data/Preprocessed/Gini_afterFillNA.csv'
     var minValue = 25,
         maxValue = 70;  
   }
