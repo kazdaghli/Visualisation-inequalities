@@ -23,18 +23,12 @@ svgBubble.append("text")
     .attr("text-anchor", "start")  
     .style("font-size", "24px")  
   	.style("font-weight", "bold")
-    // .text("UnEmployement")
 
 dataBubble_set = []
 dataFlagsBubble_set = []
 
-//var selected_year = '2000'
 function update_bubble()
 {
-// Old version
-//	svgBubble.selectAll('g').remove()
-//	draw_bubble()
-
     var dataBubbleunEmp = dataBubble_set.filter( function(k) {
     return  (k.Year).toString() == current_year  }).map(function(d){
         var liste = dataFlagsBubble_set.filter(function(k){return k.code3 == d['Country Code'];})
@@ -49,8 +43,6 @@ function update_bubble()
             selected : sel ? true : false
         };
     })
-
-
 
     var root = d3.hierarchy({children: dataBubbleunEmp})
                 .sum(function(d) { return d.value; })
@@ -112,7 +104,7 @@ d3.csv(fileBubble, function(dataBubble) {
 	dataBubble_set = dataBubble;
 	dataFlagsBubble_set = dataFlagsBubble;
 	var dataBubbleunEmp = dataBubble.filter( function(k) {		
-		//console.log(k.Year)
+
 		return  (k.Year).toString() == current_year  }).map(function(d){
 			var liste = dataFlagsBubble.filter(function(k){return k.code3 == d['Country Code'];})
 			var test = liste.length > 0 //
@@ -126,7 +118,7 @@ d3.csv(fileBubble, function(dataBubble) {
 				selected : sel ? true : false
 			};
 		})
-//	console.log(dataBubbleunEmp)
+
 	var root = d3.hierarchy({children: dataBubbleunEmp})
 		.sum(function(d) { return d.value; })
 	var bubble = d3.pack(dataBubbleunEmp)

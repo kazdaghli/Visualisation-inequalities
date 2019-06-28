@@ -21,17 +21,12 @@ svgBubble2.append("text")
     .attr("text-anchor", "start")  
     .style("font-size", "24px")  
   	.style("font-weight", "bold")
-    // .text("Inflation By Consumer Price")
 
 dataBubble2_set = []
 dataFlagsBubble2_set = []
 
-//var selected_year = '2000'
 function update_bubble_2()
 {
-//	svgBubble2.selectAll('g').remove()
-//	draw_bubble_2()
-
 	var dataBubbleInf = dataBubble2_set.filter( function(k) {
 		return k.Year == current_year}).map(function(d){
 			var liste = dataFlagsBubble2_set.filter(function(k){return k.code3 == d['Country Code'];})
@@ -46,7 +41,6 @@ function update_bubble_2()
 				selected : sel ? true : false
 			}
 		})
-    console.log(dataBubbleInf)
 	var root2 = d3.hierarchy({children: dataBubbleInf})
 		.sum(function(d) { return d.value; })
 

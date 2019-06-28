@@ -346,9 +346,6 @@ function draw_worldmap() {
                     pib_dataset = pib_data;
                     pp_dataset = pp_data;
 
-/*                    def_list_of_country_code(country_set); // for internal use to display rnage of data filtered by the countries in the map
-                    def_range_value(pp_dataset);
-                    console.log(d3.extent(pib_values))*/
                     draw_map_2d(country_set);
 
                 }
@@ -388,8 +385,6 @@ function add_country_in_worldmap(d, dom){
     update_bubble_2();
     d3.select(dom)
         .style("stroke-width","3")
-//        .style("stroke","black")
-//        .style("filter", "drop-shadow(3px 3px 4px black)")
     }else{console.log("Limit  country reached");}  // Add to the UI
 }
 
@@ -404,7 +399,6 @@ function remove_country_in_worldmap(d, dom){
     update_bubble_2();
     d3.select(dom)
         .style("stroke-width","0.5")
-//        .style("filter", "")
         .attr('fill',function(d){return get_attr_color(current_year,d.id)});
 }
 
@@ -418,8 +412,6 @@ function update_selected_country_box(){
     //  Remove the tag of country  that have been deleted from the list_selected_country
     box.each(function(){
         if(Object.values(list_selected_country).includes(this.textContent) == false){
-            console.log(list_selected_country)
-            console.log('remove tag ' + this.textContent);
             d3.select(this)
             .transition().duration(700)
             .style("font-size","0pt")
@@ -463,7 +455,6 @@ function reset_countries(){
       update_bubble_2();
       worldmap_svg.selectAll("path")
                    .style("stroke-width","0.5")
-//                .style("filter", "")
                  .each(function (d) {
                   d.clicked = false;
                   })
@@ -515,12 +506,9 @@ function set_map_attribute_legend(){
       .attr("width", "50%")
       .attr("height", "100%")
       .style("fill", "url(#gr_attr)")
-      // .attr("transform", "translate(0,10)")
        .attr('stroke','black');
-        // .attr('stroke-width',1);
 
     // Gini
-//    h_legendbar = d3.select(".legendbar").node().getBoundingClientRect.height;
     h_legendbar = d3.select('.legendbar').node().getBoundingClientRect().height;
     console.log(h_legendbar)
     if (map_attribute =="Gini") {
@@ -546,7 +534,6 @@ function set_map_attribute_legend(){
               .domain(range_pib)
               .range([h_legendbar, 0]);
           leg_axis = d3.axisRight(leg_yScale)
-//            .ticks(5)
             .tickFormat((d,i)=>{return (convert_int(d) + "$/hab")});
 
           }
@@ -598,7 +585,6 @@ function set_graph_2_attribute(attribute) {
 function main(){
       document.getElementById("map_" + map_attribute).checked = true;
       document.getElementById("graph_1_" + graph_1_attribute).checked = true;
-      console.log('attribute', graph_2_attribute)
       document.getElementById("graph_2_" + graph_2_attribute).checked = true;
       draw_worldmap();
 };

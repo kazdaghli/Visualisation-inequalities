@@ -39,7 +39,7 @@ var tipDot = d3.tip()
       return  "<strong>" + d.value +"</strong>"
     })
     
-//let dataFlags = []
+
 function draw_graph_lines(file, countries, x, y)
 {
   svgGraph.call(tipDot)
@@ -209,8 +209,8 @@ function draw_graph(attribute, countries, year){
   svgGraph.append("text")
           .attr("class", "yText") 
           .attr("transform", "rotate(-90)")
-          .attr("y", margin.left - 50)// - 5
-          .attr("x", - (height / 2)  )//
+          .attr("y", margin.left - 50)
+          .attr("x", - (height / 2))
           .attr("dy", "1em")
           .style("text-anchor", "middle")
           .text(attribute + " Value"); 
@@ -283,10 +283,10 @@ function update_events(year, countries, x, y)
     }) 
   svgGraph.call(tipEvent)
   svgGraph.append("line")
-    .attr("x1", x(year))  //<<== change your code here
+    .attr("x1", x(year))  
     .attr("y1", 0)
-    .attr("x2", x(year))  //<<== and here
-    .attr("y2", height )//- margin.top - margin.bottom
+    .attr("x2", x(year))  
+    .attr("y2", height )
     .style("stroke-width", 2)
     .style("stroke-dasharray", ("3, 3")) 
     .style("stroke", "red")
@@ -312,8 +312,8 @@ function update_events(year, countries, x, y)
 function set_graph_1_attribute(new_attribute)
 {
   attribute_1 = new_attribute
-  svgGraph.selectAll("g").remove()//"yAxis"
-  svgGraph.selectAll("text").remove()//["yText", "xText"]
+  svgGraph.selectAll("g").remove()
+  svgGraph.selectAll("text").remove()
   svgGraph.selectAll("path").remove()
   svgGraph.selectAll("image").remove()
   svgGraph.selectAll("line").remove()
